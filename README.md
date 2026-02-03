@@ -2,7 +2,7 @@
 
 <img src="./resources (ignore)/img/logo.jpg" alt="Otago Polytechnic Logo" width="200" height="auto" />
 
-# ID607001: Introductory Application Development Concepts
+# ID730001: Advanced Application Development Concepts
 
 ## Course Information
 
