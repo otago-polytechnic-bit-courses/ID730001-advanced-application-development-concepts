@@ -26,7 +26,7 @@
 
 To enable learners to build and deploy optimised and efficient applications using a range of advanced industry tools and frameworks.
 
-## Learning Outcome
+## Learning Outcomes
 
 At the successful completion of this course, learners will be able to:
 
