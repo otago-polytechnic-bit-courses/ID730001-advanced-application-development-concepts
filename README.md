@@ -35,10 +35,10 @@ At the successful completion of this course, learners will be able to:
 
 ## Assessments
 
-| Assessment | Weighting | Due Date | Learning Outcome |
+| Assessment | Weighting | Due Date | Learning Outcomes |
 | ---------- | --------- | -------- | ---------------- |
 | Practical  | 20%       | TBC      | 1                |
-| Project    | 80%       | TBC      | 1                |
+| Project    | 80%       | TBC      | 1, 2                |
 
 ## Grade Table - Criterion Referenced
 
