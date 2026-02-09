@@ -36,9 +36,9 @@ At the successful completion of this course, learners will be able to:
 ## Assessments
 
 | Assessment | Weighting | Due Date | Learning Outcomes |
-| ---------- | --------- | -------- | ---------------- |
-| Practical  | 20%       | TBC      | 1                |
-| Project    | 80%       | TBC      | 1, 2                |
+| ---------- | --------- | -------- | ----------------- |
+| Practical  | 20%       | TBC      | 1                 |
+| Project    | 80%       | TBC      | 1, 2              |
 
 ## Grade Table - Criterion Referenced
 
@@ -58,25 +58,25 @@ At the successful completion of this course, learners will be able to:
 
 ## Provisional Schedule
 
-| Week             | Topics          |
-| ---------------- | --------------- |
-| 1/Tahi           |                 |
-| 2/Rua            |                 |
-| 3/Toru           |                 |
-| 4/Whā            |                 |
-| 5/Rima           |                 |
-| 6/Ono            |                 |
-| 7/Whitu          |                 |
-| 8/Waru           |                 |
-|                  |                 |
-| 9/Whitu          |                 |
-| 10/Tekau         |                 |
-| 11/Tekau mā tahi |                 |
-| 12/Tekau mā rua  | Assessment Work |
-| 13/Tekau mā toru | Assessment Work |
-| 14/Tekau mā whā  | Assessment Work |
-| 15/Tekau mā rima | Assessment Work |
-| 16/Tekau mā ono  | Assessment Work |
+| Week             | Application Development Pathway Topics                                          |
+| ---------------- | ------------------------------------------------------------------------------- |
+| 1/Tahi           | Python 1 and Programming Paradigms (Procedural, Object-Oriented and Functional) |
+| 2/Rua            | Python 2, Design Patterns (Gang of Four and Architectural) and SOLID Principles |
+| 3/Toru           |                                                                                 |
+| 4/Whā            |                                                                                 |
+| 5/Rima           |                                                                                 |
+| 6/Ono            | React Native                                                                    |
+| 7/Whitu          |                                                                                 |
+| 8/Waru           |                                                                                 |
+|                  |                                                                                 |
+| 9/Whitu          |                                                                                 |
+| 10/Tekau         |                                                                                 |
+| 11/Tekau mā tahi |                                                                                 |
+| 12/Tekau mā rua  | Assessment Work                                                                 |
+| 13/Tekau mā toru | Assessment Work                                                                 |
+| 14/Tekau mā whā  | Assessment Work                                                                 |
+| 15/Tekau mā rima | Assessment Work                                                                 |
+| 16/Tekau mā ono  | Assessment Work                                                                 |
 
 ## Resources
 
@@ -153,4 +153,4 @@ Regulatory documents relating to this course can be found on the [Otago Polytech
 
 ---
 
-_Author: Grayson Orr_  
+_Author: Grayson Orr_
