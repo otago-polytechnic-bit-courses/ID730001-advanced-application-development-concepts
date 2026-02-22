@@ -6,8 +6,8 @@
 
 | Section      | Link                                                                                     |
 | ------------ | ---------------------------------------------------------------------------------------- |
-| GitHub       | [GitHub Classroom - id730001-S1-26](https://classroom.github.com/a/your-assignment-link) |
-| Next Class   | [Week 02](../week-02-stl-memory-classes)                                                 |
+| GitHub       | [GitHub Classroom - id730001-S1-26]() |
+| Next Class   | [Week 02]()                                                 |
 
 ---
 
@@ -106,7 +106,7 @@ int main() {
     int age = 25;
 
     // Use auto to let the compiler infer the type
-    auto score = 98.5;  // deduced as double
+    auto score = 98.5;  // Deduced as double
 
     std::cout << name << " is " << age << " years old." << std::endl;
     return 0;

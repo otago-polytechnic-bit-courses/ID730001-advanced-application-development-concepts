@@ -6,8 +6,8 @@
 
 | Section      | Link                                                                                     |
 | ------------ | ---------------------------------------------------------------------------------------- |
-| GitHub       | [GitHub Classroom - id730001-S1-26](https://classroom.github.com/a/your-assignment-link) |
-| Next Class   | [Week 02](../week-02-apis-express-development-tools)                                     |
+| GitHub       | [GitHub Classroom - id730001-S1-26]() |
+| Next Class   | [Week 02]()                                                 |
 
 ---
 

@@ -69,8 +69,8 @@ At the successful completion of this course, learners will be able to:
 | 7/Whitu          | Frameworks and Libraries 2                         |
 |                  | Mid Semester Break                                 |
 | 8/Waru           | Frameworks and Libraries 4                         |
-| 9/Whitu          | Frameworks and Libraries 5                         |
-| 10/Tekau         | Frameworks and Libraries 6                         |
+| 9/Whitu          | AI Coding Assistants 1                             |
+| 10/Tekau         | AI Coding Assistants 2                             |
 | 11/Tekau mā tahi | Assessment Work                                    |
 | 12/Tekau mā rua  | Assessment Work                                    |
 | 13/Tekau mā toru | Assessment Work                                    |
