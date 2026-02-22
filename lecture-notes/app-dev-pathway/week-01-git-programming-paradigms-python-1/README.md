@@ -4,10 +4,10 @@
 
 ## Important Links
 
-| Section      | Link                                                                                     |
-| ------------ | ---------------------------------------------------------------------------------------- |
-| GitHub       | [GitHub Classroom - id730001-S1-26]() |
-| Next Class   | [Week 02]()                                                 |
+| Section    | Link                                  |
+| ---------- | ------------------------------------- |
+| GitHub     | [GitHub Classroom - id730001-S1-26]() |
+| Next Class | [Week 02]()                           |
 
 ---
 
