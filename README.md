@@ -76,7 +76,7 @@ At the successful completion of this course, learners will be able to:
 | 13/Tekau mā toru | Assessment Work                                                                 |
 | 14/Tekau mā whā  | Assessment Work                                                                 |
 | 15/Tekau mā rima | Assessment Work                                                                 |
-| 16/Tekau mā ono  | Assessment Work                                                                 |
+| 16/Tekau mā ono  | Assessment Marking                                                                 |
 
 ## Resources
 
