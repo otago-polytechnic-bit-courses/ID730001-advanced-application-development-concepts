@@ -4,12 +4,10 @@
 
 ## Important Links
 
-| Section       | Link                                                                                     |
-| ------------- | ---------------------------------------------------------------------------------------- |
-| GitHub        | [GitHub Classroom - id730001-S1-26](https://classroom.github.com/a/your-assignment-link) |
-| Lecture Video | [Week 01 Lecture Video]()                                                                |
-| Code Example  | [Code Example](code-example)                                                             |
-| Next Class    | [Week 02](../week-02-apis-express-development-tools)                                     |
+| Section      | Link                                                                                     |
+| ------------ | ---------------------------------------------------------------------------------------- |
+| GitHub       | [GitHub Classroom - id730001-S1-26](https://classroom.github.com/a/your-assignment-link) |
+| Next Class   | [Week 02](../week-02-apis-express-development-tools)                                     |
 
 ---
 
@@ -691,10 +689,10 @@ Your function should:
    - "Gold" if total_spent >= 1000
 6. Use reduce to calculate the total revenue from all qualifying users
 7. Return a dictionary containing:
-   - "processed_users": list of processed user dictionaries
-   - "total_revenue": total revenue from reduce
-   - "user_count": number of qualifying users
-   - "average_spending": total revenue / user count
+   - `processed_users`: list of processed user dictionaries
+   - `total_revenue`: total revenue from reduce
+   - `user_count`: number of qualifying users
+   - `average_spending`: total revenue / user count
 
 Here is an example of how to use the `process_data_pipeline` function:
 
@@ -711,6 +709,7 @@ print(result)
 
 """
 Expected Output:
+
 {
     "processed_users": [
         {"id": 1, "name": "Alice", "age": 30, "purchases": [200, 400, 150], "member_since": 2019, "status": "active", "total_spent": 750, "loyalty_years": 7, "tier": "Silver"},
@@ -855,55 +854,6 @@ Expected Output:
 
 ### Task 3
 
-Create a class called `FunctionalToolkit` that implements custom versions of map, filter and reduce with additional functionality. The class should have:
-
-1. `__init__(self, data)` - accepts a list and stores it
-2. `custom_map(self, func, include_index=False)` - maps a function over the data
-   - If `include_index=True`, the function receives both value and index: `func(value, index)`
-   - Returns a new FunctionalToolkit instance with transformed data
-3. `custom_filter(self, predicate, negate=False)` - filters data based on predicate
-   - If `negate=True`, keeps elements where predicate returns False
-   - Returns a new FunctionalToolkit instance with filtered data
-4. `custom_reduce(self, func, initial=None, track_steps=False)` - reduces data to single value
-   - If `track_steps=True`, returns a dictionary with `result` and `steps` (list of intermediate accumulator values after each element)
-   - If `initial=None`, uses the first element as the initial accumulator value and begins iterating from the second element
-5. `group_by(self, key_func)` - groups elements by a key function
-   - Returns a dictionary where keys are the results of key_func and values are lists of matching elements
-6. `partition(self, predicate)` - splits data into two lists
-   - Returns a tuple of two lists: (elements where predicate is True, elements where predicate is False)
-7. `get_data(self)` - returns the current data list
-8. `custom_map` and `custom_filter` must support method chaining by returning a new FunctionalToolkit instance
-
-Here is an example of how to use the `FunctionalToolkit` class:
-
-```python
-toolkit = FunctionalToolkit([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-
-result = (toolkit
-    .custom_filter(lambda x: x % 2 == 0) # Keep even numbers: [2, 4, 6, 8, 10]
-    .custom_map(lambda x: x ** 2) # Square them: [4, 16, 36, 64, 100]
-    .custom_filter(lambda x: x > 20) # Keep > 20: [36, 64, 100]
-    .get_data())
-print(result) # [36, 64, 100]
-
-toolkit2 = FunctionalToolkit([1, 2, 3, 4, 5, 6, 7, 8, 9])
-grouped = toolkit2.group_by(lambda x: "even" if x % 2 == 0 else "odd")
-print(grouped) # {'odd': [1, 3, 5, 7, 9], 'even': [2, 4, 6, 8]}
-
-toolkit3 = FunctionalToolkit([1, 2, 3, 4, 5])
-reduction = toolkit3.custom_reduce(lambda acc, x: acc + x, initial=0, track_steps=True)
-print(reduction) # {'result': 15, 'steps': [1, 3, 6, 10, 15]}
-
-toolkit4 = FunctionalToolkit([1, 2, 3, 4, 5, 6])
-evens, odds = toolkit4.partition(lambda x: x % 2 == 0)
-print(evens) # [2, 4, 6]
-print(odds) # [1, 3, 5]
-```
-
----
-
-### Task 4
-
 Create a payment processing system with the following requirements:
 
 1. Base Class: `Payment`
@@ -985,12 +935,12 @@ Expected Output:
 
 ---
 
-### Task 5
+### Task 4
 
 Create a comprehensive data analysis system that processes a dataset of student records. The system should use classes, functional programming and complex data structures.
 
 1. Create a `Student` class:
-   - Properties: `student_id`, `name`, `grades` (dict with subject: letter grade), `attendance` (percentage as a number)
+   - Properties: `student_id`, `name`, `grades`, `attendance`
    - Methods:
      - `__init__(self, student_id, name, grades, attendance)`
      - `get_gpa(self)` - calculates GPA from grades using: A=4.0, B=3.0, C=2.0, D=1.0, F=0.0. Returns the average across all subjects.
@@ -1002,8 +952,8 @@ Create a comprehensive data analysis system that processes a dataset of student 
    - `get_top_students(self, n)` - returns the top n Student objects sorted by GPA descending
    - `get_subject_statistics(self, subject)` - returns a dict with:
      - `average_gpa`: the mean GPA value for that subject across all students who have that subject
-     - `grade_distribution`: dict mapping each letter grade (e.g., "A", "B") to the count of students who received it
-     - `passing_rate`: percentage of students who received a C or better (i.e., not D or F) in that subject
+     - `grade_distribution`: dict mapping each letter grade to the count of students who received it
+     - `passing_rate`: percentage of students who received a C or better, i.e., not D or F in that subject
    - `identify_struggling_students(self)` - returns list of Student objects where is_at_risk() is True
    - `calculate_correlations(self)` - compares attendance to GPA across all students and returns a dict with:
      - `data_points`: list of (attendance, gpa) tuples for each student
@@ -1065,7 +1015,7 @@ print(report)
 
 ---
 
-### Task 6
+### Task 5
 
 Create a complete, playable Blackjack game using object-oriented programming. The game should support multiple players, follow standard Blackjack rules and provide an interactive command-line experience.
 
