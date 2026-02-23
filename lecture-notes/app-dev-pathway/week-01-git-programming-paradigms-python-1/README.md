@@ -6,7 +6,7 @@
 
 | Section    | Link                                  |
 | ---------- | ------------------------------------- |
-| GitHub     | [GitHub Classroom - id730001-S1-26]() |
+| GitHub     | [GitHub Classroom - ID730001-S1-26](https://classroom.github.com/a/RgDe5bs0) |
 | Next Class | [Week 02]()                           |
 
 ---
