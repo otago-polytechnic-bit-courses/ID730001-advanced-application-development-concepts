@@ -38,7 +38,7 @@ At the successful completion of this course, learners will be able to:
 | Assessment | Weighting | Due Date           | Learning Outcome |
 | ---------- | --------- | ------------------ | ---------------- |
 | Practical  | 20%       | 22 May at 4.59 PM  | 1                |
-| Project    | 80%       | 26 June at 4.59 PM | 1, 2                |
+| Project    | 80%       | 26 June at 4.59 PM | 1, 2             |
 
 ## Grade Table - Criterion Referenced
 
@@ -58,7 +58,7 @@ At the successful completion of this course, learners will be able to:
 
 ## Provisional Schedule
 
-| Week             | Application Development Pathway Topics             |
+| Week             | Topics                                             |
 | ---------------- | -------------------------------------------------- |
 | 1/Tahi           | Git, Programming Paradigms and Python/C++ 1        |
 | 2/Rua            | Python/C++ 2, Design Patterns and SOLID Principles |
