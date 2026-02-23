@@ -6,9 +6,9 @@
 
 ## Course Information
 
-| Level | Credits | Prerequisite                                            | Timetable |
-| ----- | ------- | ------------------------------------------------------- | --------- |
-| 7     | 15      | ID608001: Intermediate Application Development Concepts | TBC       |
+| Level | Credits | Prerequisite                                            | Timetable                                                               |
+| ----- | ------- | ------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 7     | 15      | ID608001: Intermediate Application Development Concepts | Monday 3:00 PM - 4:45 PM in D202 and Thursday 8:00 AM - 9:45 AM in D202 |
 
 ## Teaching Staff
 
@@ -18,9 +18,9 @@
 
 ## Course Dates
 
-| Term 1 (7 weeks) | Mid-Semester Break | Term 2 (9 weeks) |
-| ---------------- | ------------------ | ---------------- |
-| TBC              | TBC                | TBC              |
+| Term 1 (7 weeks)       | Mid-Semester Break  | Term 2 (9 weeks)   |
+| ---------------------- | ------------------- | ------------------ |
+| 23 February - 10 April | 11 April - 27 April | 28 April - 03 July |
 
 ## Aims
 
