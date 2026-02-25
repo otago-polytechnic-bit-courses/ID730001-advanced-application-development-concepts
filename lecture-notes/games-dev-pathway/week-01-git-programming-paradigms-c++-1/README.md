@@ -714,6 +714,477 @@ In this course, we will use the map initialiser list syntax to create maps.
 
 ---
 
+### Erase-Remove Idiom
+
+`std::copy_if` produces a filtered copy of a container. Sometimes you need to filter a container **in-place** — removing elements from an existing vector without creating a new one. The erase-remove idiom does this in two steps.
+
+`std::remove_if` moves all elements that fail the predicate to the end of the vector and returns an iterator pointing to the first of those "dead" elements. The vector's size has not changed yet — the unwanted elements are still there. You then call `.erase()` with that iterator to actually shrink the vector.
+
+```cpp
+#include <vector>
+#include <algorithm>
+
+std::vector<int> numbers = {1, 2, 3, 4, 5, 6};
+
+// Remove all odd numbers in-place
+numbers.erase(
+    std::remove_if(numbers.begin(), numbers.end(),
+                   [](int n) { return n % 2 != 0; }),
+    numbers.end()
+);
+
+// numbers: {2, 4, 6}
+```
+
+Here is a visualisation of the two steps:
+
+```bash
+Before:                  {1, 2, 3, 4, 5, 6}
+After std::remove_if:    {2, 4, 6, ?, ?, ?}  ← iterator points here
+After .erase():          {2, 4, 6}
+```
+
+| Approach | When to use |
+| -------- | ----------- |
+| `std::copy_if` → new vector | Keep the original; work with a filtered copy |
+| erase-remove idiom | Modify the existing vector in-place |
+
+> Resource: <https://en.cppreference.com/w/cpp/algorithm/remove>
+
+---
+
+### STL Search Algorithms
+
+Several tasks require finding elements in a container — the maximum, the minimum, or the first element matching a condition. These algorithms all return **iterators**, so you need to dereference them with `*` to get the actual value.
+
+#### std::max_element
+
+Returns an iterator to the largest element in a range. Supply a comparator lambda to compare structs by a specific field.
+
+```cpp
+#include <algorithm>
+#include <vector>
+
+std::vector<int> numbers = {3, 1, 4, 1, 5, 9, 2};
+
+// Basic usage — find largest int
+auto it = std::max_element(numbers.begin(), numbers.end());
+// *it == 9
+
+// With a struct — find employee with highest salary
+struct Employee { std::string name; double salary; };
+std::vector<Employee> team = {{"Alice", 85000}, {"Bob", 92000}};
+
+auto top = std::max_element(team.begin(), team.end(),
+    [](const Employee& a, const Employee& b) {
+        return a.salary < b.salary;  // comparator: a < b
+    });
+
+// *top is the Employee struct: {"Bob", 92000}
+// top->name   == "Bob"
+// top->salary == 92000
+```
+
+> Always check that the iterator is not `.end()` before dereferencing — this would happen if the vector is empty.
+
+#### std::min_element
+
+Identical to `std::max_element` but returns an iterator to the smallest element. The comparator logic is the same.
+
+#### std::find_if
+
+Returns an iterator to the first element for which a predicate returns true.
+
+```cpp
+#include <algorithm>
+
+std::vector<int> numbers = {1, 3, 5, 4, 7};
+
+// Find first even number
+auto it = std::find_if(numbers.begin(), numbers.end(),
+    [](int n) { return n % 2 == 0; });
+
+if (it != numbers.end()) {
+    // *it == 4
+}
+```
+
+#### Quick reference
+
+| Algorithm | What it returns |
+| --------- | --------------- |
+| `std::max_element(b, e, cmp)` | Iterator to the largest element |
+| `std::min_element(b, e, cmp)` | Iterator to the smallest element |
+| `std::find_if(b, e, pred)` | Iterator to the first matching element |
+| `std::count_if(b, e, pred)` | Count of elements matching predicate |
+| `std::any_of(b, e, pred)` | `true` if at least one element matches |
+| `std::all_of(b, e, pred)` | `true` if every element matches |
+
+> Resource: <https://en.cppreference.com/w/cpp/algorithm>
+
+---
+
+### Sorting
+
+`std::sort` rearranges elements in a range in-place. Without a comparator it sorts in ascending order. Provide a lambda comparator to sort by custom criteria or in descending order.
+
+```cpp
+#include <algorithm>
+#include <vector>
+#include <string>
+
+std::vector<int> numbers = {5, 2, 8, 1, 9};
+
+// Ascending (default)
+std::sort(numbers.begin(), numbers.end());
+// {1, 2, 5, 8, 9}
+
+// Descending
+std::sort(numbers.begin(), numbers.end(),
+    [](int a, int b) { return a > b; });
+// {9, 8, 5, 2, 1}
+
+// Sort structs by a field
+struct Student { std::string name; double gpa; };
+std::vector<Student> students = {{"Charlie", 3.1}, {"Alice", 3.9}, {"Bob", 3.4}};
+
+// Sort by GPA descending (highest first)
+std::sort(students.begin(), students.end(),
+    [](const Student& a, const Student& b) {
+        return a.gpa > b.gpa;
+    });
+// Alice (3.9), Bob (3.4), Charlie (3.1)
+```
+
+To get only the top N elements, sort the whole vector and take the first N:
+
+```cpp
+std::sort(students.begin(), students.end(),
+    [](const Student& a, const Student& b) { return a.gpa > b.gpa; });
+
+int n = 2;
+std::vector<Student> top_n(students.begin(),
+    students.begin() + std::min(n, (int)students.size()));
+```
+
+> Resource: <https://en.cppreference.com/w/cpp/algorithm/sort>
+
+---
+
+### Inheritance & Virtual Functions
+
+Object-oriented programming allows classes to build on one another. A child class inherits all members of its parent class and can override methods to provide specialised behaviour.
+
+```cpp
+#include <iostream>
+#include <string>
+
+// Base class (parent)
+class Animal {
+protected:
+    std::string name;
+
+public:
+    Animal(const std::string& name) : name(name) {}
+
+    // Regular virtual method — can be overridden
+    virtual std::string speak() const {
+        return name + " makes a sound";
+    }
+
+    virtual ~Animal() {}  // Always give base classes a virtual destructor
+};
+
+// Child class (inherits from Animal)
+class Dog : public Animal {
+public:
+    Dog(const std::string& name) : Animal(name) {}
+
+    // Override the parent method
+    std::string speak() const override {
+        return name + " barks";
+    }
+};
+
+Dog d("Rex");
+std::cout << d.speak() << std::endl;  // Rex barks
+```
+
+#### Pure virtual functions & abstract classes
+
+A pure virtual function (`= 0`) has no implementation in the base class. Any class containing a pure virtual function becomes **abstract** — you cannot create objects of that class directly. Child classes must override every pure virtual function.
+
+```cpp
+class Shape {
+public:
+    // Pure virtual — no implementation here
+    virtual double area() const = 0;
+    virtual std::string describe() const = 0;
+    virtual ~Shape() {}
+};
+
+class Circle : public Shape {
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+
+    double area() const override {
+        return 3.14159 * radius * radius;
+    }
+
+    std::string describe() const override {
+        return "Circle with radius " + std::to_string(radius);
+    }
+};
+
+// Shape s;     ← ERROR: can't instantiate an abstract class
+Circle c(5.0);  // OK
+std::cout << c.area() << std::endl;  // 78.54
+```
+
+#### Calling the parent constructor
+
+Use the initialiser list to call the parent's constructor when constructing a child:
+
+```cpp
+class Payment {
+protected:
+    double amount;
+    std::string currency;
+public:
+    Payment(double amount, std::string currency = "USD")
+        : amount(amount), currency(currency) {}
+};
+
+class CreditCardPayment : public Payment {
+    std::string card_number;
+public:
+    // Call Payment's constructor first, then initialise card_number
+    CreditCardPayment(double amount, std::string currency, std::string card)
+        : Payment(amount, currency), card_number(card) {}
+};
+```
+
+#### Key terms
+
+| Term | Meaning |
+| ---- | ------- |
+| `virtual` | Method can be overridden in a child class |
+| `= 0` | Pure virtual — child must implement this |
+| `override` | Explicitly marks a method as overriding (compiler checks this) |
+| abstract class | Class with at least one pure virtual method; cannot be instantiated |
+| `protected:` | Accessible in the class and its children, but not outside |
+| `virtual ~Base()` | Virtual destructor — always include in base classes |
+
+> Resource: <https://en.cppreference.com/w/cpp/language/virtual>
+
+---
+
+### Smart Pointers
+
+Raw pointers require manual memory management with `new` and `delete`. Smart pointers automate this — they free the allocated memory automatically when no longer needed.
+
+#### std::shared_ptr
+
+`shared_ptr` implements reference counting. Multiple `shared_ptr`s can own the same object; the object is destroyed when the last owner goes out of scope. Always create them with `std::make_shared`.
+
+```cpp
+#include <memory>
+#include <iostream>
+
+class Dog {
+public:
+    std::string name;
+    Dog(std::string n) : name(n) {}
+};
+
+// Always create with std::make_shared (safer and more efficient than new)
+auto dog = std::make_shared<Dog>("Rex");
+
+// Access members the same way as a pointer
+std::cout << dog->name << std::endl;  // Rex
+
+// Share ownership — both point to the same Dog
+auto same_dog = dog;
+
+// When both go out of scope, Dog is automatically destroyed
+```
+
+#### Polymorphism with shared_ptr
+
+Store child-class objects behind a base-class `shared_ptr`. This is the key pattern for holding multiple payment types in a single vector:
+
+```cpp
+std::vector<std::shared_ptr<Payment>> transactions;
+
+auto cc     = std::make_shared<CreditCardPayment>(100.0, "USD", "1234");
+auto crypto = std::make_shared<CryptoPayment>(500.0, "USD", "0xABC", "Bitcoin");
+
+transactions.push_back(cc);
+transactions.push_back(crypto);
+
+// Virtual dispatch — calls the correct get_fee() for each type
+for (auto& payment : transactions) {
+    std::cout << payment->get_fee() << std::endl;
+}
+```
+
+#### Getting the type name at runtime
+
+To filter a vector of base-class pointers by their concrete type, add a `virtual get_type()` method to the base class. This is cleaner and more portable than using `typeid`, whose name format varies between compilers.
+
+```cpp
+class Payment {
+public:
+    virtual std::string get_type() const = 0;
+};
+
+class CreditCardPayment : public Payment {
+public:
+    std::string get_type() const override { return "CreditCardPayment"; }
+};
+
+// Filtering by type
+std::vector<std::shared_ptr<Payment>> cc_only;
+std::copy_if(transactions.begin(), transactions.end(), std::back_inserter(cc_only),
+    [](const std::shared_ptr<Payment>& p) {
+        return p->get_type() == "CreditCardPayment";
+    });
+```
+
+> Resource: <https://en.cppreference.com/w/cpp/memory/shared_ptr>
+
+---
+
+### Timestamps with std::chrono
+
+`std::chrono` is the standard C++ library for time. Use it to capture the current time at the moment an object is constructed.
+
+```cpp
+#include <chrono>
+#include <ctime>
+#include <string>
+
+// Get the current time
+auto now = std::chrono::system_clock::now();
+
+// Convert to time_t for formatting
+std::time_t t = std::chrono::system_clock::to_time_t(now);
+
+// Format as a readable string
+std::string timestamp = std::ctime(&t);  // e.g. "Thu Feb  1 14:22:07 2024"
+
+// Storing in a class
+class Payment {
+protected:
+    std::chrono::system_clock::time_point timestamp;
+public:
+    Payment(double amount)
+        : timestamp(std::chrono::system_clock::now()) {}
+};
+```
+
+> Resource: <https://en.cppreference.com/w/cpp/chrono>
+
+---
+
+### User Input with std::cin
+
+`std::cin` is the standard input stream, used to read values typed at the terminal. It is the input counterpart to `std::cout`.
+
+#### Reading a single value
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    int bet;
+    std::cout << "Place your bet: ";
+    std::cin >> bet;  // Reads one whitespace-delimited token
+    std::cout << "You bet " << bet << std::endl;
+}
+```
+
+#### Reading a full line
+
+```cpp
+std::string name;
+std::cout << "Enter your name: ";
+std::getline(std::cin, name);  // Reads until newline
+std::cout << "Hello, " << name << std::endl;
+```
+
+#### Reading input in a game loop
+
+```cpp
+std::string choice;
+
+while (true) {
+    std::cout << "Hit, stand, or quit? ";
+    std::cin >> choice;
+
+    if (choice == "hit") {
+        // deal a card
+    } else if (choice == "stand") {
+        break;
+    } else if (choice == "quit") {
+        return;
+    } else {
+        std::cout << "Invalid choice, try again." << std::endl;
+    }
+}
+```
+
+#### Mixing `>>` and `getline`
+
+`std::cin >>` leaves a newline character in the buffer. If you call `std::getline` immediately after, it reads that leftover newline as an empty string. Fix this with `std::cin.ignore()`:
+
+```cpp
+int bet;
+std::cout << "Place your bet: ";
+std::cin >> bet;
+std::cin.ignore();  // Discard the leftover newline
+
+std::string name;
+std::cout << "Enter your name: ";
+std::getline(std::cin, name);  // Now works correctly
+```
+
+> Resource: <https://en.cppreference.com/w/cpp/io/cin>
+
+---
+
+### Random Shuffling with std::shuffle
+
+`std::shuffle` randomises the order of elements in a range using a provided random number engine. Use `std::mt19937` seeded from `std::random_device` for a different shuffle each run.
+
+```cpp
+#include <algorithm>   // std::shuffle
+#include <random>      // std::mt19937, std::random_device
+#include <vector>
+
+std::vector<int> deck = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+// Create a Mersenne Twister engine seeded from hardware randomness
+std::mt19937 rng(std::random_device{}());
+
+// Shuffle in-place
+std::shuffle(deck.begin(), deck.end(), rng);
+
+// deck is now in a random order, e.g. {7, 2, 10, 1, 5, 3, 9, 4, 6, 8}
+```
+
+| Component | Purpose |
+| --------- | ------- |
+| `std::random_device{}` | Provides hardware entropy (true randomness) for seeding |
+| `std::mt19937` | Pseudo-random number engine (fast, high quality) |
+| `std::shuffle` | Uses the engine to permute a range uniformly at random |
+
+> Resource: <https://en.cppreference.com/w/cpp/algorithm/random_shuffle>
+
+---
+
 ## Exercises
 
 Copy the file `week-01-git-programming-paradigms-c++-1` into your id730001-s1-26 repository. Open your id730001-s1-26 repository in Visual Studio Code. Open the terminal and compile and run the file:

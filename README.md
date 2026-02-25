@@ -82,7 +82,7 @@ At the successful completion of this course, learners will be able to:
 
 ### Software
 
-This course will be taught using [Microsoft Visual Studio Code](https://code.visualstudio.com/download) and [Python]().
+This course will be taught using [Microsoft Visual Studio Code](https://code.visualstudio.com/download).
 
 ### Readings
 
