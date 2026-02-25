@@ -4,10 +4,10 @@
 
 ## Important Links
 
-| Section    | Link                                  |
-| ---------- | ------------------------------------- |
+| Section    | Link                                                                         |
+| ---------- | ---------------------------------------------------------------------------- |
 | GitHub     | [GitHub Classroom - ID730001-S1-26](https://classroom.github.com/a/RgDe5bs0) |
-| Next Class | [Week 02]()                           |
+| Next Class | [Week 02]()                                                                  |
 
 ---
 
@@ -744,10 +744,10 @@ After std::remove_if:    {2, 4, 6, ?, ?, ?}  ← iterator points here
 After .erase():          {2, 4, 6}
 ```
 
-| Approach | When to use |
-| -------- | ----------- |
+| Approach                    | When to use                                  |
+| --------------------------- | -------------------------------------------- |
 | `std::copy_if` → new vector | Keep the original; work with a filtered copy |
-| erase-remove idiom | Modify the existing vector in-place |
+| erase-remove idiom          | Modify the existing vector in-place          |
 
 > Resource: <https://en.cppreference.com/w/cpp/algorithm/remove>
 
@@ -811,14 +811,14 @@ if (it != numbers.end()) {
 
 #### Quick reference
 
-| Algorithm | What it returns |
-| --------- | --------------- |
-| `std::max_element(b, e, cmp)` | Iterator to the largest element |
-| `std::min_element(b, e, cmp)` | Iterator to the smallest element |
-| `std::find_if(b, e, pred)` | Iterator to the first matching element |
-| `std::count_if(b, e, pred)` | Count of elements matching predicate |
-| `std::any_of(b, e, pred)` | `true` if at least one element matches |
-| `std::all_of(b, e, pred)` | `true` if every element matches |
+| Algorithm                     | What it returns                        |
+| ----------------------------- | -------------------------------------- |
+| `std::max_element(b, e, cmp)` | Iterator to the largest element        |
+| `std::min_element(b, e, cmp)` | Iterator to the smallest element       |
+| `std::find_if(b, e, pred)`    | Iterator to the first matching element |
+| `std::count_if(b, e, pred)`   | Count of elements matching predicate   |
+| `std::any_of(b, e, pred)`     | `true` if at least one element matches |
+| `std::all_of(b, e, pred)`     | `true` if every element matches        |
 
 > Resource: <https://en.cppreference.com/w/cpp/algorithm>
 
@@ -967,14 +967,14 @@ public:
 
 #### Key terms
 
-| Term | Meaning |
-| ---- | ------- |
-| `virtual` | Method can be overridden in a child class |
-| `= 0` | Pure virtual — child must implement this |
-| `override` | Explicitly marks a method as overriding (compiler checks this) |
-| abstract class | Class with at least one pure virtual method; cannot be instantiated |
-| `protected:` | Accessible in the class and its children, but not outside |
-| `virtual ~Base()` | Virtual destructor — always include in base classes |
+| Term              | Meaning                                                             |
+| ----------------- | ------------------------------------------------------------------- |
+| `virtual`         | Method can be overridden in a child class                           |
+| `= 0`             | Pure virtual — child must implement this                            |
+| `override`        | Explicitly marks a method as overriding (compiler checks this)      |
+| abstract class    | Class with at least one pure virtual method; cannot be instantiated |
+| `protected:`      | Accessible in the class and its children, but not outside           |
+| `virtual ~Base()` | Virtual destructor — always include in base classes                 |
 
 > Resource: <https://en.cppreference.com/w/cpp/language/virtual>
 
@@ -1175,11 +1175,11 @@ std::shuffle(deck.begin(), deck.end(), rng);
 // deck is now in a random order, e.g. {7, 2, 10, 1, 5, 3, 9, 4, 6, 8}
 ```
 
-| Component | Purpose |
-| --------- | ------- |
+| Component              | Purpose                                                 |
+| ---------------------- | ------------------------------------------------------- |
 | `std::random_device{}` | Provides hardware entropy (true randomness) for seeding |
-| `std::mt19937` | Pseudo-random number engine (fast, high quality) |
-| `std::shuffle` | Uses the engine to permute a range uniformly at random |
+| `std::mt19937`         | Pseudo-random number engine (fast, high quality)        |
+| `std::shuffle`         | Uses the engine to permute a range uniformly at random  |
 
 > Resource: <https://en.cppreference.com/w/cpp/algorithm/random_shuffle>
 
