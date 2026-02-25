@@ -1267,15 +1267,12 @@ std::vector<User> users = {
 
 auto result = process_data_pipeline(users);
 
+// Expected Output:
+
 /*
-Expected Output:
-
-processed_users:
-  Alice  | total_spent: 750  | loyalty_years: 7 | tier: Silver
-  Diana  | total_spent: 600  | loyalty_years: 8 | tier: Silver
-
-total_revenue:    1350
-user_count:       2
+processed_users: Alice, total_spent: 750, loyalty_years: 7, tier: Silver, Diana, total_spent: 600, loyalty_years: 8, tier: Silver
+total_revenue: 1350
+user_count: 2
 average_spending: 675.00
 */
 ```
@@ -1300,6 +1297,7 @@ struct Employee {
 struct Team {
     std::string name;
     std::vector<Employee> employees;
+
     // Added by transform:
     double total_salary;
     double avg_performance;
@@ -1310,6 +1308,7 @@ struct Department {
     std::string name;
     double budget;
     std::vector<Team> teams;
+
     // Added by transform:
     int team_count;
     int employee_count;
@@ -1319,6 +1318,7 @@ struct Department {
 struct Organisation {
     std::string company;
     std::vector<Department> departments;
+
     // Added by transform:
     struct Summary {
         int total_departments;
@@ -1364,27 +1364,28 @@ Organisation org = {
 
 auto result = transform_organisation(org);
 
+// Expected Output:
+
 /*
-Expected Output:
 Company: TechCorp
 
-  Department: Engineering
-    Budget: $500000.00 | Utilisation: 51.00% | Teams: 2 | Employees: 3
+Department: Engineering
+Budget: $500000.00, Utilisation: 51.00%, Teams: 2, Employees: 3
 
-    Team: Backend
-      Total Salary: $175000.00 | Avg Performance: 4.65
-      Top Performer: Bob (4.80)
+Team: Backend
+Total Salary: $175000.00, Avg Performance: 4.65
+Top Performer: Bob (4.80)
 
-    Team: Frontend
-      Total Salary: $80000.00 | Avg Performance: 4.20
-      Top Performer: Charlie (4.20)
+Team: Frontend
+Total Salary: $80000.00, Avg Performance: 4.20
+Top Performer: Charlie (4.20)
 
 Summary:
-  Total Departments: 1
-  Total Teams: 2
-  Total Employees: 3
-  Highest Paid: Bob ($90000.00)
-  Departments Over Budget: none
+Total Departments: 1
+Total Teams: 2
+Total Employees: 3
+Highest Paid: Bob ($90000.00)
+Departments Over Budget: none
 */
 ```
 
@@ -1457,13 +1458,14 @@ std::cout << bank_payment->get_total() << std::endl;  // 2010.00
 
 auto report = processor.generate_report();
 
+// Expected Output:
+
 /*
-Expected Output:
 {
-  count_by_type:               { CreditCardPayment: 1, CryptoPayment: 1, BankTransferPayment: 1 },
-  total_processed_by_type:     { CreditCardPayment: 100.00, CryptoPayment: 500.00, BankTransferPayment: 2000.00 },
-  average_transaction_by_type: { CreditCardPayment: 100.00, CryptoPayment: 500.00, BankTransferPayment: 2000.00 },
-  total_fees_by_type:          { CreditCardPayment: 3.20, CryptoPayment: 5.00, BankTransferPayment: 10.00 }
+    count_by_type: { CreditCardPayment: 1, CryptoPayment: 1, BankTransferPayment: 1 },
+    total_processed_by_type: { CreditCardPayment: 100.00, CryptoPayment: 500.00, BankTransferPayment: 2000.00 },
+    average_transaction_by_type: { CreditCardPayment: 100.00, CryptoPayment: 500.00, BankTransferPayment: 2000.00 },
+    total_fees_by_type: { CreditCardPayment: 3.20, CryptoPayment: 5.00, BankTransferPayment: 10.00 }
 }
 */
 ```
@@ -1524,40 +1526,23 @@ auto top_3      = analyser.get_top_students(3);                 // Diana (4.0), 
 auto math_stats = analyser.get_subject_statistics("Math");
 auto at_risk    = analyser.identify_struggling_students();      // Bob and Eve
 
-/*
-Expected Output:
-overall:
-  total_students:     5
-  average_gpa:        2.73
-  average_attendance: 83.20
+// Expected Output:
 
-status_distribution:
-  Honors:        2
-  Good Standing: 2
-  Probation:     1
+/*
+overall: total_students: 5, average_gpa: 2.73, average_attendance: 83.20
+status_distribution: Honors: 2, Good Standing: 2, Probation: 1
 
 subjects:
-  Math:
-    average_gpa:        3.00
-    grade_distribution: A:2  B:1  C:1  F:1
-    passing_rate:       80.00%
-
-  Science:
-    average_gpa:        2.40
-    grade_distribution: A:1  B:2  D:2
-    passing_rate:       60.00%
-
-  English:
-    average_gpa:        3.20
-    grade_distribution: A:2  B:2  C:1
-    passing_rate:       100.00%
+Math: average_gpa: 3.00, grade_distribution: [A:2. B:1, C:1 , F:1], passing_rate: 80.00%
+Science: average_gpa: 2.40, grade_distribution: [A:1, B:2, D:2], passing_rate: 60.00%
+English: average_gpa: 3.20, grade_distribution: [A:2, B:2, C:1], passing_rate: 100.00%
 
 at_risk_students: Bob, Eve
 
 recommendations:
-  - Focus on improving attendance for at-risk students
-  - Provide additional support in Math and Science for struggling students
-  - Recognise and reward high performers to encourage continued success
+- Focus on improving attendance for at-risk students
+- Provide additional support in Math and Science for struggling students
+- Recognise and reward high performers to encourage continued success
 */
 ```
 
