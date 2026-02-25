@@ -716,9 +716,9 @@ In this course, we will use the map initialiser list syntax to create maps.
 
 ### Erase-Remove Idiom
 
-`std::copy_if` produces a filtered copy of a container. Sometimes you need to filter a container **in-place** — removing elements from an existing vector without creating a new one. The erase-remove idiom does this in two steps.
+`std::copy_if` produces a filtered copy of a container. Sometimes you need to filter a container **in-place**. Removing elements from an existing vector without creating a new one. The erase-remove idiom does this in two steps.
 
-`std::remove_if` moves all elements that fail the predicate to the end of the vector and returns an iterator pointing to the first of those "dead" elements. The vector's size has not changed yet — the unwanted elements are still there. You then call `.erase()` with that iterator to actually shrink the vector.
+`std::remove_if` moves all elements that fail the predicate to the end of the vector and returns an iterator pointing to the first of those "dead" elements. The vector's size has not changed yet. The unwanted elements are still there. You then call `.erase()` with that iterator to actually shrink the vector.
 
 ```cpp
 #include <vector>
@@ -937,8 +937,7 @@ public:
     }
 };
 
-// Shape s;     ← ERROR: can't instantiate an abstract class
-Circle c(5.0);  // OK
+Circle c(5.0);  // Cannot create Shape directly. It is abstract
 std::cout << c.area() << std::endl;  // 78.54
 ```
 
