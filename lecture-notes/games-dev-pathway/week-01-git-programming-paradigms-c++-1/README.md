@@ -1186,7 +1186,7 @@ std::shuffle(deck.begin(), deck.end(), rng);
 
 ## Exercises
 
-Copy the file `week-01-git-programming-paradigms-c++-1` into your id730001-s1-26 repository. Open your id730001-s1-26 repository in Visual Studio Code. Open the terminal and compile and run the file:
+Copy the file `week-01-git-programming-paradigms-c++-1.cpp` into your id730001-s1-26 repository. Open your id730001-s1-26 repository in Visual Studio Code. Open the terminal and compile and run the file:
 
 ```bash
 g++ --std=c++20 -o week-01-git-programming-paradigms-c++-1 week-01-git-programming-paradigms-c++-1.cpp
