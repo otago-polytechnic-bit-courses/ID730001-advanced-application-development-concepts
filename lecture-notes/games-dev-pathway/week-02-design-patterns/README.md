@@ -38,12 +38,23 @@ In War, we can use the Strategy pattern to define different strategies for how a
 
 struct Card
 {
-    int id;
-    std::string name;
-    int age;
-    std::vector<int> purchases;
-    int member_since;
-    std::string status;
+    std::string suit;
+    int value;
+    std::string toString() const
+    {
+        std::string name;
+        if (value == 11)
+            name = "Jack";
+        else if (value == 12)
+            name = "Queen";
+        else if (value == 13)
+            name = "King";
+        else if (value == 14)
+            name = "Ace";
+        else
+            name = std::to_string(value);
+        return name + " of " + suit;
+    }
 };
 
 class Deck
