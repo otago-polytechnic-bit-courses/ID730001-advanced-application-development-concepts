@@ -162,12 +162,6 @@ game = WarGame()
 game.play()
 ```
 
-**Run:**
-
-```bash
-python strategy.py
-```
-
 ---
 
 ### Observer Pattern
@@ -316,12 +310,6 @@ game.add_observer(board)
 game.play()
 ```
 
-**Run:**
-
-```bash
-python observer.py
-```
-
 ---
 
 ### Factory Pattern
@@ -466,12 +454,6 @@ cpu_factory2 = ComputerPlayerFactory()
 
 game = FactoryWarGame()
 game.start_game(cpu_factory1, cpu_factory2)
-```
-
-**Run:**
-
-```bash
-python factory.py
 ```
 
 ---
@@ -626,12 +608,6 @@ alice.print_stats()
 bob.print_count()
 ```
 
-**Run:**
-
-```bash
-python decorator.py
-```
-
 ---
 
 ### Singleton Pattern
@@ -716,12 +692,6 @@ GameManager.get_instance().start_game("Alice", "Bob")
 GameManager.get_instance().start_game("Carol", "Dave")
 
 print(f"Total games played: {GameManager.get_instance().get_games_played()}")
-```
-
-**Run:**
-
-```bash
-python singleton.py
 ```
 
 ---
@@ -843,12 +813,6 @@ cfg = (GameConfigBuilder()
 
 game = BuilderWarGame()
 game.play(cfg)
-```
-
-**Run:**
-
-```bash
-python builder.py
 ```
 
 ---
