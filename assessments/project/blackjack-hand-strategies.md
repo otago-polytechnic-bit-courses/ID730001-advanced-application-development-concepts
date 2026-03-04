@@ -57,3 +57,13 @@ Soft totals are hands that contain an Ace that is counted as 11.
 | 9, 9          | 2-6, 8-9         | Split              |
 | 9, 9          | 7, 10, A         | Stand              |
 | A, A          | Any              | Split              |
+
+---
+
+## Surrender Strategy
+
+| Player's Hand Total | Dealer's Up Card | Recommended Action |
+|---------------------|------------------|--------------------|
+| 15                  | 10               | Surrender          |
+| 16                  | 9-10             | Surrender          | 
+| 16                  | A                | Surrender          |
