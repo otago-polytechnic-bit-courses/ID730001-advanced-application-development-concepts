@@ -38,7 +38,12 @@ In War, we can use the Strategy pattern to define different strategies for how a
 
 struct Card
 {
-    // Omitted for brevity. Same as previous examples
+    int id;
+    std::string name;
+    int age;
+    std::vector<int> purchases;
+    int member_since;
+    std::string status;
 };
 
 class Deck
@@ -892,3 +897,4 @@ Bob longest streak: 2
 ### Task 3
 
 Extend the Builder pattern example with two new configuration options: `setNumDecks(int n)` which combines `n` standard 52-card decks into one before splitting, and `setAcesHigh(bool)` which, when false, treats Aces as value 1 instead of 14. Update the game logic to respect these settings.
+
