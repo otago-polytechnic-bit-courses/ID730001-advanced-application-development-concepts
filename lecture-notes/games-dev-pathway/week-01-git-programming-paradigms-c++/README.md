@@ -277,8 +277,8 @@ std::string greet(const std::string& name = "World") {
     return "Hello, " + name + "!";
 }
 
-// greet()        → "Hello, World!"
-// greet("John")  → "Hello, John!"
+// greet()        => "Hello, World!"
+// greet("John")  => "Hello, John!"
 ```
 
 > Resource: <https://en.cppreference.com/w/cpp/language/functions>
@@ -746,7 +746,7 @@ After .erase():          {2, 4, 6}
 
 | Approach                    | When to use                                  |
 | --------------------------- | -------------------------------------------- |
-| `std::copy_if` → new vector | Keep the original; work with a filtered copy |
+| `std::copy_if` => new vector | Keep the original; work with a filtered copy |
 | erase-remove idiom          | Modify the existing vector in-place          |
 
 > Resource: <https://en.cppreference.com/w/cpp/algorithm/remove>
@@ -1259,10 +1259,10 @@ Here is an example of how to use the `process_data_pipeline` function:
 
 ```cpp
 std::vector<User> users = {
-    {1, "Alice",   30, {200, 400, 150}, 2019, "active"},
-    {2, "Bob",     22, {100, 50},       2021, "active"},
-    {3, "Charlie", 28, {500, 600},      2020, "inactive"},
-    {4, "Diana",   35, {300, 200, 100}, 2018, "active"}
+    {1, "Alice", 30, {200, 400, 150}, 2019, "active"},
+    {2, "Bob", 22, {100, 50}, 2021, "active"},
+    {3, "Charlie", 28, {500, 600}, 2020, "inactive"},
+    {4, "Diana", 35, {300, 200, 100}, 2018, "active"}
 };
 
 auto result = process_data_pipeline(users);

@@ -58,25 +58,25 @@ At the successful completion of this course, learners will be able to:
 
 ## Provisional Schedule
 
-| Week             | Topics                                             |
-| ---------------- | -------------------------------------------------- |
-| 1/Tahi           | Git, Programming Paradigms and Python/C++ 1        |
-| 2/Rua            | Python/C++ 2, Design Patterns and SOLID Principles |
-| 3/Toru           | Processes and Threading                            |
-| 4/Whā            | Networking                                         |
-| 5/Rima           | Frameworks and Libraries 1                         |
-| 6/Ono            | Frameworks and Libraries 1                         |
-| 7/Whitu          | Frameworks and Libraries 2                         |
-|                  | Mid Semester Break                                 |
-| 8/Waru           | Frameworks and Libraries 4                         |
-| 9/Whitu          | AI Coding Assistants 1                             |
-| 10/Tekau         | AI Coding Assistants 2                             |
-| 11/Tekau mā tahi | Assessment Work                                    |
-| 12/Tekau mā rua  | Assessment Work                                    |
-| 13/Tekau mā toru | Assessment Work                                    |
-| 14/Tekau mā whā  | Assessment Work                                    |
-| 15/Tekau mā rima | Assessment Work                                    |
-| 16/Tekau mā ono  | Assessment Marking                                 |
+| Week             | Topics                                      |
+| ---------------- | ------------------------------------------- |
+| 1/Tahi           | Git, Programming Paradigms and Python/C++ |
+| 2/Rua            | Design Patterns and SOLID Principles        |
+| 3/Toru           | Processes and Threading                     |
+| 4/Whā            | Networking                                  |
+| 5/Rima           | Frameworks and Libraries 1                  |
+| 6/Ono            | Frameworks and Libraries 1                  |
+| 7/Whitu          | Frameworks and Libraries 2                  |
+|                  | Mid Semester Break                          |
+| 8/Waru           | Frameworks and Libraries 4                  |
+| 9/Whitu          | AI Coding Assistants 1                      |
+| 10/Tekau         | AI Coding Assistants 2                      |
+| 11/Tekau mā tahi | Assessment Work                             |
+| 12/Tekau mā rua  | Assessment Work                             |
+| 13/Tekau mā toru | Assessment Work                             |
+| 14/Tekau mā whā  | Assessment Work                             |
+| 15/Tekau mā rima | Assessment Work                             |
+| 16/Tekau mā ono  | Assessment Marking                          |
 
 ## Resources
 
