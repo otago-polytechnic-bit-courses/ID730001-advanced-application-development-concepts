@@ -2,10 +2,10 @@
 
 ## Navigation
 
-| | Link |
-|---|---|
+|                  | Link                                                      |
+| ---------------- | --------------------------------------------------------- |
 | GitHub Classroom | [ID730001-S1-26](https://classroom.github.com/a/RgDe5bs0) |
-| → Next | [Week 02]() |
+| → Next           | [Week 02]()                                               |
 
 ---
 
@@ -13,21 +13,21 @@
 
 ### 1.1 Useful Git Commands
 
-| Command | Description |
-|---|---|
-| `git clone <repository-url>` | Clone a repository to your local machine |
-| `git status` | Check the status of your local repository |
-| `git add <file>` | Stage changes for the next commit |
-| `git commit -m "message"` | Commit staged changes with a descriptive message |
-| `git push` | Push committed changes to the remote repository |
-| `git pull` | Pull the latest changes from the remote repository |
-| `git branch` | List all branches in the repository |
-| `git switch <branch>` | Switch to a different branch |
-| `git restore <file>` | Discard working directory changes for a file |
-| `git checkout <branch>` | Switch to a different branch (older command) |
-| `git fetch` | Fetch changes from the remote repository |
-| `git merge <branch>` | Merge a branch into the current branch |
-| `git log` | View the commit history |
+| Command                      | Description                                        |
+| ---------------------------- | -------------------------------------------------- |
+| `git clone <repository-url>` | Clone a repository to your local machine           |
+| `git status`                 | Check the status of your local repository          |
+| `git add <file>`             | Stage changes for the next commit                  |
+| `git commit -m "message"`    | Commit staged changes with a descriptive message   |
+| `git push`                   | Push committed changes to the remote repository    |
+| `git pull`                   | Pull the latest changes from the remote repository |
+| `git branch`                 | List all branches in the repository                |
+| `git switch <branch>`        | Switch to a different branch                       |
+| `git restore <file>`         | Discard working directory changes for a file       |
+| `git checkout <branch>`      | Switch to a different branch (older command)       |
+| `git fetch`                  | Fetch changes from the remote repository           |
+| `git merge <branch>`         | Merge a branch into the current branch             |
+| `git log`                    | View the commit history                            |
 
 **`git switch` vs `git checkout`:** `git switch` is newer and designed specifically for branch switching. `git checkout` is older and has additional uses (e.g. restoring files). Prefer `git switch` for clarity.
 
@@ -39,14 +39,14 @@
 
 A **paradigm** is a fundamental style of programming that provides a way to structure and organise code.
 
-| Paradigm | Focus | Common Languages |
-|---|---|---|
-| **Procedural** | Writing procedures/routines that operate on data | C |
-| **Object-Oriented** | Organising code around objects with properties and methods | Java, Python |
-| **Functional** | Pure functions, avoiding mutable state | Haskell, Lisp |
-| **Declarative** | Describing *what* to accomplish rather than *how* | SQL, HTML |
-| **Event-Driven** | Organising code around events and handlers | JavaScript |
-| **Logic** | Defining rules and facts; the program infers conclusions | Prolog |
+| Paradigm            | Focus                                                      | Common Languages |
+| ------------------- | ---------------------------------------------------------- | ---------------- |
+| **Procedural**      | Writing procedures/routines that operate on data           | C                |
+| **Object-Oriented** | Organising code around objects with properties and methods | Java, Python     |
+| **Functional**      | Pure functions, avoiding mutable state                     | Haskell, Lisp    |
+| **Declarative**     | Describing _what_ to accomplish rather than _how_          | SQL, HTML        |
+| **Event-Driven**    | Organising code around events and handlers                 | JavaScript       |
+| **Logic**           | Defining rules and facts; the program infers conclusions   | Prolog           |
 
 ---
 
@@ -78,16 +78,16 @@ g++ --std=c++20 -o my_program my_program.cpp
 
 C++ has several built-in data types. Some require including a standard library header before they can be used.
 
-| Type | Example | Header required |
-|---|---|---|
-| Boolean | `true`, `false` | — |
-| Integer | `1`, `2`, `-3` | — |
-| Double | `2.5`, `-3.14` | — |
-| String | `"Hello"`, `"World"` | `<string>` |
-| Null pointer | `nullptr` | — |
-| Vector | `{1, 2, 3}` | `<vector>` |
-| Pair / Tuple | `{1, 2}` / `{1, 2, 3}` | `<tuple>` |
-| Map | `{{"name", "John"}, {"age", "25"}}` | `<map>` |
+| Type         | Example                             | Header required |
+| ------------ | ----------------------------------- | --------------- |
+| Boolean      | `true`, `false`                     | —               |
+| Integer      | `1`, `2`, `-3`                      | —               |
+| Double       | `2.5`, `-3.14`                      | —               |
+| String       | `"Hello"`, `"World"`                | `<string>`      |
+| Null pointer | `nullptr`                           | —               |
+| Vector       | `{1, 2, 3}`                         | `<vector>`      |
+| Pair / Tuple | `{1, 2}` / `{1, 2, 3}`              | `<tuple>`       |
+| Map          | `{{"name", "John"}, {"age", "25"}}` | `<map>`         |
 
 > We will focus on Boolean, Integer, Double, String, nullptr, Vector and Map for now.
 
@@ -130,13 +130,13 @@ const int MAX_PLAYERS = 4;
 
 ### 3.4 Operators
 
-| Category | Operators | Notes |
-|---|---|---|
-| Arithmetic | `+`, `-`, `*`, `/`, `%` | Use `std::pow` for exponentiation |
-| Assignment | `=`, `+=`, `-=`, `*=`, `/=`, `%=` | |
-| Comparison | `==`, `!=`, `>`, `<`, `>=`, `<=` | |
-| Logical | `&&`, `\|\|`, `!` | `and`, `or`, `not` |
-| Increment / Decrement | `++`, `--` | |
+| Category              | Operators                         | Notes                             |
+| --------------------- | --------------------------------- | --------------------------------- |
+| Arithmetic            | `+`, `-`, `*`, `/`, `%`           | Use `std::pow` for exponentiation |
+| Assignment            | `=`, `+=`, `-=`, `*=`, `/=`, `%=` |                                   |
+| Comparison            | `==`, `!=`, `>`, `<`, `>=`, `<=`  |                                   |
+| Logical               | `&&`, `\|\|`, `!`                 | `and`, `or`, `not`                |
+| Increment / Decrement | `++`, `--`                        |                                   |
 
 📖 Reference: [C++ — Expressions](https://en.cppreference.com/w/cpp/language/expressions)
 
@@ -726,10 +726,10 @@ After std::remove_if:    {2, 4, 6, ?, ?, ?}  ← iterator points here
 After .erase():          {2, 4, 6}
 ```
 
-| Approach | When to use |
-|---|---|
+| Approach                    | When to use                                  |
+| --------------------------- | -------------------------------------------- |
 | `std::copy_if` → new vector | Keep the original; work with a filtered copy |
-| Erase-remove idiom | Modify the existing vector in-place |
+| Erase-remove idiom          | Modify the existing vector in-place          |
 
 📖 Reference: [C++ — std::remove_if](https://en.cppreference.com/w/cpp/algorithm/remove)
 
@@ -803,14 +803,14 @@ int main() {
 
 #### Quick reference
 
-| Algorithm | What it returns |
-|---|---|
-| `std::max_element(b, e, cmp)` | Iterator to the largest element |
-| `std::min_element(b, e, cmp)` | Iterator to the smallest element |
-| `std::find_if(b, e, pred)` | Iterator to the first matching element |
-| `std::count_if(b, e, pred)` | Count of elements matching the predicate |
-| `std::any_of(b, e, pred)` | `true` if at least one element matches |
-| `std::all_of(b, e, pred)` | `true` if every element matches |
+| Algorithm                     | What it returns                          |
+| ----------------------------- | ---------------------------------------- |
+| `std::max_element(b, e, cmp)` | Iterator to the largest element          |
+| `std::min_element(b, e, cmp)` | Iterator to the smallest element         |
+| `std::find_if(b, e, pred)`    | Iterator to the first matching element   |
+| `std::count_if(b, e, pred)`   | Count of elements matching the predicate |
+| `std::any_of(b, e, pred)`     | `true` if at least one element matches   |
+| `std::all_of(b, e, pred)`     | `true` if every element matches          |
 
 📖 Reference: [C++ — Algorithm library](https://en.cppreference.com/w/cpp/algorithm)
 
@@ -981,14 +981,14 @@ public:
 
 #### Key terms
 
-| Term | Meaning |
-|---|---|
-| `virtual` | Method can be overridden in a child class |
-| `= 0` | Pure virtual — child class must implement this |
-| `override` | Explicitly marks a method as overriding a parent method (compiler-checked) |
-| Abstract class | A class with at least one pure virtual method; cannot be instantiated |
-| `protected:` | Accessible in the class and its children, but not from outside |
-| `virtual ~Base()` | Virtual destructor — always include in base classes |
+| Term              | Meaning                                                                    |
+| ----------------- | -------------------------------------------------------------------------- |
+| `virtual`         | Method can be overridden in a child class                                  |
+| `= 0`             | Pure virtual — child class must implement this                             |
+| `override`        | Explicitly marks a method as overriding a parent method (compiler-checked) |
+| Abstract class    | A class with at least one pure virtual method; cannot be instantiated      |
+| `protected:`      | Accessible in the class and its children, but not from outside             |
+| `virtual ~Base()` | Virtual destructor — always include in base classes                        |
 
 📖 Reference: [C++ — Virtual functions](https://en.cppreference.com/w/cpp/language/virtual)
 
@@ -1209,11 +1209,11 @@ int main() {
 }
 ```
 
-| Component | Purpose |
-|---|---|
-| `std::random_device{}` | Provides hardware entropy for seeding |
-| `std::mt19937` | Pseudo-random number engine (fast, high quality) |
-| `std::shuffle` | Uses the engine to permute a range uniformly at random |
+| Component              | Purpose                                                |
+| ---------------------- | ------------------------------------------------------ |
+| `std::random_device{}` | Provides hardware entropy for seeding                  |
+| `std::mt19937`         | Pseudo-random number engine (fast, high quality)       |
+| `std::shuffle`         | Uses the engine to permute a range uniformly at random |
 
 📖 Reference: [C++ — std::shuffle](https://en.cppreference.com/w/cpp/algorithm/random_shuffle)
 
@@ -1283,11 +1283,11 @@ The function should:
 4. Compute `loyalty_years` for each user (`2026 - member_since`)
 5. Assign a `tier` based on `total_spent`:
 
-| `total_spent` | Tier |
-|---|---|
-| < 500 | `"Bronze"` |
-| 500 – 999 | `"Silver"` |
-| ≥ 1000 | `"Gold"` |
+| `total_spent` | Tier       |
+| ------------- | ---------- |
+| < 500         | `"Bronze"` |
+| 500 – 999     | `"Silver"` |
+| ≥ 1000        | `"Gold"`   |
 
 6. Use `std::accumulate` to calculate total revenue from qualifying users
 7. Return a `PipelineResult` struct with `processed_users`, `total_revenue`, `user_count`, and `average_spending`
@@ -1414,34 +1414,34 @@ Build a payment processing system using inheritance and smart pointers.
 
 **Base class: `Payment`**
 
-| Member / Method | Description |
-|---|---|
-| `amount`, `currency`, `timestamp`, `status` | Member variables (`timestamp` set via `std::chrono::system_clock::now()`, `status` defaults to `"pending"`) |
-| `Payment(double amount, std::string currency = "USD")` | Constructor |
-| `virtual double get_fee() const = 0` | Pure virtual |
-| `virtual bool process() = 0` | Pure virtual |
-| `bool validate() const` | Returns `amount > 0` |
-| `double get_total() const` | Returns `amount + get_fee()` |
-| `virtual std::string to_string() const` | Returns formatted payment info |
+| Member / Method                                        | Description                                                                                                 |
+| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `amount`, `currency`, `timestamp`, `status`            | Member variables (`timestamp` set via `std::chrono::system_clock::now()`, `status` defaults to `"pending"`) |
+| `Payment(double amount, std::string currency = "USD")` | Constructor                                                                                                 |
+| `virtual double get_fee() const = 0`                   | Pure virtual                                                                                                |
+| `virtual bool process() = 0`                           | Pure virtual                                                                                                |
+| `bool validate() const`                                | Returns `amount > 0`                                                                                        |
+| `double get_total() const`                             | Returns `amount + get_fee()`                                                                                |
+| `virtual std::string to_string() const`                | Returns formatted payment info                                                                              |
 
 **Child classes:**
 
-| Class | Extra members | Fee formula | `process()` behaviour |
-|---|---|---|---|
-| `CreditCardPayment` | `card_number` (last 4 digits, `std::string`) | `2.9% of amount + $0.30` | validate → set status → return bool |
-| `CryptoPayment` | `wallet_address`, `crypto_type` | `1% of amount`, min $1.00 | validate → set status → return bool |
-| `BankTransferPayment` | `account_number`, `routing_number` | `$5.00 flat` if amount < $1000, else `0.5% of amount` | validate → set status → return bool |
+| Class                 | Extra members                                | Fee formula                                           | `process()` behaviour               |
+| --------------------- | -------------------------------------------- | ----------------------------------------------------- | ----------------------------------- |
+| `CreditCardPayment`   | `card_number` (last 4 digits, `std::string`) | `2.9% of amount + $0.30`                              | validate → set status → return bool |
+| `CryptoPayment`       | `wallet_address`, `crypto_type`              | `1% of amount`, min $1.00                             | validate → set status → return bool |
+| `BankTransferPayment` | `account_number`, `routing_number`           | `$5.00 flat` if amount < $1000, else `0.5% of amount` | validate → set status → return bool |
 
 **`PaymentProcessor` class:**
 
-| Method | Description |
-|---|---|
-| `PaymentProcessor()` | Initialises empty `transactions` vector |
-| `process_payment(shared_ptr<Payment>)` | Calls `process()`, appends to `transactions` regardless of outcome |
-| `get_transactions_by_type(string type_name)` | Returns transactions filtered by type name |
-| `get_total_processed() const` | Sum of `amount` for all `"completed"` transactions |
-| `get_total_fees_collected() const` | Sum of fees for all `"completed"` transactions |
-| `generate_report() const` | Returns `Report` struct with `count_by_type`, `total_processed_by_type`, `average_transaction_by_type`, `total_fees_by_type` |
+| Method                                       | Description                                                                                                                  |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `PaymentProcessor()`                         | Initialises empty `transactions` vector                                                                                      |
+| `process_payment(shared_ptr<Payment>)`       | Calls `process()`, appends to `transactions` regardless of outcome                                                           |
+| `get_transactions_by_type(string type_name)` | Returns transactions filtered by type name                                                                                   |
+| `get_total_processed() const`                | Sum of `amount` for all `"completed"` transactions                                                                           |
+| `get_total_fees_collected() const`           | Sum of fees for all `"completed"` transactions                                                                               |
+| `generate_report() const`                    | Returns `Report` struct with `count_by_type`, `total_processed_by_type`, `average_transaction_by_type`, `total_fees_by_type` |
 
 Example:
 
@@ -1478,23 +1478,23 @@ Build a data analysis system for student records using classes and STL algorithm
 
 **`Student` class:**
 
-| Method | Description |
-|---|---|
-| `Student(int id, string name, map<string,char> grades, double attendance)` | Constructor |
-| `double get_gpa() const` | A=4.0, B=3.0, C=2.0, D=1.0, F=0.0; returns average across all subjects |
-| `string get_status() const` | `"Honors"` (GPA ≥ 3.5), `"Good Standing"` (GPA ≥ 2.0), `"Probation"` |
-| `bool is_at_risk() const` | `true` if GPA < 2.0 or attendance < 75 |
+| Method                                                                     | Description                                                            |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `Student(int id, string name, map<string,char> grades, double attendance)` | Constructor                                                            |
+| `double get_gpa() const`                                                   | A=4.0, B=3.0, C=2.0, D=1.0, F=0.0; returns average across all subjects |
+| `string get_status() const`                                                | `"Honors"` (GPA ≥ 3.5), `"Good Standing"` (GPA ≥ 2.0), `"Probation"`   |
+| `bool is_at_risk() const`                                                  | `true` if GPA < 2.0 or attendance < 75                                 |
 
 **`Analyser` class:**
 
-| Method | Description |
-|---|---|
-| `Analyser(vector<Student>)` | Constructor |
-| `get_top_students(int n)` | Top n students by GPA descending |
-| `get_subject_statistics(string subject)` | Returns `SubjectStats` with `average_gpa`, `grade_distribution`, `passing_rate` (% scoring C or better) |
-| `identify_struggling_students()` | Students where `is_at_risk()` is true |
-| `calculate_correlations()` | Returns `data_points` (pairs of attendance, GPA) and `interpretation` string |
-| `generate_comprehensive_report()` | Returns `Report` with `overall`, `status_distribution`, `subjects`, `at_risk_students`, `recommendations` |
+| Method                                   | Description                                                                                               |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `Analyser(vector<Student>)`              | Constructor                                                                                               |
+| `get_top_students(int n)`                | Top n students by GPA descending                                                                          |
+| `get_subject_statistics(string subject)` | Returns `SubjectStats` with `average_gpa`, `grade_distribution`, `passing_rate` (% scoring C or better)   |
+| `identify_struggling_students()`         | Students where `is_at_risk()` is true                                                                     |
+| `calculate_correlations()`               | Returns `data_points` (pairs of attendance, GPA) and `interpretation` string                              |
+| `generate_comprehensive_report()`        | Returns `Report` with `overall`, `status_distribution`, `subjects`, `at_risk_students`, `recommendations` |
 
 > Use `std::transform`, `std::copy_if`, `std::accumulate`, range-based for loops, and `std::map` where appropriate.
 
@@ -1538,6 +1538,7 @@ recommendations:
 Build a complete, playable command-line Blackjack game using OOP.
 
 **Game rules:**
+
 - Goal: get closer to 21 than the dealer without going over
 - Face cards (J, Q, K) = 10; Aces = 11 or 1 (whichever avoids a bust); number cards = face value
 - Dealer must hit on ≤ 16, stand on ≥ 17
@@ -1545,18 +1546,19 @@ Build a complete, playable command-line Blackjack game using OOP.
 
 **Required classes:**
 
-| Class | Key members | Key methods |
-|---|---|---|
-| `Card` | `rank`, `suit` | `get_value()`, `to_string()` |
-| `Deck` | `std::vector<Card> cards` | `shuffle()`, `deal_card()`, `cards_remaining()`, `reset()` |
-| `Hand` | `std::vector<Card> cards` | `add_card()`, `get_value()`, `is_blackjack()`, `is_bust()`, `to_string()` |
-| `Player` | `name`, `hand` | `to_string()` |
-| `Dealer` | `Hand hand`, `name` | `show_partial_hand()`, `show_full_hand()`, `should_hit()`, `to_string()` |
+| Class           | Key members                                  | Key methods                                                                                                                                            |
+| --------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Card`          | `rank`, `suit`                               | `get_value()`, `to_string()`                                                                                                                           |
+| `Deck`          | `std::vector<Card> cards`                    | `shuffle()`, `deal_card()`, `cards_remaining()`, `reset()`                                                                                             |
+| `Hand`          | `std::vector<Card> cards`                    | `add_card()`, `get_value()`, `is_blackjack()`, `is_bust()`, `to_string()`                                                                              |
+| `Player`        | `name`, `hand`                               | `to_string()`                                                                                                                                          |
+| `Dealer`        | `Hand hand`, `name`                          | `show_partial_hand()`, `show_full_hand()`, `should_hit()`, `to_string()`                                                                               |
 | `BlackjackGame` | `deck`, `dealer`, `players`, `current_round` | `start_round()`, `deal_initial_cards()`, `player_turn()`, `dealer_turn()`, `determine_winners()`, `display_game_state()`, `play_game()`, `game_over()` |
 
 **`Hand::get_value()` logic:** Count each Ace as 11. If the total exceeds 21, recount Aces as 1 one at a time until the hand is ≤ 21 or no Aces remain.
 
 **Game flow:**
+
 1. Display a welcome message with player names
 2. Each round: deal 2 cards to each player and the dealer (dealer's second card hidden) → check for blackjack → player turns (hit or stand) → dealer reveals and plays → determine and announce winners → ask to play again
 3. End when all players choose to quit

@@ -2,10 +2,10 @@
 
 ## Navigation
 
-| | Link |
-|---|---|
-| ← Previous | [Week 01]() |
-| → Next | [Week 03]() |
+|            | Link                                                                                                                              |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| ← Previous | [Week 01 - Git, Programming Paradigms & Python](lecture-notes/app-dev-pathway/week-01-git-programming-paradigms-python/README.md) |
+| → Next     | [Week 03 - Processes, Threads & Concurrency](lecture-notes/app-dev-pathway/week-03-processes-threading-concurrency/README.md)     |
 
 ---
 
@@ -15,11 +15,11 @@
 
 There are three broad categories:
 
-| Category | Focus | Examples |
-|---|---|---|
-| **Behavioural** | Communication and interaction between objects | Observer, Strategy, Command |
-| **Creational** | Object creation | Singleton, Factory, Builder |
-| **Structural** | How classes and objects compose into larger structures | Adapter, Decorator, Composite |
+| Category        | Focus                                                  | Examples                      |
+| --------------- | ------------------------------------------------------ | ----------------------------- |
+| **Behavioural** | Communication and interaction between objects          | Observer, Strategy, Command   |
+| **Creational**  | Object creation                                        | Singleton, Factory, Builder   |
+| **Structural**  | How classes and objects compose into larger structures | Adapter, Decorator, Composite |
 
 We use the card game **War** as a running example throughout. In War, two players each have a deck of cards. Each player draws a card — the player with the higher card wins the round. The game continues until one player holds all the cards.
 
