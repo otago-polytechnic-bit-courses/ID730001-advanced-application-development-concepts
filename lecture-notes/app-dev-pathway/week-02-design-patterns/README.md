@@ -1,33 +1,37 @@
-# Week 02
+# Week 02 — Design Patterns
 
----
+## Navigation
 
-## Important Links
-
-| Section        | Link        |
-| -------------- | ----------- |
-| Previous Class | [Week 01]() |
-| Next Class     | [Week 03]() |
+| | Link |
+|---|---|
+| ← Previous | [Week 01]() |
+| → Next | [Week 03]() |
 
 ---
 
 ## Design Patterns
 
-**Design patterns** are reusable solutions to common software design problems. They provide a way to structure code that is flexible, maintainable, and scalable. There are many different design patterns, but they can be broadly categorised into three types:
+**Design patterns** are reusable solutions to common software design problems. They provide a way to structure code that is flexible, maintainable, and scalable.
 
-- **Behavioural Patterns**: Focus on communication between objects and how they interact. Examples: Observer, Strategy, Command.
-- **Creational Patterns**: Focus on object creation. Examples: Singleton, Factory, Builder.
-- **Structural Patterns**: Focus on how classes and objects are composed into larger structures. Examples: Adapter, Decorator, Composite.
+There are three broad categories:
 
-We are going to use **War** as an example to demonstrate these patterns. War is a simple card game where two players each have a deck of cards. Each player draws a card, and the player with the higher card wins the round. The game continues until one player has all the cards.
+| Category | Focus | Examples |
+|---|---|---|
+| **Behavioural** | Communication and interaction between objects | Observer, Strategy, Command |
+| **Creational** | Object creation | Singleton, Factory, Builder |
+| **Structural** | How classes and objects compose into larger structures | Adapter, Decorator, Composite |
+
+We use the card game **War** as a running example throughout. In War, two players each have a deck of cards. Each player draws a card — the player with the higher card wins the round. The game continues until one player holds all the cards.
 
 ---
 
-### Strategy Pattern
+## 1. Behavioural Patterns
 
-The Strategy pattern is a behavioural design pattern that allows you to define a family of algorithms, encapsulate each one, and make them interchangeable. The algorithm can vary independently from the clients that use it.
+### 1.1 Strategy Pattern
 
-In War, we can use the Strategy pattern to define different strategies for how a player chooses which card to play, e.g., always playing a random card, or always playing the highest card available.
+The **Strategy** pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. The algorithm can vary independently from the clients that use it.
+
+**In War:** Different strategies for how a player chooses which card to play — always random, or always the highest card available.
 
 ```python
 import random
@@ -164,11 +168,11 @@ game.play()
 
 ---
 
-### Observer Pattern
+### 1.2 Observer Pattern
 
-The Observer pattern is a behavioural design pattern that defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified automatically.
+The **Observer** pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified automatically.
 
-In War, we can use the Observer pattern to notify interested parties whenever a round ends, e.g., a scoreboard that tracks wins, and a logger that records what happened.
+**In War:** Notify interested parties whenever a round ends — a scoreboard that tracks wins, and a logger that records what happened.
 
 ```python
 import random
@@ -312,11 +316,13 @@ game.play()
 
 ---
 
-### Factory Pattern
+## 2. Creational Patterns
 
-The Factory pattern is a creational design pattern that provides an interface for creating objects, allowing subclasses to decide which concrete class to instantiate.
+### 2.1 Factory Pattern
 
-In War, we can use the Factory pattern to create different types of players — a human player who is prompted for input, and a computer player who plays automatically.
+The **Factory** pattern provides an interface for creating objects, allowing subclasses to decide which concrete class to instantiate.
+
+**In War:** Create different types of players — a human player who is prompted for input, and a computer player who plays automatically.
 
 ```python
 import random
@@ -458,11 +464,11 @@ game.start_game(cpu_factory1, cpu_factory2)
 
 ---
 
-### Singleton Pattern
+### 2.2 Singleton Pattern
 
-The Singleton pattern is a creational design pattern that restricts the instantiation of a class to a single instance and provides a global point of access to that instance.
+The **Singleton** pattern restricts the instantiation of a class to a single instance and provides a global point of access to that instance.
 
-In War, we can use the Singleton pattern for a `GameManager` that controls the overall flow of the application, ensuring only one game session is active at a time.
+**In War:** A `GameManager` that controls the overall application flow, ensuring only one game session is active at a time.
 
 ```python
 import random
@@ -544,11 +550,11 @@ print(f"Total games played: {GameManager.get_instance().get_games_played()}")
 
 ---
 
-### Builder Pattern
+### 2.3 Builder Pattern
 
-The Builder pattern is a creational design pattern that constructs complex objects step by step. The key idea is that the same construction process can create different representations, and you don't need to pass a huge list of parameters to a constructor.
+The **Builder** pattern constructs complex objects step by step. The same construction process can create different representations, avoiding large constructor parameter lists.
 
-In War, we can use the Builder pattern to configure a game session, specifying the number of rounds to play, whether to shuffle, house rules, and so on, before the game starts.
+**In War:** Configure a game session — number of rounds, shuffle behaviour, house rules — before the game starts.
 
 ```python
 import random
@@ -667,13 +673,13 @@ game.play(cfg)
 
 ## Exercises
 
-Learning to use AI tools is an important skill. While AI tools are powerful, you must be aware of the following:
+### AI Usage Guidelines
 
-- If you provide an AI tool with a prompt that is not refined enough, it may generate a not-so-useful response
-- Do not trust the AI tool's responses blindly. You must still use your judgement and may need to do additional research to determine if the response is correct
-- Acknowledge what AI tool you have used. If you use AI to help you with a file, include a comment block at the top of the file
+AI tools are encouraged but use them critically:
 
-Here is an example comment block:
+- Refine your prompts — vague prompts yield vague responses
+- Validate AI output — don't trust it blindly
+- Acknowledge AI usage at the top of any AI-assisted file:
 
 ```python
 """
@@ -691,15 +697,15 @@ Usage: Describe how you used the AI responses to help you with your work
 
 ---
 
-### Task 1
+### Task 1 — Third Draw Strategy
 
-Extend the Strategy pattern example by adding a third draw strategy: `LowestCardStrategy`, which always plays the lowest card in the player's hand. Wire it into the game alongside `RandomStrategy` and `HighestCardStrategy` and observe how the win rates differ across strategies.
+Extend the Strategy pattern example by adding a `LowestCardStrategy` that always plays the lowest card in the player's hand. Wire it into the game alongside `RandomStrategy` and `HighestCardStrategy`, and observe how the win rates differ across the three strategies.
 
 ---
 
-### Task 2
+### Task 2 — Streak Observer
 
-Extend the Observer pattern example by adding a `StreakObserver` that tracks the longest consecutive winning streak for each player. It should print the result at the end of the game in the format:
+Extend the Observer pattern example by adding a `StreakObserver` that tracks the longest consecutive winning streak for each player. It should print the result at the end of the game in the following format:
 
 ```
 Alice longest streak: 4
@@ -708,6 +714,11 @@ Bob longest streak: 2
 
 ---
 
-### Task 3
+### Task 3 — Extended Builder Options
 
-Extend the Builder pattern example with two new configuration options: `set_num_decks(n)` which combines `n` standard 52-card decks into one before splitting, and `set_aces_high(value)` which, when `False`, treats Aces as value 1 instead of 14. Update the game logic to respect these settings.
+Extend the Builder pattern example with two new configuration options:
+
+- `set_num_decks(n)` — combines `n` standard 52-card decks into one before splitting between players
+- `set_aces_high(value)` — when `False`, treats Aces as value `1` instead of `14`
+
+Update the game logic to respect both settings.

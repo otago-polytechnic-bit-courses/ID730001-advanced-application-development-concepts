@@ -231,7 +231,7 @@ int main()
 
 The Observer pattern is a behavioural design pattern that defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified automatically.
 
-In War, we can use the Observer pattern to notify interested parties whenever a round ends, e.g.,  a scoreboard that tracks wins, and a logger that records what happened.
+In War, we can use the Observer pattern to notify interested parties whenever a round ends, e.g., a scoreboard that tracks wins, and a logger that records what happened.
 
 ```cpp
 #include <iostream>
@@ -908,4 +908,3 @@ Bob longest streak: 2
 ### Task 3
 
 Extend the Builder pattern example with two new configuration options: `setNumDecks(int n)` which combines `n` standard 52-card decks into one before splitting, and `setAcesHigh(bool)` which, when false, treats Aces as value 1 instead of 14. Update the game logic to respect these settings.
-

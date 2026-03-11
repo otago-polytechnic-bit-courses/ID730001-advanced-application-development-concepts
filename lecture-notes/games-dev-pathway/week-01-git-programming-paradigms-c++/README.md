@@ -1,153 +1,148 @@
-# Week 01
+# Week 01 — Git, Programming Paradigms & C++
+
+## Navigation
+
+| | Link |
+|---|---|
+| GitHub Classroom | [ID730001-S1-26](https://classroom.github.com/a/RgDe5bs0) |
+| → Next | [Week 02]() |
 
 ---
 
-## Important Links
+## 1. Git
 
-| Section    | Link                                                                         |
-| ---------- | ---------------------------------------------------------------------------- |
-| GitHub     | [GitHub Classroom - ID730001-S1-26](https://classroom.github.com/a/RgDe5bs0) |
-| Next Class | [Week 02]()                                                                  |
+### 1.1 Useful Git Commands
 
----
+| Command | Description |
+|---|---|
+| `git clone <repository-url>` | Clone a repository to your local machine |
+| `git status` | Check the status of your local repository |
+| `git add <file>` | Stage changes for the next commit |
+| `git commit -m "message"` | Commit staged changes with a descriptive message |
+| `git push` | Push committed changes to the remote repository |
+| `git pull` | Pull the latest changes from the remote repository |
+| `git branch` | List all branches in the repository |
+| `git switch <branch>` | Switch to a different branch |
+| `git restore <file>` | Discard working directory changes for a file |
+| `git checkout <branch>` | Switch to a different branch (older command) |
+| `git fetch` | Fetch changes from the remote repository |
+| `git merge <branch>` | Merge a branch into the current branch |
+| `git log` | View the commit history |
 
-## Useful Git Commands
+**`git switch` vs `git checkout`:** `git switch` is newer and designed specifically for branch switching. `git checkout` is older and has additional uses (e.g. restoring files). Prefer `git switch` for clarity.
 
-| Command                          | Description                                         |
-| -------------------------------- | --------------------------------------------------- |
-| `git clone <repository-url>`     | Clone a repository to your local machine            |
-| `git status`                     | Check the status of your local repository           |
-| `git add <file>`                 | Stage changes for the next commit                   |
-| `git commit -m "commit message"` | Commit staged changes with a descriptive message    |
-| `git push`                       | Push committed changes to the remote repository     |
-| `git pull`                       | Pull the latest changes from the remote repository  |
-| `git branch`                     | List all branches in the repository                 |
-| `git switch <branch>`            | Switch to a different branch                        |
-| `git restore <file>`             | Discard changes in the working directory for a file |
-| `git checkout <branch>`          | Switch to a different branch (older command)        |
-| `git fetch`                      | Fetch changes from the remote repository            |
-| `git merge <branch>`             | Merge a branch into the current branch              |
-| `git log`                        | View the commit history                             |
-
-What is the difference between `git switch` and `git checkout`?
-
-`git switch` is a newer command introduced to simplify branch switching, while `git checkout` is an older command that can also be used for switching branches but has additional functionalities like restoring files. For branch switching, it is recommended to use `git switch` for clarity.
-
-> Resource: <https://guides.github.com/introduction/git-handbook/>
+📖 Reference: [GitHub Git Handbook](https://guides.github.com/introduction/git-handbook/)
 
 ---
 
-## Programming Paradigms
+## 2. Programming Paradigms
 
-In programming, a paradigm is a fundamental style of programming that provides a way to structure and organise code. Different paradigms offer different approaches to solving problems and writing code. Some common programming paradigms include:
+A **paradigm** is a fundamental style of programming that provides a way to structure and organise code.
 
-- Procedural Programming: Focuses on writing procedures or routines that operate on data. It is based on the concept of procedure calls and is often used in languages like C.
-- Object-Oriented Programming: Organises code around objects that have properties and methods. It is based on the concepts of classes and objects and is often used in languages like Java and Python.
-- Functional Programming: Emphasises the use of pure functions and avoids mutable state. It is based on the concept of mathematical functions and is often used in languages like Haskell and Lisp.
-- Declarative Programming: Focuses on describing what the program should accomplish rather than how to accomplish it. It is often used in languages like SQL and HTML.
-- Event-Driven Programming: Organises code around events and their handlers. It is often used in languages like JavaScript for web development.
-- Logic Programming: Based on formal logic, where you define rules and facts and the program infers conclusions. It is often used in languages like Prolog.
-
----
-
-## C++
-
-C++ is a general-purpose, compiled programming language known for its performance and control over system resources. It builds on C by adding object-oriented features, generic programming (templates), and a rich standard library. C++ is widely used in game development, operating systems, embedded systems, and high-performance applications. C++ emphasises explicit control over memory and system resources and follows a philosophy that prioritises performance and expressiveness.
-
-> Resource: <https://en.cppreference.com/w/>
+| Paradigm | Focus | Common Languages |
+|---|---|---|
+| **Procedural** | Writing procedures/routines that operate on data | C |
+| **Object-Oriented** | Organising code around objects with properties and methods | Java, Python |
+| **Functional** | Pure functions, avoiding mutable state | Haskell, Lisp |
+| **Declarative** | Describing *what* to accomplish rather than *how* | SQL, HTML |
+| **Event-Driven** | Organising code around events and handlers | JavaScript |
+| **Logic** | Defining rules and facts; the program infers conclusions | Prolog |
 
 ---
 
-### C++ Compiler
+## 3. C++
 
-C++ must be compiled before it can be run. The compiler reads and translates C++ code into an executable program. You can compile and run C++ code using `g++` with the `--std=c++20` flag. We will primarily use C++ files to write and test our code, allowing us to see the results in the terminal.
+C++ is a general-purpose, compiled programming language known for its performance and control over system resources. It builds on C by adding object-oriented features, generic programming (templates), and a rich standard library. C++ is widely used in game development, operating systems, embedded systems, and high-performance applications. C++ emphasises explicit control over memory and system resources, prioritising performance and expressiveness.
+
+📖 Reference: [cppreference.com](https://en.cppreference.com/w/)
+
+---
+
+### 3.1 C++ Compiler
+
+C++ must be compiled before it can run. The compiler translates C++ source code into an executable binary. We use `g++` with the `--std=c++20` flag throughout this course.
 
 ```bash
+# Compile a file named my_program.cpp into an executable named my_program
 g++ --std=c++20 -o my_program my_program.cpp
+
+# Run the compiled executable
 ./my_program
 ```
 
-> Resource: <https://en.cppreference.com/w/>
+📖 Reference: [cppreference.com](https://en.cppreference.com/w/)
 
 ---
 
-### Data Types
+### 3.2 Data Types
 
-Data types are the different values that can be stored and manipulated in a program. C++ has several built-in data types:
+C++ has several built-in data types. Some require including a standard library header before they can be used.
 
-- Boolean: `true` or `false`
-- Integer: `1`, `2`, `-3`
-- Double: `2.5`, `-3.14`
-- String: `"Hello"`, `"World"` (requires `#include <string>`)
-- Null pointer: `nullptr`
-- Vector: `{1, 2, 3}` (requires `#include <vector>`)
-- Pair/Tuple: `{1, 2, 3}` (requires `#include <tuple>`)
-- Map: `{{"name", "John"}, {"age", 25}}` (requires `#include <map>`)
+| Type | Example | Header required |
+|---|---|---|
+| Boolean | `true`, `false` | — |
+| Integer | `1`, `2`, `-3` | — |
+| Double | `2.5`, `-3.14` | — |
+| String | `"Hello"`, `"World"` | `<string>` |
+| Null pointer | `nullptr` | — |
+| Vector | `{1, 2, 3}` | `<vector>` |
+| Pair / Tuple | `{1, 2}` / `{1, 2, 3}` | `<tuple>` |
+| Map | `{{"name", "John"}, {"age", "25"}}` | `<map>` |
 
-We will primarily focus on Boolean, Integer, Double, String, nullptr, Vector and Map for now.
+> We will focus on Boolean, Integer, Double, String, nullptr, Vector and Map for now.
 
-> Resource: <https://en.cppreference.com/w/cpp/language/types>
+📖 Reference: [C++ — Fundamental Types](https://en.cppreference.com/w/cpp/language/types)
 
 ---
 
-### Variables
+### 3.3 Variables
 
-A variable is a named container that stores a value. It is like a box that holds a value and the variable's name is like a label on the box. You can use the variable's name to access its value.
+A variable is a named container that stores a value. In C++, you must declare the type of a variable when you create it (or use `auto` to let the compiler infer it).
 
 ```cpp
 #include <iostream>
 #include <string>
 
 int main() {
-    // A variable named "name" with value "John"
-    std::string name = "John";
+    // Explicitly typed variables
+    std::string name = "John";  // type: std::string
+    int age = 25;               // type: int
 
-    // A variable named "age" with the value 25
-    int age = 25;
-
-    // Use auto to let the compiler infer the type
-    auto score = 98.5;  // Deduced as double
+    // auto lets the compiler deduce the type from the assigned value
+    auto score = 98.5;  // deduced as double
 
     std::cout << name << " is " << age << " years old." << std::endl;
     return 0;
 }
 ```
 
-In C++, variables are mutable by default, meaning their values can be changed. However, you can declare a variable as `const` to make it immutable, meaning once created, its value cannot be modified.
+Variables are mutable by default. Use `const` to make a variable immutable — the compiler will prevent you from accidentally changing it later.
 
 ```cpp
+// const variables cannot be reassigned after initialisation
 const double PI = 3.14159;
 const int MAX_PLAYERS = 4;
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/language/declarations>
+📖 Reference: [C++ — Declarations](https://en.cppreference.com/w/cpp/language/declarations)
 
 ---
 
-### Operators
+### 3.4 Operators
 
-Operators are symbols that perform operations on values. There are several types of operators in C++:
+| Category | Operators | Notes |
+|---|---|---|
+| Arithmetic | `+`, `-`, `*`, `/`, `%` | Use `std::pow` for exponentiation |
+| Assignment | `=`, `+=`, `-=`, `*=`, `/=`, `%=` | |
+| Comparison | `==`, `!=`, `>`, `<`, `>=`, `<=` | |
+| Logical | `&&`, `\|\|`, `!` | `and`, `or`, `not` |
+| Increment / Decrement | `++`, `--` | |
 
-- Arithmetic operators: `+`, `-`, `*`, `/`, `%` (use `std::pow` for exponentiation)
-- Assignment operators: `=`, `+=`, `-=`, `*=`, `/=`, `%=`
-- Comparison operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
-- Logical operators: `&&` (and), `||` (or), `!` (not)
-- Increment/decrement operators: `++`, `--`
-
-There are many other operators in C++, but we will only be concerned with these for now.
-
-> Resource: <https://en.cppreference.com/w/cpp/language/expressions>
+📖 Reference: [C++ — Expressions](https://en.cppreference.com/w/cpp/language/expressions)
 
 ---
 
-### Conditional Statements
-
-Conditional statements allow you to execute different blocks of code depending on whether a condition is `true` or `false`. There are several types of conditionals in C++:
-
-- if statement
-- if...else statement
-- if...else if...else statement
-- ternary operator (conditional expression)
+### 3.5 Conditional Statements
 
 ```cpp
 #include <iostream>
@@ -155,124 +150,124 @@ Conditional statements allow you to execute different blocks of code depending o
 int main() {
     int score = 75;
 
-    // if statement
+    // if — runs the block only when the condition is true
     if (score >= 90) {
-        // Code to execute if condition is true
+        std::cout << "Excellent!" << std::endl;
     }
 
-    // if...else statement
+    // if...else — one branch for true, another for false
     if (score >= 50) {
-        // Code to execute if condition is true
+        std::cout << "Pass" << std::endl;
     } else {
-        // Code to execute if condition is false
+        std::cout << "Fail" << std::endl;
     }
 
-    // if...else if...else statement
+    // if...else if...else — check multiple conditions in order
     if (score >= 90) {
-        // Code to execute if condition1 is true
+        std::cout << "A" << std::endl;
     } else if (score >= 75) {
-        // Code to execute if condition2 is true
+        std::cout << "B" << std::endl;
     } else {
-        // Code to execute if all conditions are false
+        std::cout << "C or below" << std::endl;
     }
 
-    // Ternary operator
+    // Ternary operator — compact single-expression conditional
+    // Syntax: condition ? value_if_true : value_if_false
     std::string result = (score >= 50) ? "Pass" : "Fail";
 
     return 0;
 }
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/language/if>
+📖 Reference: [C++ — if statement](https://en.cppreference.com/w/cpp/language/if)
 
 ---
 
-### Loops
-
-Loops are statements that allow you to execute a block of code repeatedly. There are several types of loops in C++:
-
-- for loop
-- while loop
-- range-based for loop (similar to Python's `for x in iterable`)
+### 3.6 Loops
 
 ```cpp
 #include <iostream>
 #include <vector>
 
 int main() {
-    // for loop with index
+    // Classic for loop — useful when you need the index
     for (int i = 0; i < 10; i++) {
-        // Code to execute repeatedly
+        std::cout << i << std::endl;
     }
 
-    // range-based for loop with iterable
+    // Range-based for loop — cleaner when you just need each element
     std::vector<int> numbers = {1, 2, 3, 4, 5};
     for (const auto& element : numbers) {
-        // Code to execute repeatedly
+        // const auto& avoids copying each element
+        std::cout << element << std::endl;
     }
 
-    // while loop
+    // while loop — repeat while a condition holds
     int count = 0;
     while (count < 3) {
-        // Code to execute repeatedly
-        count++;
+        std::cout << count << std::endl;
+        count++;  // don't forget to update the condition variable
     }
 
     return 0;
 }
 ```
 
-C++ also has `break` to exit a loop early and `continue` to skip to the next iteration.
+C++ also supports `break` (exit a loop early) and `continue` (skip to the next iteration).
 
-> Resource: <https://en.cppreference.com/w/cpp/language/for>
+📖 Reference: [C++ — for statement](https://en.cppreference.com/w/cpp/language/for)
 
 ---
 
-### Functions
+### 3.7 Functions
 
-A function is a block of code that performs a specific task. It is like a machine that takes in some input, performs some operations and returns some output. A function is a reusable piece of code you can use in your program.
+A function is a named, reusable block of code that takes input (parameters), performs some work, and returns output.
+
+**Regular function:**
 
 ```cpp
 #include <iostream>
 #include <string>
 
-// A function named "add" that takes in two numbers and returns their sum
+// Return type comes first, then the function name, then parameters in parentheses
 int add(int a, int b) {
-    return a + b;
+    return a + b;  // the value after return is sent back to the caller
 }
 
-std::cout << add(1, 2) << std::endl; // 3
-
-// A function named "greet" that takes in a name and returns a greeting
 std::string greet(const std::string& name) {
+    // const std::string& means: accept a string without copying it
     return "Hello, " + name + "!";
 }
 
-std::cout << greet("John") << std::endl; // Hello, John!
+int main() {
+    std::cout << add(1, 2) << std::endl;    // 3
+    std::cout << greet("John") << std::endl; // Hello, John!
+    return 0;
+}
 ```
 
-C++ also supports lambda functions (anonymous functions) for simple operations:
+**Lambda function (anonymous function):** useful for short, inline logic — especially when passing a function to an algorithm.
 
 ```cpp
 #include <iostream>
 
 int main() {
-    // A lambda function that takes in two numbers and returns their sum
+    // Syntax: [capture](parameters) { body }
+    // The [] is the capture list — leave empty if the lambda doesn't use outer variables
     auto add = [](int a, int b) { return a + b; };
+    std::cout << add(1, 2) << std::endl;  // 3
 
-    std::cout << add(1, 2) << std::endl; // 3
-
-    // A lambda function that takes in a name and returns a greeting
     auto greet = [](const std::string& name) { return "Hello, " + name + "!"; };
+    std::cout << greet("John") << std::endl;  // Hello, John!
 
-    std::cout << greet("John") << std::endl; // Hello, John!
+    return 0;
 }
 ```
 
-Functions can have default parameter values:
+**Default parameters:** a parameter with a default value is optional at the call site.
 
 ```cpp
-// A function with a default parameter
+// If the caller doesn't pass a name, "World" is used automatically
 std::string greet(const std::string& name = "World") {
     return "Hello, " + name + "!";
 }
@@ -281,79 +276,83 @@ std::string greet(const std::string& name = "World") {
 // greet("John")  => "Hello, John!"
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/language/functions>
+📖 Reference: [C++ — Functions](https://en.cppreference.com/w/cpp/language/functions)
 
 ---
 
-### std::format (Formatted String Literals)
+### 3.8 `std::format`
 
-`std::format` allows you to embed expressions inside string literals using curly braces `{}`. It is available in C++20 and provides a concise and readable way to format strings.
+`std::format` (C++20) embeds values directly into a string using `{}` placeholders — similar to Python f-strings.
 
 ```cpp
 #include <iostream>
 #include <format>
+#include <string>
 
 int main() {
     std::string name = "John";
     int age = 30;
 
-    // Using std::format
+    // {} is replaced with the corresponding argument in order
     std::string greeting = std::format("Hello, my name is {} and I am {} years old", name, age);
-
     std::cout << greeting << std::endl;
     // Hello, my name is John and I am 30 years old
 
-    // std::format can include expressions
+    // Expressions can be used directly as arguments
     std::cout << std::format("Next year I will be {} years old", age + 1) << std::endl;
     // Next year I will be 31 years old
+
+    return 0;
 }
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/utility/format/format>
+📖 Reference: [C++ — std::format](https://en.cppreference.com/w/cpp/utility/format/format)
 
 ---
 
-### Classes
+### 3.9 Classes
 
-A class is a blueprint for creating objects. It defines a set of properties and methods that the created objects will have. In C++, you can define a class using the `class` keyword.
+A class is a blueprint for creating objects. It bundles data (member variables) and behaviour (methods) together. In C++, members are `private` by default — use `public` to expose them to callers.
 
 ```cpp
 #include <iostream>
 #include <string>
 #include <format>
 
-// Defining a class named Person
 class Person {
 private:
+    // Private members — only accessible inside the class
     std::string name;
     int age;
 
 public:
-    // Constructor
+    // Constructor — called automatically when you create a Person object.
+    // The initialiser list ": name(name), age(age)" sets the members
+    // before the constructor body runs (more efficient than assigning inside {})
     Person(const std::string& name, int age) : name(name), age(age) {}
 
-    // A method to greet the person
+    // const after the method signature means this method won't modify the object
     std::string greet() const {
         return std::format("Hello, my name is {} and I am {} years old", name, age);
     }
 };
 
 int main() {
-    // Creating an instance of the Person class
     Person john("John", 30);
-
     std::cout << john.greet() << std::endl;
     // Hello, my name is John and I am 30 years old
+
+    return 0;
 }
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/language/classes>
+📖 Reference: [C++ — Classes](https://en.cppreference.com/w/cpp/language/classes)
 
 ---
 
-### Vectors
+### 3.10 Vectors
 
-A vector is a data structure that stores an ordered collection of values. It is like a box that can hold multiple values and each value is assigned an index starting from 0. You can use a value's index to access its value. Vectors are mutable, meaning you can change their contents.
+A `std::vector` is a resizable, ordered container. Elements are accessed by zero-based index.
 
 ```cpp
 #include <iostream>
@@ -361,19 +360,17 @@ A vector is a data structure that stores an ordered collection of values. It is 
 #include <string>
 
 int main() {
-    // A vector of numbers
     std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::vector<std::string> fruits = {"Apple", "Banana", "Cherry"};
 
-    // A vector of strings
-    std::vector<std::string> fruits = {"Apple", "Banana", "Cherry", "Durian", "Elderberry"};
+    std::cout << fruits[0] << std::endl;      // Apple  (index from the front)
+    std::cout << numbers.back() << std::endl; // 5      (.back() returns the last element)
 
-    // Accessing elements
-    std::cout << fruits[0] << std::endl;    // Apple
-    std::cout << numbers.back() << std::endl; // 5 (last element)
+    return 0;
 }
 ```
 
-A 2D vector (nested vector) is a data structure that represents a matrix or a grid-like structure with rows and columns.
+**2D vectors** — a vector of vectors, useful for grids or matrices:
 
 ```cpp
 #include <iostream>
@@ -381,41 +378,34 @@ A 2D vector (nested vector) is a data structure that represents a matrix or a gr
 #include <string>
 
 int main() {
-    // A 2D vector of numbers
-    std::vector<std::vector<int>> numbers = {
+    // Each inner vector is a row
+    std::vector<std::vector<int>> grid = {
         {1, 2, 3},
         {4, 5, 6}
     };
 
-    // A 2D vector of strings
-    std::vector<std::vector<std::string>> fruits = {
-        {"Apple", "Banana", "Cherry"},
-        {"Durian", "Elderberry", "Fig"}
+    // Access with [row][column]
+    std::cout << grid[0][0] << std::endl; // 1  (row 0, column 0)
+    std::cout << grid[1][2] << std::endl; // 6  (row 1, column 2)
+
+    // Inner vectors don't have to be the same length
+    std::vector<std::vector<int>> jagged = {
+        {1, 2, 3},
+        {4, 5},
+        {6}
     };
 
-    std::cout << numbers[0][0] << std::endl; // 1
-    std::cout << fruits[1][2] << std::endl;  // Fig
+    return 0;
 }
 ```
 
-Here is an example of a 2D vector with vectors of different lengths.
-
-```cpp
-// A 2D vector of different lengths
-std::vector<std::vector<int>> mixed = {
-    {1, 2, 3},
-    {4, 5},
-    {6}
-};
-```
-
-> Resource: <https://en.cppreference.com/w/cpp/container/vector>
+📖 Reference: [C++ — std::vector](https://en.cppreference.com/w/cpp/container/vector)
 
 ---
 
-### Structured Bindings
+### 3.11 Structured Bindings
 
-Structured bindings are a convenient way to extract values from pairs, tuples, or structs into distinct variables. They can make your code cleaner and more readable. Here are some examples of using structured bindings.
+Structured bindings (C++17) let you unpack a pair, tuple, or struct into named variables in one line — making iteration over maps much cleaner.
 
 ```cpp
 #include <iostream>
@@ -423,32 +413,37 @@ Structured bindings are a convenient way to extract values from pairs, tuples, o
 #include <map>
 
 int main() {
-    // Pair unpacking
+    // Unpack a pair into two named variables
     std::pair<std::string, int> person = {"John", 30};
-    auto [name, age] = person;
+    auto [name, age] = person;  // name = "John", age = 30
 
     std::cout << name << std::endl; // John
-    std::cout << age << std::endl;  // 30
+    std::cout << age  << std::endl; // 30
 
-    // Tuple unpacking
+    // Unpack a tuple (works for any number of elements)
     auto coords = std::make_tuple(10, 20, 30);
-    auto [x, y, z] = coords;
+    auto [x, y, z] = coords;  // x = 10, y = 20, z = 30
 
-    // Iterating over a map with structured bindings
+    // Structured bindings shine when iterating over a map
+    // Each entry is a std::pair<key, value> — binding gives it readable names
     std::map<std::string, int> scores = {{"Alice", 95}, {"Bob", 82}};
     for (const auto& [student, score] : scores) {
         std::cout << student << ": " << score << std::endl;
     }
+    // Alice: 95
+    // Bob: 82
+
+    return 0;
 }
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/language/structured_binding>
+📖 Reference: [C++ — Structured Bindings](https://en.cppreference.com/w/cpp/language/structured_binding)
 
 ---
 
-### Unpacking Operator
+### 3.12 Copying and Merging Collections
 
-The unpacking operators (`...` for parameter packs, initialiser lists for containers) allow you to expand collections into individual elements. They are useful for copying vectors or maps, merging collections, and passing multiple arguments to functions. Here are some examples.
+Unlike Python's `*` unpacking operator, C++ uses assignment for copies and `.insert()` for merging.
 
 ```cpp
 #include <iostream>
@@ -456,35 +451,44 @@ The unpacking operators (`...` for parameter packs, initialiser lists for contai
 #include <map>
 
 int main() {
-    // Copying a vector
+    // --- Vectors ---
+
     std::vector<int> numbers = {1, 2, 3};
-    std::vector<int> copy_of_numbers = numbers;
-    // copy_of_numbers: {1, 2, 3}
 
-    // Merging vectors
+    // Copy: assignment creates an independent copy
+    std::vector<int> copy_of_numbers = numbers;  // {1, 2, 3}
+
+    // Merge: insert the contents of one vector into another
     std::vector<int> more_numbers = {4, 5, 6};
-    std::vector<int> merged_numbers = numbers;
-    merged_numbers.insert(merged_numbers.end(), more_numbers.begin(), more_numbers.end());
-    // merged_numbers: {1, 2, 3, 4, 5, 6}
+    std::vector<int> merged = numbers;
+    // insert(position, range_begin, range_end)
+    merged.insert(merged.end(), more_numbers.begin(), more_numbers.end());
+    // merged: {1, 2, 3, 4, 5, 6}
 
-    // Copying a map
-    std::map<std::string, int> person = {{"name_id", 1}, {"age", 30}};
+    // --- Maps ---
+
+    std::map<std::string, int> person = {{"age", 30}, {"score", 95}};
+
+    // Copy: same as vectors — assignment copies the whole map
     std::map<std::string, int> copy_of_person = person;
 
-    // Merging maps
-    std::map<std::string, int> more_details = {{"is_active", 1}, {"score", 95}};
+    // Merge: insert all entries from another map
+    std::map<std::string, int> extra = {{"level", 5}, {"bonus", 10}};
     std::map<std::string, int> merged_person = person;
-    merged_person.insert(more_details.begin(), more_details.end());
+    merged_person.insert(extra.begin(), extra.end());
+    // merged_person: {age:30, bonus:10, level:5, score:95}
+
+    return 0;
 }
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/language/parameter_pack>
+📖 Reference: [C++ — Parameter pack](https://en.cppreference.com/w/cpp/language/parameter_pack)
 
 ---
 
-### Transform
+### 3.13 `std::transform`
 
-`std::transform` is a standard algorithm that transforms a container by applying a function to each element and writing the result to an output container. Here is an example of using `std::transform`.
+`std::transform` applies a function to every element in a container and writes the results to an output container — equivalent to Python's `map()`.
 
 ```cpp
 #include <iostream>
@@ -492,43 +496,44 @@ int main() {
 #include <algorithm>
 
 int main() {
-    // A vector of numbers
     std::vector<int> numbers = {1, 2, 3, 4, 5};
 
-    // Transform
-    std::vector<int> numbers_squared(numbers.size());
-    std::transform(numbers.begin(), numbers.end(), numbers_squared.begin(),
+    // Pre-allocate the output vector to the same size as the input
+    std::vector<int> squared(numbers.size());
+
+    // transform(input_begin, input_end, output_begin, function)
+    std::transform(numbers.begin(), numbers.end(), squared.begin(),
                    [](int num) { return num * num; });
+    // squared: {1, 4, 9, 16, 25}
 
-    // numbers_squared: {1, 4, 9, 16, 25}
+    // You can also store the lambda separately and pass it by name
+    auto cube = [](int num) { return num * num * num; };
+    std::vector<int> cubed(numbers.size());
+    std::transform(numbers.begin(), numbers.end(), cubed.begin(), cube);
+    // cubed: {1, 8, 27, 64, 125}
 
-    // Passing a named function to transform
-    auto square = [](int num) { return num * num; };
-    std::transform(numbers.begin(), numbers.end(), numbers_squared.begin(), square);
-
-    // numbers_squared: {1, 4, 9, 16, 25}
+    return 0;
 }
 ```
 
-Here is before and after execution model of `std::transform`:
+Execution model:
 
-```bash
-Input vector       Callback                Output vector
-
-index 0: 1  ─────▶ [](int n){ n*n } ─────▶ index 0: 1
-index 1: 2  ─────▶ [](int n){ n*n } ─────▶ index 1: 4
-index 2: 3  ─────▶ [](int n){ n*n } ─────▶ index 2: 9
-index 3: 4  ─────▶ [](int n){ n*n } ─────▶ index 3: 16
-index 4: 5  ─────▶ [](int n){ n*n } ─────▶ index 4: 25
+```
+Input          Callback              Output
+1  ──────────▶ [](int n){ n*n } ───▶ 1
+2  ──────────▶ [](int n){ n*n } ───▶ 4
+3  ──────────▶ [](int n){ n*n } ───▶ 9
+4  ──────────▶ [](int n){ n*n } ───▶ 16
+5  ──────────▶ [](int n){ n*n } ───▶ 25
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/algorithm/transform>
+📖 Reference: [C++ — std::transform](https://en.cppreference.com/w/cpp/algorithm/transform)
 
 ---
 
-### Filter
+### 3.14 `std::copy_if`
 
-`std::copy_if` is a standard algorithm that filters a container by copying only elements satisfying a condition into an output container. Here is an example of using `std::copy_if`.
+`std::copy_if` copies only the elements that satisfy a predicate into a new container — equivalent to Python's `filter()`.
 
 ```cpp
 #include <iostream>
@@ -536,43 +541,44 @@ index 4: 5  ─────▶ [](int n){ n*n } ─────▶ index 4: 25
 #include <algorithm>
 
 int main() {
-    // A vector of numbers
     std::vector<int> numbers = {1, 2, 3, 4, 5};
 
-    // Filter
-    std::vector<int> even_numbers;
-    std::copy_if(numbers.begin(), numbers.end(), std::back_inserter(even_numbers),
+    std::vector<int> evens;
+
+    // copy_if(input_begin, input_end, output_inserter, predicate)
+    // std::back_inserter grows the output vector automatically as elements are added
+    std::copy_if(numbers.begin(), numbers.end(), std::back_inserter(evens),
                  [](int num) { return num % 2 == 0; });
+    // evens: {2, 4}
 
-    // even_numbers: {2, 4}
-
-    // Passing a named function to copy_if
+    // Named predicate — identical result, just more readable
     auto is_even = [](int num) { return num % 2 == 0; };
-    std::copy_if(numbers.begin(), numbers.end(), std::back_inserter(even_numbers), is_even);
+    std::vector<int> evens2;
+    std::copy_if(numbers.begin(), numbers.end(), std::back_inserter(evens2), is_even);
+    // evens2: {2, 4}
 
-    // even_numbers: {2, 4}
+    return 0;
 }
 ```
 
-Here is before and after execution model of `std::copy_if`:
+Execution model:
 
-```bash
-Input vector       Callback                        Output vector
-
-index 0: 1  ─────▶ [](int n){ n % 2 == 0 } ─────▶ removed
-index 1: 2  ─────▶ [](int n){ n % 2 == 0 } ─────▶ index 0: 2
-index 2: 3  ─────▶ [](int n){ n % 2 == 0 } ─────▶ removed
-index 3: 4  ─────▶ [](int n){ n % 2 == 0 } ─────▶ index 1: 4
-index 4: 5  ─────▶ [](int n){ n % 2 == 0 } ─────▶ removed
+```
+Input          Predicate                    Output
+1  ──────────▶ [](int n){ n%2==0 } ───────▶ removed
+2  ──────────▶ [](int n){ n%2==0 } ───────▶ 2
+3  ──────────▶ [](int n){ n%2==0 } ───────▶ removed
+4  ──────────▶ [](int n){ n%2==0 } ───────▶ 4
+5  ──────────▶ [](int n){ n%2==0 } ───────▶ removed
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/algorithm/copy>
+📖 Reference: [C++ — std::copy_if](https://en.cppreference.com/w/cpp/algorithm/copy)
 
 ---
 
-### Reduce
+### 3.15 `std::accumulate`
 
-`std::accumulate` is a function from `<numeric>` that reduces a container to a single value by applying a function to each element and returning a single value. Here is an example of using `std::accumulate`.
+`std::accumulate` (from `<numeric>`) reduces a container to a single value by repeatedly applying a function — equivalent to Python's `reduce()`.
 
 ```cpp
 #include <iostream>
@@ -580,41 +586,41 @@ index 4: 5  ─────▶ [](int n){ n % 2 == 0 } ─────▶ remove
 #include <numeric>
 
 int main() {
-    // A vector of numbers
     std::vector<int> numbers = {1, 2, 3, 4, 5};
 
-    // Accumulate with initial value of 0
+    // accumulate(begin, end, initial_value, function)
+    // Starts with the initial value, then applies the function to each element
     int total = std::accumulate(numbers.begin(), numbers.end(), 0,
                                 [](int acc, int num) { return acc + num; });
+    std::cout << total << std::endl; // 15  (0+1+2+3+4+5)
 
-    std::cout << total << std::endl; // 15
-
-    // Passing a named function to accumulate with initial value of 5
+    // A different initial value shifts the result
     auto add = [](int acc, int num) { return acc + num; };
     int total2 = std::accumulate(numbers.begin(), numbers.end(), 5, add);
+    std::cout << total2 << std::endl; // 20  (5+1+2+3+4+5)
 
-    std::cout << total2 << std::endl; // 20
+    return 0;
 }
 ```
 
-Here is before and after execution model of `std::accumulate` (with initial value 5):
+Execution model (initial value = 5):
 
-```bash
-Input vector       Callback                                 Accumulator value
-index 0: 1  ─────▶ [](int acc, int n){ acc + n } ─────▶ 5 + 1 = 6
-index 1: 2  ─────▶ [](int acc, int n){ acc + n } ─────▶ 6 + 2 = 8
-index 2: 3  ─────▶ [](int acc, int n){ acc + n } ─────▶ 8 + 3 = 11
-index 3: 4  ─────▶ [](int acc, int n){ acc + n } ─────▶ 11 + 4 = 15
-index 4: 5  ─────▶ [](int acc, int n){ acc + n } ─────▶ 15 + 5 = 20
+```
+Input          Callback                          Accumulator
+1  ──────────▶ [](int acc, int n){ acc+n } ────▶ 5  + 1  = 6
+2  ──────────▶ [](int acc, int n){ acc+n } ────▶ 6  + 2  = 8
+3  ──────────▶ [](int acc, int n){ acc+n } ────▶ 8  + 3  = 11
+4  ──────────▶ [](int acc, int n){ acc+n } ────▶ 11 + 4  = 15
+5  ──────────▶ [](int acc, int n){ acc+n } ────▶ 15 + 5  = 20
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/algorithm/accumulate>
+📖 Reference: [C++ — std::accumulate](https://en.cppreference.com/w/cpp/algorithm/accumulate)
 
 ---
 
-### Maps
+### 3.16 Maps
 
-A map is a data structure that stores a collection of key-value pairs. It is like a box that can hold multiple key-value pairs, assigning each key a value. You can use the key of a key-value pair to access its value. Maps are mutable.
+A `std::map` stores key-value pairs sorted by key. Keys must be unique. Access a value by its key using `[]` or `.at()`.
 
 ```cpp
 #include <iostream>
@@ -622,238 +628,229 @@ A map is a data structure that stores a collection of key-value pairs. It is lik
 #include <string>
 
 int main() {
-    // A map with key-value pairs
+    // Initialise with brace syntax
     std::map<std::string, int> person = {
         {"age", 25},
         {"score", 95}
     };
 
-    std::cout << person["age"] << std::endl;   // 25
-    std::cout << person["score"] << std::endl; // 95
+    // Access by key — [] inserts a default value if the key doesn't exist
+    std::cout << person["age"] << std::endl;    // 25
 
-    // Alternative access method
-    std::cout << person.at("age") << std::endl; // 25
+    // .at() is safer — throws an exception if the key is missing
+    std::cout << person.at("score") << std::endl; // 95
+
+    // Add or update an entry
+    person["level"] = 3;
+
+    return 0;
 }
 ```
 
-Here is another example of creating a map with variables.
+Maps can hold vector values:
 
 ```cpp
-#include <map>
-#include <string>
-
-int main() {
-    std::string name = "John";
-    int age = 25;
-    bool is_male = true;
-
-    // Using map with string keys
-    std::map<std::string, std::string> person_str = {
-        {"name", name},
-        {"status", "active"}
-    };
-}
-```
-
-Here is another example of a map with key-value pairs of different value types using `std::variant` or separate maps.
-
-```cpp
-#include <iostream>
 #include <map>
 #include <vector>
 #include <string>
 
 int main() {
-    // A map with a vector value
+    // Map where each value is a vector of strings
     std::map<std::string, std::vector<std::string>> person = {
         {"favourite_fruits", {"Apple", "Banana", "Cherry"}}
     };
 
     std::cout << person["favourite_fruits"][0] << std::endl; // Apple
+
+    return 0;
 }
 ```
 
-You can have a vector of maps or a map with vectors. Here is an example of a vector of maps.
+A vector of maps is useful for storing collections of records:
 
 ```cpp
-#include <iostream>
 #include <vector>
 #include <map>
 #include <string>
 
 int main() {
-    // A vector of maps
     std::vector<std::map<std::string, int>> people = {
         {{"age", 25}, {"score", 95}},
         {{"age", 20}, {"score", 82}}
     };
 
-    std::cout << people[0]["age"] << std::endl;   // 25
+    std::cout << people[0]["age"]   << std::endl; // 25
     std::cout << people[1]["score"] << std::endl; // 82
+
+    return 0;
 }
 ```
 
-There is an alternative way to create a map by inserting elements one by one.
+> We use the map initialiser list syntax `{}` in this course rather than inserting entries one by one.
 
-```cpp
-#include <map>
-#include <string>
-
-int main() {
-    // A map using insert
-    std::map<std::string, int> person;
-    person["age"] = 25;
-    person["score"] = 95;
-    person["is_active"] = 1;
-}
-```
-
-In this course, we will use the map initialiser list syntax to create maps.
-
-> Resource: <https://en.cppreference.com/w/cpp/container/map>
+📖 Reference: [C++ — std::map](https://en.cppreference.com/w/cpp/container/map)
 
 ---
 
-### Erase-Remove Idiom
+### 3.17 Erase-Remove Idiom
 
-`std::copy_if` produces a filtered copy of a container. Sometimes you need to filter a container **in-place**. Removing elements from an existing vector without creating a new one. The erase-remove idiom does this in two steps.
+`std::copy_if` produces a **filtered copy**. When you need to remove elements from an existing vector **in-place**, use the erase-remove idiom instead. It works in two steps:
 
-`std::remove_if` moves all elements that fail the predicate to the end of the vector and returns an iterator pointing to the first of those "dead" elements. The vector's size has not changed yet. The unwanted elements are still there. You then call `.erase()` with that iterator to actually shrink the vector.
+1. `std::remove_if` shifts unwanted elements to the end and returns an iterator to the first unwanted element — the vector's size is unchanged at this point.
+2. `.erase()` truncates the vector at that iterator, actually removing the elements.
 
 ```cpp
 #include <vector>
 #include <algorithm>
 
-std::vector<int> numbers = {1, 2, 3, 4, 5, 6};
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 6};
 
-// Remove all odd numbers in-place
-numbers.erase(
-    std::remove_if(numbers.begin(), numbers.end(),
-                   [](int n) { return n % 2 != 0; }),
-    numbers.end()
-);
+    // Step 1 + 2 combined: remove all odd numbers in-place
+    numbers.erase(
+        std::remove_if(numbers.begin(), numbers.end(),
+                       [](int n) { return n % 2 != 0; }),  // predicate: true = remove
+        numbers.end()
+    );
+    // numbers: {2, 4, 6}
 
-// numbers: {2, 4, 6}
+    return 0;
+}
 ```
 
-Here is a visualisation of the two steps:
+Visualisation of the two steps:
 
-```bash
+```
 Before:                  {1, 2, 3, 4, 5, 6}
 After std::remove_if:    {2, 4, 6, ?, ?, ?}  ← iterator points here
 After .erase():          {2, 4, 6}
 ```
 
-| Approach                    | When to use                                  |
-| --------------------------- | -------------------------------------------- |
-| `std::copy_if` => new vector | Keep the original; work with a filtered copy |
-| erase-remove idiom          | Modify the existing vector in-place          |
+| Approach | When to use |
+|---|---|
+| `std::copy_if` → new vector | Keep the original; work with a filtered copy |
+| Erase-remove idiom | Modify the existing vector in-place |
 
-> Resource: <https://en.cppreference.com/w/cpp/algorithm/remove>
+📖 Reference: [C++ — std::remove_if](https://en.cppreference.com/w/cpp/algorithm/remove)
 
 ---
 
-### STL Search Algorithms
+### 3.18 STL Search Algorithms
 
-Several tasks require finding elements in a container — the maximum, the minimum, or the first element matching a condition. These algorithms all return **iterators**, so you need to dereference them with `*` to get the actual value.
+Several tasks require finding elements in a container. These algorithms all return **iterators** — dereference with `*` to get the actual value, or use `->` to access a member.
 
-#### std::max_element
+#### `std::max_element`
 
-Returns an iterator to the largest element in a range. Supply a comparator lambda to compare structs by a specific field.
+Returns an iterator to the largest element. Supply a comparator lambda to compare structs by a specific field.
 
 ```cpp
 #include <algorithm>
 #include <vector>
 
-std::vector<int> numbers = {3, 1, 4, 1, 5, 9, 2};
+int main() {
+    std::vector<int> numbers = {3, 1, 4, 1, 5, 9, 2};
 
-// Basic usage — find largest int
-auto it = std::max_element(numbers.begin(), numbers.end());
-// *it == 9
+    // Without a comparator — finds the largest int
+    auto it = std::max_element(numbers.begin(), numbers.end());
+    // *it == 9  (dereference to get the value)
 
-// With a struct — find employee with highest salary
-struct Employee { std::string name; double salary; };
-std::vector<Employee> team = {{"Alice", 85000}, {"Bob", 92000}};
+    // With a struct and a custom comparator
+    struct Employee { std::string name; double salary; };
+    std::vector<Employee> team = {{"Alice", 85000}, {"Bob", 92000}};
 
-auto top = std::max_element(team.begin(), team.end(),
-    [](const Employee& a, const Employee& b) {
-        return a.salary < b.salary;  // comparator: a < b
-    });
+    // The comparator defines what "less than" means for the comparison
+    // std::max_element picks the element for which no other is "greater"
+    auto top = std::max_element(team.begin(), team.end(),
+        [](const Employee& a, const Employee& b) {
+            return a.salary < b.salary;  // a < b → Bob wins (highest salary)
+        });
 
-// *top is the Employee struct: {"Bob", 92000}
-// top->name   == "Bob"
-// top->salary == 92000
+    // top is an iterator; use -> to access struct members
+    std::cout << top->name   << std::endl; // Bob
+    std::cout << top->salary << std::endl; // 92000
+
+    return 0;
+}
 ```
 
-> Always check that the iterator is not `.end()` before dereferencing — this would happen if the vector is empty.
+> Always check the iterator is not `.end()` before dereferencing — `.end()` is returned for an empty range.
 
-#### std::min_element
+#### `std::min_element`
 
-Identical to `std::max_element` but returns an iterator to the smallest element. The comparator logic is the same.
+Identical to `std::max_element` but returns the smallest element. The comparator logic is the same.
 
-#### std::find_if
+#### `std::find_if`
 
-Returns an iterator to the first element for which a predicate returns true.
+Returns an iterator to the **first** element for which a predicate returns true.
 
 ```cpp
 #include <algorithm>
+#include <vector>
 
-std::vector<int> numbers = {1, 3, 5, 4, 7};
+int main() {
+    std::vector<int> numbers = {1, 3, 5, 4, 7};
 
-// Find first even number
-auto it = std::find_if(numbers.begin(), numbers.end(),
-    [](int n) { return n % 2 == 0; });
+    auto it = std::find_if(numbers.begin(), numbers.end(),
+        [](int n) { return n % 2 == 0; });  // first even number
 
-if (it != numbers.end()) {
-    // *it == 4
+    if (it != numbers.end()) {
+        std::cout << *it << std::endl; // 4
+    }
+
+    return 0;
 }
 ```
 
 #### Quick reference
 
-| Algorithm                     | What it returns                        |
-| ----------------------------- | -------------------------------------- |
-| `std::max_element(b, e, cmp)` | Iterator to the largest element        |
-| `std::min_element(b, e, cmp)` | Iterator to the smallest element       |
-| `std::find_if(b, e, pred)`    | Iterator to the first matching element |
-| `std::count_if(b, e, pred)`   | Count of elements matching predicate   |
-| `std::any_of(b, e, pred)`     | `true` if at least one element matches |
-| `std::all_of(b, e, pred)`     | `true` if every element matches        |
+| Algorithm | What it returns |
+|---|---|
+| `std::max_element(b, e, cmp)` | Iterator to the largest element |
+| `std::min_element(b, e, cmp)` | Iterator to the smallest element |
+| `std::find_if(b, e, pred)` | Iterator to the first matching element |
+| `std::count_if(b, e, pred)` | Count of elements matching the predicate |
+| `std::any_of(b, e, pred)` | `true` if at least one element matches |
+| `std::all_of(b, e, pred)` | `true` if every element matches |
 
-> Resource: <https://en.cppreference.com/w/cpp/algorithm>
+📖 Reference: [C++ — Algorithm library](https://en.cppreference.com/w/cpp/algorithm)
 
 ---
 
-### Sorting
+### 3.19 Sorting
 
-`std::sort` rearranges elements in a range in-place. Without a comparator it sorts in ascending order. Provide a lambda comparator to sort by custom criteria or in descending order.
+`std::sort` rearranges elements in-place. Without a comparator it sorts in ascending order. Provide a lambda to sort by custom criteria or in descending order.
 
 ```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
-std::vector<int> numbers = {5, 2, 8, 1, 9};
+int main() {
+    std::vector<int> numbers = {5, 2, 8, 1, 9};
 
-// Ascending (default)
-std::sort(numbers.begin(), numbers.end());
-// {1, 2, 5, 8, 9}
+    // Default: ascending order
+    std::sort(numbers.begin(), numbers.end());
+    // {1, 2, 5, 8, 9}
 
-// Descending
-std::sort(numbers.begin(), numbers.end(),
-    [](int a, int b) { return a > b; });
-// {9, 8, 5, 2, 1}
+    // Descending: the comparator returns true when a should come before b
+    // Here a > b means larger values come first
+    std::sort(numbers.begin(), numbers.end(),
+        [](int a, int b) { return a > b; });
+    // {9, 8, 5, 2, 1}
 
-// Sort structs by a field
-struct Student { std::string name; double gpa; };
-std::vector<Student> students = {{"Charlie", 3.1}, {"Alice", 3.9}, {"Bob", 3.4}};
+    // Sorting structs by a field
+    struct Student { std::string name; double gpa; };
+    std::vector<Student> students = {{"Charlie", 3.1}, {"Alice", 3.9}, {"Bob", 3.4}};
 
-// Sort by GPA descending (highest first)
-std::sort(students.begin(), students.end(),
-    [](const Student& a, const Student& b) {
-        return a.gpa > b.gpa;
-    });
-// Alice (3.9), Bob (3.4), Charlie (3.1)
+    // Sort by GPA descending — highest first
+    std::sort(students.begin(), students.end(),
+        [](const Student& a, const Student& b) {
+            return a.gpa > b.gpa;
+        });
+    // Alice (3.9), Bob (3.4), Charlie (3.1)
+
+    return 0;
+}
 ```
 
 To get only the top N elements, sort the whole vector and take the first N:
@@ -863,61 +860,73 @@ std::sort(students.begin(), students.end(),
     [](const Student& a, const Student& b) { return a.gpa > b.gpa; });
 
 int n = 2;
+// std::min guards against requesting more elements than exist
 std::vector<Student> top_n(students.begin(),
     students.begin() + std::min(n, (int)students.size()));
+// top_n: Alice, Bob
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/algorithm/sort>
+📖 Reference: [C++ — std::sort](https://en.cppreference.com/w/cpp/algorithm/sort)
 
 ---
 
-### Inheritance & Virtual Functions
+### 3.20 Inheritance & Virtual Functions
 
-Object-oriented programming allows classes to build on one another. A child class inherits all members of its parent class and can override methods to provide specialised behaviour.
+Inheritance lets a child class build on a parent class, reusing its members and overriding methods to provide specialised behaviour.
 
 ```cpp
 #include <iostream>
 #include <string>
 
-// Base class (parent)
+// Base class — defines common interface and shared behaviour
 class Animal {
 protected:
+    // protected: accessible inside this class and in child classes,
+    // but not from outside
     std::string name;
 
 public:
     Animal(const std::string& name) : name(name) {}
 
-    // Regular virtual method — can be overridden
+    // virtual — marks this method as overridable by child classes
     virtual std::string speak() const {
         return name + " makes a sound";
     }
 
-    virtual ~Animal() {}  // Always give base classes a virtual destructor
+    // Always declare the destructor virtual in a base class.
+    // This ensures the correct destructor runs when deleting via a base pointer.
+    virtual ~Animal() {}
 };
 
-// Child class (inherits from Animal)
+// Child class — inherits everything from Animal
 class Dog : public Animal {
 public:
+    // Call the parent constructor via the initialiser list
     Dog(const std::string& name) : Animal(name) {}
 
-    // Override the parent method
+    // override — explicitly marks this as replacing the parent's speak()
+    // The compiler will error if the signature doesn't match the parent
     std::string speak() const override {
         return name + " barks";
     }
 };
 
-Dog d("Rex");
-std::cout << d.speak() << std::endl;  // Rex barks
+int main() {
+    Dog d("Rex");
+    std::cout << d.speak() << std::endl;  // Rex barks
+    return 0;
+}
 ```
 
-#### Pure virtual functions & abstract classes
+#### Pure virtual functions and abstract classes
 
-A pure virtual function (`= 0`) has no implementation in the base class. Any class containing a pure virtual function becomes **abstract** — you cannot create objects of that class directly. Child classes must override every pure virtual function.
+A pure virtual function (`= 0`) has no implementation in the base class. Any class with at least one pure virtual function is **abstract** — you cannot create objects of it directly. Child classes must override every pure virtual function.
 
 ```cpp
+// Shape is abstract — it defines an interface that all shapes must follow
 class Shape {
 public:
-    // Pure virtual — no implementation here
+    // = 0 means "no implementation here; subclasses must provide one"
     virtual double area() const = 0;
     virtual std::string describe() const = 0;
     virtual ~Shape() {}
@@ -928,6 +937,7 @@ class Circle : public Shape {
 public:
     Circle(double r) : radius(r) {}
 
+    // Must implement both pure virtual methods or Circle is also abstract
     double area() const override {
         return 3.14159 * radius * radius;
     }
@@ -937,13 +947,17 @@ public:
     }
 };
 
-Circle c(5.0);  // Cannot create Shape directly. It is abstract
-std::cout << c.area() << std::endl;  // 78.54
+int main() {
+    // Shape s;     // ERROR — cannot instantiate an abstract class
+    Circle c(5.0);
+    std::cout << c.area() << std::endl; // 78.54
+    return 0;
+}
 ```
 
 #### Calling the parent constructor
 
-Use the initialiser list to call the parent's constructor when constructing a child:
+Use the initialiser list to call the parent's constructor before your own initialisation runs:
 
 ```cpp
 class Payment {
@@ -958,7 +972,8 @@ public:
 class CreditCardPayment : public Payment {
     std::string card_number;
 public:
-    // Call Payment's constructor first, then initialise card_number
+    // Payment(...) in the initialiser list runs the parent constructor first,
+    // then card_number(card) initialises the child's own member
     CreditCardPayment(double amount, std::string currency, std::string card)
         : Payment(amount, currency), card_number(card) {}
 };
@@ -966,26 +981,26 @@ public:
 
 #### Key terms
 
-| Term              | Meaning                                                             |
-| ----------------- | ------------------------------------------------------------------- |
-| `virtual`         | Method can be overridden in a child class                           |
-| `= 0`             | Pure virtual — child must implement this                            |
-| `override`        | Explicitly marks a method as overriding (compiler checks this)      |
-| abstract class    | Class with at least one pure virtual method; cannot be instantiated |
-| `protected:`      | Accessible in the class and its children, but not outside           |
-| `virtual ~Base()` | Virtual destructor — always include in base classes                 |
+| Term | Meaning |
+|---|---|
+| `virtual` | Method can be overridden in a child class |
+| `= 0` | Pure virtual — child class must implement this |
+| `override` | Explicitly marks a method as overriding a parent method (compiler-checked) |
+| Abstract class | A class with at least one pure virtual method; cannot be instantiated |
+| `protected:` | Accessible in the class and its children, but not from outside |
+| `virtual ~Base()` | Virtual destructor — always include in base classes |
 
-> Resource: <https://en.cppreference.com/w/cpp/language/virtual>
+📖 Reference: [C++ — Virtual functions](https://en.cppreference.com/w/cpp/language/virtual)
 
 ---
 
-### Smart Pointers
+### 3.21 Smart Pointers
 
-Raw pointers require manual memory management with `new` and `delete`. Smart pointers automate this — they free the allocated memory automatically when no longer needed.
+Raw pointers (`new` / `delete`) require manual memory management. Smart pointers automate this — they free memory automatically when no longer needed.
 
-#### std::shared_ptr
+#### `std::shared_ptr`
 
-`shared_ptr` implements reference counting. Multiple `shared_ptr`s can own the same object; the object is destroyed when the last owner goes out of scope. Always create them with `std::make_shared`.
+`shared_ptr` uses reference counting: multiple `shared_ptr`s can share ownership of one object. The object is destroyed when the last owner goes out of scope. Always create them with `std::make_shared`.
 
 ```cpp
 #include <memory>
@@ -997,23 +1012,31 @@ public:
     Dog(std::string n) : name(n) {}
 };
 
-// Always create with std::make_shared (safer and more efficient than new)
-auto dog = std::make_shared<Dog>("Rex");
+int main() {
+    // make_shared allocates the object and wraps it in a shared_ptr
+    // Prefer make_shared over "new" — it's safer and more efficient
+    auto dog = std::make_shared<Dog>("Rex");
 
-// Access members the same way as a pointer
-std::cout << dog->name << std::endl;  // Rex
+    // Access members with -> just like a raw pointer
+    std::cout << dog->name << std::endl;  // Rex
 
-// Share ownership — both point to the same Dog
-auto same_dog = dog;
+    // Both variables now point to the same Dog — the count is 2
+    auto same_dog = dog;
 
-// When both go out of scope, Dog is automatically destroyed
+    // When both go out of scope, the count drops to 0 and Dog is automatically destroyed
+
+    return 0;
+}
 ```
 
-#### Polymorphism with shared_ptr
+#### Polymorphism with `shared_ptr`
 
-Store child-class objects behind a base-class `shared_ptr`. This is the key pattern for holding multiple payment types in a single vector:
+Store child-class objects behind a base-class `shared_ptr`. This lets you hold different payment types in one vector and call virtual methods through the base pointer.
 
 ```cpp
+#include <memory>
+#include <vector>
+
 std::vector<std::shared_ptr<Payment>> transactions;
 
 auto cc     = std::make_shared<CreditCardPayment>(100.0, "USD", "1234");
@@ -1022,7 +1045,7 @@ auto crypto = std::make_shared<CryptoPayment>(500.0, "USD", "0xABC", "Bitcoin");
 transactions.push_back(cc);
 transactions.push_back(crypto);
 
-// Virtual dispatch — calls the correct get_fee() for each type
+// Virtual dispatch — calls the correct get_fee() for each concrete type at runtime
 for (auto& payment : transactions) {
     std::cout << payment->get_fee() << std::endl;
 }
@@ -1030,11 +1053,12 @@ for (auto& payment : transactions) {
 
 #### Getting the type name at runtime
 
-To filter a vector of base-class pointers by their concrete type, add a `virtual get_type()` method to the base class. This is cleaner and more portable than using `typeid`, whose name format varies between compilers.
+Add a virtual `get_type()` method to the base class. This is cleaner and more portable than `typeid`, whose name format varies between compilers.
 
 ```cpp
 class Payment {
 public:
+    // Each child class returns its own type name as a string
     virtual std::string get_type() const = 0;
 };
 
@@ -1043,7 +1067,7 @@ public:
     std::string get_type() const override { return "CreditCardPayment"; }
 };
 
-// Filtering by type
+// Filter a mixed transaction vector to get only credit card payments
 std::vector<std::shared_ptr<Payment>> cc_only;
 std::copy_if(transactions.begin(), transactions.end(), std::back_inserter(cc_only),
     [](const std::shared_ptr<Payment>& p) {
@@ -1051,161 +1075,172 @@ std::copy_if(transactions.begin(), transactions.end(), std::back_inserter(cc_onl
     });
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/memory/shared_ptr>
+📖 Reference: [C++ — std::shared_ptr](https://en.cppreference.com/w/cpp/memory/shared_ptr)
 
 ---
 
-### Timestamps with std::chrono
+### 3.22 Timestamps with `std::chrono`
 
-`std::chrono` is the standard C++ library for time. Use it to capture the current time at the moment an object is constructed.
+`std::chrono` is the standard C++ library for time. Use it to capture the current moment when an object is constructed.
 
 ```cpp
 #include <chrono>
 #include <ctime>
 #include <string>
 
-// Get the current time
-auto now = std::chrono::system_clock::now();
+int main() {
+    // Capture the current time as a time_point
+    auto now = std::chrono::system_clock::now();
 
-// Convert to time_t for formatting
-std::time_t t = std::chrono::system_clock::to_time_t(now);
+    // Convert to time_t so we can format it as a human-readable string
+    std::time_t t = std::chrono::system_clock::to_time_t(now);
 
-// Format as a readable string
-std::string timestamp = std::ctime(&t);  // e.g. "Thu Feb  1 14:22:07 2024"
+    // std::ctime converts to a string like "Thu Feb  1 14:22:07 2024\n"
+    std::string timestamp = std::ctime(&t);
 
-// Storing in a class
-class Payment {
+    return 0;
+}
+```
+
+Storing a timestamp in a class:
+
+```cpp
+class Event {
 protected:
+    // Store the raw time_point — convert to string only when needed
     std::chrono::system_clock::time_point timestamp;
+
 public:
-    Payment(double amount)
-        : timestamp(std::chrono::system_clock::now()) {}
+    Event() : timestamp(std::chrono::system_clock::now()) {}
+    // timestamp is automatically set to "now" whenever an Event is created
 };
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/chrono>
+📖 Reference: [C++ — std::chrono](https://en.cppreference.com/w/cpp/chrono)
 
 ---
 
-### User Input with std::cin
+### 3.23 User Input with `std::cin`
 
-`std::cin` is the standard input stream, used to read values typed at the terminal. It is the input counterpart to `std::cout`.
-
-#### Reading a single value
+`std::cin` reads values typed at the terminal. It is the input counterpart to `std::cout`.
 
 ```cpp
 #include <iostream>
 #include <string>
 
 int main() {
-    int bet;
-    std::cout << "Place your bet: ";
-    std::cin >> bet;  // Reads one whitespace-delimited token
-    std::cout << "You bet " << bet << std::endl;
+    // Reading a single value — stops at whitespace
+    int number;
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+    std::cout << "You entered " << number << std::endl;
+
+    // Reading a full line (including spaces)
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+    std::cout << "You entered: " << sentence << std::endl;
+
+    return 0;
 }
 ```
 
-#### Reading a full line
-
-```cpp
-std::string name;
-std::cout << "Enter your name: ";
-std::getline(std::cin, name);  // Reads until newline
-std::cout << "Hello, " << name << std::endl;
-```
-
-#### Reading input in a game loop
+Reading input in a game loop:
 
 ```cpp
 std::string choice;
 
 while (true) {
-    std::cout << "Hit, stand, or quit? ";
+    std::cout << "Hit or stand? ";
     std::cin >> choice;
 
     if (choice == "hit") {
         // deal a card
     } else if (choice == "stand") {
-        break;
-    } else if (choice == "quit") {
-        return;
+        break;  // exit the loop
     } else {
+        // re-prompt for unrecognised input
         std::cout << "Invalid choice, try again." << std::endl;
     }
 }
 ```
 
-#### Mixing `>>` and `getline`
+**Important: mixing `>>` and `getline`**
 
-`std::cin >>` leaves a newline character in the buffer. If you call `std::getline` immediately after, it reads that leftover newline as an empty string. Fix this with `std::cin.ignore()`:
+`std::cin >>` leaves a newline character in the input buffer. If you call `std::getline` immediately after, it reads that leftover newline as an empty string. Fix this with `std::cin.ignore()`:
 
 ```cpp
-int bet;
-std::cout << "Place your bet: ";
-std::cin >> bet;
-std::cin.ignore();  // Discard the leftover newline
+int age;
+std::cout << "Enter your age: ";
+std::cin >> age;
+std::cin.ignore();  // discard the leftover newline from the buffer
 
 std::string name;
 std::cout << "Enter your name: ";
-std::getline(std::cin, name);  // Now works correctly
+std::getline(std::cin, name);  // now reads the full line correctly
 ```
 
-> Resource: <https://en.cppreference.com/w/cpp/io/cin>
+📖 Reference: [C++ — std::cin](https://en.cppreference.com/w/cpp/io/cin)
 
 ---
 
-### Random Shuffling with std::shuffle
+### 3.24 Random Shuffling with `std::shuffle`
 
-`std::shuffle` randomises the order of elements in a range using a provided random number engine. Use `std::mt19937` seeded from `std::random_device` for a different shuffle each run.
+`std::shuffle` randomises the order of elements in a range. It requires a random number engine — use `std::mt19937` seeded from `std::random_device` for a different result each run.
 
 ```cpp
-#include <algorithm>   // std::shuffle
-#include <random>      // std::mt19937, std::random_device
+#include <algorithm>  // std::shuffle
+#include <random>     // std::mt19937, std::random_device
 #include <vector>
 
-std::vector<int> deck = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int main() {
+    std::vector<int> deck = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-// Create a Mersenne Twister engine seeded from hardware randomness
-std::mt19937 rng(std::random_device{}());
+    // std::random_device{} provides a hardware entropy seed (true randomness)
+    // std::mt19937 is a fast, high-quality pseudo-random engine
+    // Seeding from random_device ensures a different shuffle every run
+    std::mt19937 rng(std::random_device{}());
 
-// Shuffle in-place
-std::shuffle(deck.begin(), deck.end(), rng);
+    // Shuffle the entire deck in-place
+    std::shuffle(deck.begin(), deck.end(), rng);
+    // e.g. {7, 2, 10, 1, 5, 3, 9, 4, 6, 8}
 
-// deck is now in a random order, e.g. {7, 2, 10, 1, 5, 3, 9, 4, 6, 8}
+    return 0;
+}
 ```
 
-| Component              | Purpose                                                 |
-| ---------------------- | ------------------------------------------------------- |
-| `std::random_device{}` | Provides hardware entropy (true randomness) for seeding |
-| `std::mt19937`         | Pseudo-random number engine (fast, high quality)        |
-| `std::shuffle`         | Uses the engine to permute a range uniformly at random  |
+| Component | Purpose |
+|---|---|
+| `std::random_device{}` | Provides hardware entropy for seeding |
+| `std::mt19937` | Pseudo-random number engine (fast, high quality) |
+| `std::shuffle` | Uses the engine to permute a range uniformly at random |
 
-> Resource: <https://en.cppreference.com/w/cpp/algorithm/random_shuffle>
+📖 Reference: [C++ — std::shuffle](https://en.cppreference.com/w/cpp/algorithm/random_shuffle)
 
 ---
 
 ## Exercises
 
-Copy the file `week-01-git-programming-paradigms-c++-1.cpp` into your id730001-s1-26 repository. Open your id730001-s1-26 repository in Visual Studio Code. Open the terminal and compile and run the file:
+Compile and run the starter file:
 
 ```bash
 g++ --std=c++20 -o week-01-git-programming-paradigms-c++-1 week-01-git-programming-paradigms-c++-1.cpp
 ./week-01-git-programming-paradigms-c++-1
 ```
 
-You should see the following output.
+Expected output:
 
-```bash
+```
 Hello, World!
 ```
 
-Learning to use AI tools is an important skill. While AI tools are powerful, you must be aware of the following:
+### AI Usage Guidelines
 
-- If you provide an AI tool with a prompt that is not refined enough, it may generate a not-so-useful response
-- Do not trust the AI tool's responses blindly. You must still use your judgement and may need to do additional research to determine if the response is correct
-- Acknowledge what AI tool you have used. If you use AI to help you with a file, include a comment block at the top of the file
+AI tools are encouraged but use them critically:
 
-Here is an example comment block:
+- Refine your prompts — vague prompts yield vague responses
+- Validate AI output — don't trust it blindly
+- Acknowledge AI usage at the top of any AI-assisted file:
 
 ```cpp
 /*
@@ -1223,9 +1258,11 @@ Here is an example comment block:
 
 ---
 
-### Task 1
+### Task 1 — Data Pipeline
 
-Create a function called `process_data_pipeline` that takes a `std::vector` of structs representing user data and applies a series of transformations using `std::copy_if`, `std::transform` and `std::accumulate`. Each user should be represented using a struct with the following fields:
+Create a function `process_data_pipeline` that takes a `std::vector<User>` and applies a series of transformations using `std::copy_if`, `std::transform`, and `std::accumulate`.
+
+User struct:
 
 ```cpp
 struct User {
@@ -1238,54 +1275,53 @@ struct User {
 };
 ```
 
-Your function should:
+The function should:
 
-1. Filter out users who are inactive (`status != "active"`)
-2. Filter out users under 25 years old
-3. Transform each user to compute `total_spent` (sum of all purchases)
-4. Transform each user to compute `loyalty_years` (2026 - `member_since`)
-5. Transform each user to assign a `tier` based on `total_spent`:
-   - `"Bronze"` if `total_spent < 500`
-   - `"Silver"` if `500 <= total_spent < 1000`
-   - `"Gold"` if `total_spent >= 1000`
-6. Use `std::accumulate` to calculate the total revenue from all qualifying users
-7. Return a `PipelineResult` struct containing:
-   - `processed_users`: vector of processed user data
-   - `total_revenue`: total revenue from `std::accumulate`
-   - `user_count`: number of qualifying users
-   - `average_spending`: total revenue / user count
+1. Filter out users with `status != "active"`
+2. Filter out users under 25
+3. Compute `total_spent` for each user (sum of all purchases)
+4. Compute `loyalty_years` for each user (`2026 - member_since`)
+5. Assign a `tier` based on `total_spent`:
 
-Here is an example of how to use the `process_data_pipeline` function:
+| `total_spent` | Tier |
+|---|---|
+| < 500 | `"Bronze"` |
+| 500 – 999 | `"Silver"` |
+| ≥ 1000 | `"Gold"` |
+
+6. Use `std::accumulate` to calculate total revenue from qualifying users
+7. Return a `PipelineResult` struct with `processed_users`, `total_revenue`, `user_count`, and `average_spending`
 
 ```cpp
 std::vector<User> users = {
-    {1, "Alice", 30, {200, 400, 150}, 2019, "active"},
-    {2, "Bob", 22, {100, 50}, 2021, "active"},
-    {3, "Charlie", 28, {500, 600}, 2020, "inactive"},
-    {4, "Diana", 35, {300, 200, 100}, 2018, "active"}
+    {1, "Alice",   30, {200, 400, 150}, 2019, "active"},
+    {2, "Bob",     22, {100, 50},       2021, "active"},
+    {3, "Charlie", 28, {500, 600},      2020, "inactive"},
+    {4, "Diana",   35, {300, 200, 100}, 2018, "active"},
 };
 
 auto result = process_data_pipeline(users);
-
-// Expected Output:
-
-/*
-processed_users: Alice, total_spent: 750, loyalty_years: 7, tier: Silver, Diana, total_spent: 600, loyalty_years: 8, tier: Silver
-total_revenue: 1350
-user_count: 2
-average_spending: 675.00
-*/
 ```
 
-Bob is excluded because he is under 25. Charlie is excluded because his status is `"inactive"`. Alice's `total_spent` is 200 + 400 + 150 = 750 (Silver tier). Diana's `total_spent` is 300 + 200 + 100 = 600 (Silver tier). Total revenue is 750 + 600 = 1350. Average spending is 1350 / 2 = 675.0.
+Expected output:
+
+```
+processed_users: Alice (total_spent: 750, loyalty_years: 7, tier: Silver),
+                 Diana (total_spent: 600, loyalty_years: 8, tier: Silver)
+total_revenue:   1350
+user_count:      2
+average_spending: 675.00
+```
+
+> Bob is excluded (age < 25). Charlie is excluded (status = `"inactive"`).
 
 ---
 
-### Task 2
+### Task 2 — Organisation Transformer
 
-Create a function called `transform_organisation` that takes a complex nested struct representing an organisation structure and performs deep transformations. The function should:
+Create a function `transform_organisation` that enriches a nested organisation struct with computed statistics.
 
-1. Accept a struct with this structure:
+Input structs:
 
 ```cpp
 struct Employee {
@@ -1297,7 +1333,6 @@ struct Employee {
 struct Team {
     std::string name;
     std::vector<Employee> employees;
-
     // Added by transform:
     double total_salary;
     double avg_performance;
@@ -1308,7 +1343,6 @@ struct Department {
     std::string name;
     double budget;
     std::vector<Team> teams;
-
     // Added by transform:
     int team_count;
     int employee_count;
@@ -1318,7 +1352,6 @@ struct Department {
 struct Organisation {
     std::string company;
     std::vector<Department> departments;
-
     // Added by transform:
     struct Summary {
         int total_departments;
@@ -1330,186 +1363,142 @@ struct Organisation {
 };
 ```
 
-2. Transform the structure to:
-   - Add a `total_salary` field to each team (sum of all employee salaries)
-   - Add an `avg_performance` field to each team (average of all performance scores, rounded to 2 decimal places)
-   - Add a `top_performer` field to each team (employee with highest performance score)
-   - Add a `team_count` field to each department (number of teams)
-   - Add an `employee_count` field to each department (total employees across all teams)
-   - Add a `utilisation_rate` field to each department (total salary across all teams / budget, expressed as a percentage rounded to 2 decimal places)
-   - Add a company-level `summary` struct with:
-     - `total_departments`: count of departments
-     - `total_teams`: count of all teams across all departments
-     - `total_employees`: count of all employees across the entire company
-     - `highest_paid_employee`: the employee struct with the highest salary across the whole company
-     - `departments_over_budget`: list of department names where `utilisation_rate > 80`
+Add to each **team**: `total_salary`, `avg_performance` (rounded to 2 dp), `top_performer`.
 
-3. Use `std::accumulate`, `std::max_element` and range-based loops where appropriate
+Add to each **department**: `team_count`, `employee_count`, `utilisation_rate` (total salary / budget as %, rounded to 2 dp).
 
-For the example above, the Backend team has `total_salary` = 175000 and `avg_performance` = 4.65. The Frontend team has `total_salary` = 80000 and `avg_performance` = 4.2. The Engineering department has `team_count` = 2, `employee_count` = 3 and `utilisation_rate` = 51.0. Since 51.0 is not over 80, `departments_over_budget` would be an empty list.
+Add a company-level **`summary`**: `total_departments`, `total_teams`, `total_employees`, `highest_paid_employee`, `departments_over_budget` (names where `utilisation_rate > 80`).
+
+> Use `std::accumulate`, `std::max_element`, and range-based loops where appropriate.
 
 ```cpp
 Organisation org = {
     "TechCorp",
-    {
+    {{
+        "Engineering", 500000.0,
         {
-            "Engineering", 500000.0,
-            {
-                {"Backend", {{"Alice", 85000, 4.5}, {"Bob", 90000, 4.8}}},
-                {"Frontend", {{"Charlie", 80000, 4.2}}}
-            }
+            {"Backend",  {{"Alice", 85000, 4.5}, {"Bob", 90000, 4.8}}},
+            {"Frontend", {{"Charlie", 80000, 4.2}}}
         }
-    }
+    }}
 };
 
 auto result = transform_organisation(org);
+```
 
-// Expected Output:
+Expected output:
 
-/*
+```
 Company: TechCorp
 
 Department: Engineering
 Budget: $500000.00, Utilisation: 51.00%, Teams: 2, Employees: 3
 
-Team: Backend
-Total Salary: $175000.00, Avg Performance: 4.65
-Top Performer: Bob (4.80)
+  Team: Backend
+  Total Salary: $175000.00, Avg Performance: 4.65, Top Performer: Bob (4.80)
 
-Team: Frontend
-Total Salary: $80000.00, Avg Performance: 4.20
-Top Performer: Charlie (4.20)
+  Team: Frontend
+  Total Salary: $80000.00, Avg Performance: 4.20, Top Performer: Charlie (4.20)
 
 Summary:
-Total Departments: 1
-Total Teams: 2
-Total Employees: 3
-Highest Paid: Bob ($90000.00)
-Departments Over Budget: none
-*/
+  Total Departments: 1, Total Teams: 2, Total Employees: 3
+  Highest Paid: Bob ($90000.00)
+  Departments Over Budget: none
 ```
 
 ---
 
-### Task 3
+### Task 3 — Payment Processing System
 
-Create a payment processing system with the following requirements:
+Build a payment processing system using inheritance and smart pointers.
 
-1. Base Class: `Payment`
-   - Member variables: `amount`, `currency`, `timestamp` (set automatically on construction using `std::chrono::system_clock::now()`), `status` (default `"pending"`)
-   - Methods:
-     - `Payment(double amount, std::string currency = "USD")`
-     - `virtual double get_fee() const = 0` — pure virtual (must be overridden)
-     - `virtual bool process() = 0` — pure virtual
-     - `bool validate() const` — returns `amount > 0`
-     - `double get_total() const` — returns `amount + get_fee()`
-     - `virtual std::string to_string() const` — returns formatted payment info
+**Base class: `Payment`**
 
-2. Child Classes:
-   - `CreditCardPayment(Payment)`:
-     - Additional member: `card_number` (last 4 digits only, stored as `std::string`)
-     - Additional constructor parameter: `card_number`
-     - Fee: 2.9% of amount + $0.30
-     - `process()`: calls `validate()`, calculates total, sets status to `"completed"` and returns true; if validation fails, sets status to `"failed"` and returns false
-   - `CryptoPayment(Payment)`:
-     - Additional members: `wallet_address`, `crypto_type`
-     - Additional constructor parameters: `wallet_address`, `crypto_type`
-     - Fee: 1% of amount, with a minimum fee of $1.00
-     - `process()`: calls `validate()`, sets status to `"completed"` and returns true; if validation fails, sets status to `"failed"` and returns false
-   - `BankTransferPayment(Payment)`:
-     - Additional members: `account_number`, `routing_number`
-     - Additional constructor parameters: `account_number`, `routing_number`
-     - Fee: flat $5.00 for amounts under $1000, otherwise 0.5% of amount
-     - `process()`: calls `validate()`, sets status to `"completed"` and returns true; if validation fails, sets status to `"failed"` and returns false
+| Member / Method | Description |
+|---|---|
+| `amount`, `currency`, `timestamp`, `status` | Member variables (`timestamp` set via `std::chrono::system_clock::now()`, `status` defaults to `"pending"`) |
+| `Payment(double amount, std::string currency = "USD")` | Constructor |
+| `virtual double get_fee() const = 0` | Pure virtual |
+| `virtual bool process() = 0` | Pure virtual |
+| `bool validate() const` | Returns `amount > 0` |
+| `double get_total() const` | Returns `amount + get_fee()` |
+| `virtual std::string to_string() const` | Returns formatted payment info |
 
-3. `PaymentProcessor` Class:
-   - `PaymentProcessor()` — initialises an empty transactions list
-   - `process_payment(std::shared_ptr<Payment> payment)` — calls `payment->process()` and appends the payment to transactions regardless of outcome
-   - `get_transactions_by_type(const std::string& type_name)` — returns a list of transactions filtered by class type name
-   - `get_total_processed() const` — returns the sum of amounts for all transactions with status `"completed"`
-   - `get_total_fees_collected() const` — returns the sum of fees for all transactions with status `"completed"`
-   - `generate_report() const` — returns a `Report` struct with:
-     - `count_by_type`: map of payment type name to count of transactions
-     - `total_processed_by_type`: map of payment type name to total amount processed (completed only)
-     - `average_transaction_by_type`: map of payment type name to average transaction amount (completed only)
-     - `total_fees_by_type`: map of payment type name to total fees collected (completed only)
+**Child classes:**
 
-Here is an example of how to use the `PaymentProcessor` class:
+| Class | Extra members | Fee formula | `process()` behaviour |
+|---|---|---|---|
+| `CreditCardPayment` | `card_number` (last 4 digits, `std::string`) | `2.9% of amount + $0.30` | validate → set status → return bool |
+| `CryptoPayment` | `wallet_address`, `crypto_type` | `1% of amount`, min $1.00 | validate → set status → return bool |
+| `BankTransferPayment` | `account_number`, `routing_number` | `$5.00 flat` if amount < $1000, else `0.5% of amount` | validate → set status → return bool |
+
+**`PaymentProcessor` class:**
+
+| Method | Description |
+|---|---|
+| `PaymentProcessor()` | Initialises empty `transactions` vector |
+| `process_payment(shared_ptr<Payment>)` | Calls `process()`, appends to `transactions` regardless of outcome |
+| `get_transactions_by_type(string type_name)` | Returns transactions filtered by type name |
+| `get_total_processed() const` | Sum of `amount` for all `"completed"` transactions |
+| `get_total_fees_collected() const` | Sum of fees for all `"completed"` transactions |
+| `generate_report() const` | Returns `Report` struct with `count_by_type`, `total_processed_by_type`, `average_transaction_by_type`, `total_fees_by_type` |
+
+Example:
 
 ```cpp
 PaymentProcessor processor;
 
-auto cc_payment     = std::make_shared<CreditCardPayment>(100.0, "USD", "1234");
-auto crypto_payment = std::make_shared<CryptoPayment>(500.0, "USD", "0xABC123", "Bitcoin");
-auto bank_payment   = std::make_shared<BankTransferPayment>(2000.0, "USD", "123456789", "987654321");
+auto cc     = std::make_shared<CreditCardPayment>(100.0, "USD", "1234");
+auto crypto = std::make_shared<CryptoPayment>(500.0, "USD", "0xABC123", "Bitcoin");
+auto bank   = std::make_shared<BankTransferPayment>(2000.0, "USD", "123456789", "987654321");
 
-processor.process_payment(cc_payment);
-processor.process_payment(crypto_payment);
-processor.process_payment(bank_payment);
+processor.process_payment(cc);
+processor.process_payment(crypto);
+processor.process_payment(bank);
 
-std::cout << cc_payment->get_fee()    << std::endl;  // 3.20  (100 * 0.029 + 0.30)
-std::cout << cc_payment->get_total()  << std::endl;  // 103.20
+std::cout << cc->get_fee()     << std::endl;  // 3.20   (100 * 0.029 + 0.30)
+std::cout << crypto->get_fee() << std::endl;  // 5.00   (1% of 500, above $1.00 minimum)
+std::cout << bank->get_fee()   << std::endl;  // 10.00  (0.5% of 2000)
+```
 
-std::cout << crypto_payment->get_fee()   << std::endl;  // 5.00  (1% of 500 = 5.00, above the $1.00 minimum)
-std::cout << crypto_payment->get_total() << std::endl;  // 505.00
+Expected report:
 
-std::cout << bank_payment->get_fee()   << std::endl;  // 10.00  (0.5% of 2000, since amount >= $1000)
-std::cout << bank_payment->get_total() << std::endl;  // 2010.00
-
-auto report = processor.generate_report();
-
-// Expected Output:
-
-/*
-{
-    count_by_type: { CreditCardPayment: 1, CryptoPayment: 1, BankTransferPayment: 1 },
-    total_processed_by_type: { CreditCardPayment: 100.00, CryptoPayment: 500.00, BankTransferPayment: 2000.00 },
-    average_transaction_by_type: { CreditCardPayment: 100.00, CryptoPayment: 500.00, BankTransferPayment: 2000.00 },
-    total_fees_by_type: { CreditCardPayment: 3.20, CryptoPayment: 5.00, BankTransferPayment: 10.00 }
-}
-*/
+```
+count_by_type:               { CreditCardPayment: 1, CryptoPayment: 1, BankTransferPayment: 1 }
+total_processed_by_type:     { CreditCardPayment: 100.00, CryptoPayment: 500.00, BankTransferPayment: 2000.00 }
+average_transaction_by_type: { CreditCardPayment: 100.00, CryptoPayment: 500.00, BankTransferPayment: 2000.00 }
+total_fees_by_type:          { CreditCardPayment: 3.20, CryptoPayment: 5.00, BankTransferPayment: 10.00 }
 ```
 
 ---
 
-### Task 4
+### Task 4 — Student Data Analysis
 
-Create a comprehensive data analysis system that processes a dataset of student records. The system should use classes, STL algorithms and lambdas.
+Build a data analysis system for student records using classes and STL algorithms.
 
-1. Create a `Student` class:
-   - Member variables: `student_id`, `name`, `grades` (`std::map<std::string, char>` mapping subject to letter grade), `attendance` (double, percentage)
-   - Methods:
-     - `Student(int student_id, std::string name, std::map<std::string, char> grades, double attendance)`
-     - `double get_gpa() const` — calculates GPA from grades using: A=4.0, B=3.0, C=2.0, D=1.0, F=0.0. Returns the average across all subjects.
-     - `std::string get_status() const` — returns `"Honors"` if GPA >= 3.5, `"Good Standing"` if GPA >= 2.0, or `"Probation"` otherwise
-     - `bool is_at_risk() const` — returns true if GPA < 2.0 or attendance < 75
+**`Student` class:**
 
-2. Create an `Analyser` class:
-   - `Analyser(std::vector<Student> students)` — accepts a vector of `Student` objects
-   - `std::vector<Student> get_top_students(int n) const` — returns the top n `Student` objects sorted by GPA descending
-   - `SubjectStats get_subject_statistics(const std::string& subject) const` — returns a `SubjectStats` struct with:
-     - `average_gpa`: the mean GPA value for that subject across all students who have that subject
-     - `grade_distribution`: `std::map<char, int>` mapping each letter grade to the count of students who received it
-     - `passing_rate`: percentage of students who received a C or better, i.e., not D or F in that subject
-   - `std::vector<Student> identify_struggling_students() const` — returns a vector of `Student` objects where `is_at_risk()` is true
-   - `calculate_correlations() const` — compares attendance to GPA across all students and returns a struct with:
-     - `data_points`: vector of `std::pair<double, double>` of (attendance, gpa) for each student
-     - `interpretation`: a string describing whether higher attendance tends to correspond with higher GPA based on the data
-   - `Report generate_comprehensive_report() const` — returns a `Report` struct with:
-     - `overall`: struct with `total_students`, `average_gpa`, `average_attendance`
-     - `status_distribution`: `std::map<std::string, int>` mapping each status string to the count of students with that status
-     - `subjects`: map of subject name to its `SubjectStats`
-     - `at_risk_students`: vector of names of at-risk students
-     - `recommendations`: vector of recommendation strings based on the data
+| Method | Description |
+|---|---|
+| `Student(int id, string name, map<string,char> grades, double attendance)` | Constructor |
+| `double get_gpa() const` | A=4.0, B=3.0, C=2.0, D=1.0, F=0.0; returns average across all subjects |
+| `string get_status() const` | `"Honors"` (GPA ≥ 3.5), `"Good Standing"` (GPA ≥ 2.0), `"Probation"` |
+| `bool is_at_risk() const` | `true` if GPA < 2.0 or attendance < 75 |
 
-3. Data processing requirements:
-   - Use `std::transform` to transform student data where appropriate
-   - Use `std::copy_if` to find specific student groups
-   - Use `std::accumulate` for aggregate calculations
-   - Use range-based for loops for complex filtering
-   - Use `std::map` for creating summary structures
+**`Analyser` class:**
 
-Here is an example of how to use the `Analyser` class:
+| Method | Description |
+|---|---|
+| `Analyser(vector<Student>)` | Constructor |
+| `get_top_students(int n)` | Top n students by GPA descending |
+| `get_subject_statistics(string subject)` | Returns `SubjectStats` with `average_gpa`, `grade_distribution`, `passing_rate` (% scoring C or better) |
+| `identify_struggling_students()` | Students where `is_at_risk()` is true |
+| `calculate_correlations()` | Returns `data_points` (pairs of attendance, GPA) and `interpretation` string |
+| `generate_comprehensive_report()` | Returns `Report` with `overall`, `status_distribution`, `subjects`, `at_risk_students`, `recommendations` |
+
+> Use `std::transform`, `std::copy_if`, `std::accumulate`, range-based for loops, and `std::map` where appropriate.
+
+Example setup:
 
 ```cpp
 std::vector<Student> students = {
@@ -1517,158 +1506,89 @@ std::vector<Student> students = {
     {2, "Bob",     {{"Math",'C'},{"Science",'D'},{"English",'B'}}, 70},
     {3, "Charlie", {{"Math",'B'},{"Science",'B'},{"English",'B'}}, 88},
     {4, "Diana",   {{"Math",'A'},{"Science",'A'},{"English",'A'}}, 98},
-    {5, "Eve",     {{"Math",'F'},{"Science",'D'},{"English",'C'}}, 65}
+    {5, "Eve",     {{"Math",'F'},{"Science",'D'},{"English",'C'}}, 65},
 };
 
 Analyser analyser(students);
-auto report     = analyser.generate_comprehensive_report();
-auto top_3      = analyser.get_top_students(3);                 // Diana (4.0), Alice (3.67), Charlie (3.0)
-auto math_stats = analyser.get_subject_statistics("Math");
-auto at_risk    = analyser.identify_struggling_students();      // Bob and Eve
+```
 
-// Expected Output:
+Expected report:
 
-/*
+```
 overall: total_students: 5, average_gpa: 2.73, average_attendance: 83.20
 status_distribution: Honors: 2, Good Standing: 2, Probation: 1
 
 subjects:
-Math: average_gpa: 3.00, grade_distribution: [A:2. B:1, C:1 , F:1], passing_rate: 80.00%
-Science: average_gpa: 2.40, grade_distribution: [A:1, B:2, D:2], passing_rate: 60.00%
-English: average_gpa: 3.20, grade_distribution: [A:2, B:2, C:1], passing_rate: 100.00%
+  Math:    average_gpa: 3.00, grade_distribution: [A:2, B:1, C:1, F:1], passing_rate: 80.00%
+  Science: average_gpa: 2.40, grade_distribution: [A:1, B:2, D:2],      passing_rate: 60.00%
+  English: average_gpa: 3.20, grade_distribution: [A:2, B:2, C:1],      passing_rate: 100.00%
 
 at_risk_students: Bob, Eve
 
 recommendations:
-- Focus on improving attendance for at-risk students
-- Provide additional support in Math and Science for struggling students
-- Recognise and reward high performers to encourage continued success
-*/
+  - Focus on improving attendance for at-risk students
+  - Provide additional support in Math and Science for struggling students
+  - Recognise and reward high performers to encourage continued success
 ```
 
 ---
 
-### Task 5
+### Task 5 — Blackjack Game
 
-Create a complete, playable Blackjack game using object-oriented programming. The game should support multiple players, follow standard Blackjack rules and provide an interactive command-line experience.
+Build a complete, playable command-line Blackjack game using OOP.
 
-Game Rules:
+**Game rules:**
+- Goal: get closer to 21 than the dealer without going over
+- Face cards (J, Q, K) = 10; Aces = 11 or 1 (whichever avoids a bust); number cards = face value
+- Dealer must hit on ≤ 16, stand on ≥ 17
+- Players can hit or stand
 
-- Goal: Get closer to 21 than the dealer without going over
-- Face cards, e.g., J, Q, K are worth 10
-- Aces are worth 11 or 1, whichever keeps the hand at or below 21
-- Dealer must hit on 16 or less and stand on 17 or more
-- Blackjack (Ace + 10-value card as the initial two cards) pays 3:2
-- Regular win pays 1:1
-- Players can hit, stand, or double down on first two cards only
+**Required classes:**
 
-Required Classes:
+| Class | Key members | Key methods |
+|---|---|---|
+| `Card` | `rank`, `suit` | `get_value()`, `to_string()` |
+| `Deck` | `std::vector<Card> cards` | `shuffle()`, `deal_card()`, `cards_remaining()`, `reset()` |
+| `Hand` | `std::vector<Card> cards` | `add_card()`, `get_value()`, `is_blackjack()`, `is_bust()`, `to_string()` |
+| `Player` | `name`, `hand` | `to_string()` |
+| `Dealer` | `Hand hand`, `name` | `show_partial_hand()`, `show_full_hand()`, `should_hit()`, `to_string()` |
+| `BlackjackGame` | `deck`, `dealer`, `players`, `current_round` | `start_round()`, `deal_initial_cards()`, `player_turn()`, `dealer_turn()`, `determine_winners()`, `display_game_state()`, `play_game()`, `game_over()` |
 
-1. `Card` Class:
-   - Members: `rank` (e.g., `"2"`, `"J"`, `"A"`), `suit` (e.g., `"Hearts"`, `"Diamonds"`, `"Clubs"`, `"Spades"`)
-   - Methods:
-     - `Card(std::string rank, std::string suit)`
-     - `int get_value() const` — returns numeric value, e.g., face cards = 10, Ace = 11, number cards = their number
-     - `std::string to_string() const` — returns formatted card string, e.g., `"Ace of Spades"`, `"7 of Hearts"`
+**`Hand::get_value()` logic:** Count each Ace as 11. If the total exceeds 21, recount Aces as 1 one at a time until the hand is ≤ 21 or no Aces remain.
 
-2. `Deck` Class:
-   - Member: `std::vector<Card> cards`
-   - Methods:
-     - `Deck()` — creates a standard 52-card deck
-     - `void shuffle()` — randomises card order using `std::shuffle` and `std::mt19937`
-     - `Card deal_card()` — removes and returns the top card from the deck
-     - `int cards_remaining() const` — returns the number of cards remaining
-     - `void reset()` — rebuilds and shuffles a fresh 52-card deck
+**Game flow:**
+1. Display a welcome message with player names
+2. Each round: deal 2 cards to each player and the dealer (dealer's second card hidden) → check for blackjack → player turns (hit or stand) → dealer reveals and plays → determine and announce winners → ask to play again
+3. End when all players choose to quit
 
-3. `Hand` Class:
-   - Members: `std::vector<Card> cards`, `int bet` (amount wagered)
-   - Methods:
-     - `Hand(int bet = 0)`
-     - `void add_card(const Card& card)` — adds a card to the hand
-     - `int get_value() const` — calculates hand total, treating each Ace as 11 unless doing so would cause a bust, in which case it is counted as 1
-     - `bool is_blackjack() const` — returns true if the hand has exactly 2 cards and a value of 21
-     - `bool is_bust() const` — returns true if hand value exceeds 21
-     - `bool can_double_down() const` — returns true if the hand has exactly 2 cards
-     - `std::string to_string() const` — returns a readable display of all cards and the current total
+Example session:
 
-4. `Player` Class:
-   - Members: `name`, `chips`, `hands` (`std::vector<Hand>`, supports multiple hands if you want to extend for splitting)
-   - Methods:
-     - `Player(std::string name, int chips = 1000)`
-     - `Hand place_bet(int amount)` — deducts amount from chips and returns a new `Hand` with that bet
-     - `bool has_chips(int amount) const` — returns true if the player has at least that many chips
-     - `void win(int amount)` — adds amount to chips
-     - `void lose(int amount)` — deducts amount from chips
-     - `bool can_continue() const` — returns true if chips > 0
-     - `std::string to_string() const` — returns a string showing name and chip count
-
-5. `Dealer` Class:
-   - Members: `Hand hand`, `std::string name`
-   - Methods:
-     - `Dealer()`
-     - `void show_partial_hand() const` — displays the first card only, hiding the second card
-     - `void show_full_hand() const` — displays all cards and the total
-     - `bool should_hit() const` — returns true if hand value is 16 or less
-     - `std::string to_string() const` — returns the dealer's full hand display
-
-6. `BlackjackGame` Class:
-   - Members: `Deck deck`, `Dealer dealer`, `std::vector<Player> players`, `int current_round`
-   - Methods:
-     - `BlackjackGame(std::vector<std::string> player_names)` — initialises the game with a list of player names, creates a shuffled deck
-     - `void start_round()` — begins a new round, collects bets, deals initial cards
-     - `void deal_initial_cards()` — deals 2 cards to each player and 2 to the dealer
-     - `void player_turn(Player& player)` — handles a player's choices, e.g., hit, stand, double down in a loop until they stand or bust
-     - `void dealer_turn()` — dealer reveals hidden card and hits until reaching 17 or more
-     - `void determine_winners()` — compares each player's hand to the dealer's and pays out or deducts chips accordingly
-     - `void display_game_state(bool hide_dealer_card = true)` — prints all hands; if `hide_dealer_card` is true, shows the dealer's first card only
-     - `void play_game()` — main game loop that continues until all players are out of chips or choose to quit
-     - `void check_for_bankruptcies()` — removes any players who have 0 chips
-     - `bool game_over() const` — returns true if the players vector is empty
-
-Game Flow:
-
-1. Display a welcome message and show all players and their starting chips
-2. Each round:
-   - Players place their bets
-   - Deal 2 cards to each player and the dealer. The dealer's second card is hidden
-   - Check each player for an immediate blackjack
-   - Run each player's turn, i.e., hit, stand, or double down
-   - Dealer reveals hidden card and plays by house rules
-   - Determine winners and update chip counts
-   - Display updated chip counts
-   - Ask if players want to continue
-3. Game ends when all players are out of chips or all choose to quit
-
-Here is an example of how to start the game:
-
-```cpp
-BlackjackGame game({"Alice", "Bob"});
-game.play_game();
-
-/*
+```
 Welcome to Blackjack!
-Players: Alice ($1000), Bob ($1000)
+Players: Alice, Bob
 
- ----- Round 1 -----
-
-Alice, place your bet: 100
-Bob, place your bet: 150
+----- Round 1 -----
 
 Alice's hand: 10 of Hearts, Ace of Spades (Total: 21) - Blackjack!
 Bob's hand: 7 of Diamonds, 8 of Clubs (Total: 15)
 Dealer's hand: 9 of Hearts, [Hidden Card]
 
-Bob, do you want to hit, stand or double down? hit
+Bob, do you want to hit or stand? hit
 Bob's hand: 7 of Diamonds, 8 of Clubs, 5 of Spades (Total: 20)
+Bob, do you want to hit or stand? stand
 
-Bob, do you want to hit, stand or double down? stand
 Dealer's hand: 9 of Hearts, 6 of Diamonds (Total: 15)
 Dealer hits and gets 10 of Clubs (Total: 25) - Dealer busts!
 
-Alice wins 150 chips! (Blackjack pays 3:2)
-Bob wins 150 chips!
-Updated Chips: Alice ($1150), Bob ($1200)
+Alice wins! (Blackjack)
+Bob wins!
 
 Do you want to play another round? yes
-*/
+```
+
+To start the game:
+
+```cpp
+BlackjackGame game({"Alice", "Bob"});
+game.play_game();
 ```
