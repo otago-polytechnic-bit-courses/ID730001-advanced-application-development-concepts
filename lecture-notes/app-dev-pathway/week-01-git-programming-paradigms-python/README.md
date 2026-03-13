@@ -5,7 +5,7 @@
 |                  | Link                                                                                         |
 | ---------------- | -------------------------------------------------------------------------------------------- |
 | GitHub Classroom | [ID730001-S1-26](https://classroom.github.com/a/RgDe5bs0)                                    |
-| → Next           | [Week 02 - Design Patterns](lecture-notes/app-dev-pathway/week-02-design-patterns/README.md) |
+| → Next           | [Week 02 - Design Patterns](./lecture-notes/app-dev-pathway/week-02-design-patterns/README.md) |
 
 ---
 

@@ -4,8 +4,8 @@
 
 |            | Link                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| ← Previous | [Week 01 - Git, Programming Paradigms & Python](lecture-notes/app-dev-pathway/week-01-git-programming-paradigms-python/README.md) |
-| → Next     | [Week 03 - Processes, Threads & Concurrency](lecture-notes/app-dev-pathway/week-03-processes-threading-concurrency/README.md)     |
+| ← Previous | [Week 01 - Git, Programming Paradigms & Python](./lecture-notes/app-dev-pathway/week-01-git-programming-paradigms-python/README.md) |
+| → Next     | [Week 03 - Processes, Threads & Concurrency](./lecture-notes/app-dev-pathway/week-03-processes-threading-concurrency/README.md)     |
 
 ---
 

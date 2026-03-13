@@ -4,8 +4,8 @@
 
 |            | Link                                                                                           |
 | ---------- | ---------------------------------------------------------------------------------------------- |
-| ← Previous | [Week 02 - Design Patterns](lecture-notes/games-dev-pathway/week-02-design-patterns/README.md) |
-| → Next     | [Week 04 - Networking](lecture-notes/games-dev-pathway/week-04-networking/README.md)           |
+| ← Previous | [Week 02 - Design Patterns](./lecture-notes/games-dev-pathway/week-02-design-patterns/README.md) |
+| → Next     | [Week 04 - Networking](./lecture-notes/games-dev-pathway/week-04-networking/README.md)           |
 
 ---
 

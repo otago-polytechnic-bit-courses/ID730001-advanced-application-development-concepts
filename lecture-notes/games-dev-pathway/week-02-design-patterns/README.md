@@ -4,8 +4,8 @@
 
 |            | Link                                                                                                                            |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| ← Previous | [Week 01 - Git, Programming Paradigms & C++](lecture-notes/games-dev-pathway/week-01-git-programming-paradigms-c++/README.md)   |
-| → Next     | [Week 03 - Processes, Threads & Concurrency](lecture-notes/games-dev-pathway/week-03-processes-threading-concurrency/README.md) |
+| ← Previous | [Week 01 - Git, Programming Paradigms & C++](./lecture-notes/games-dev-pathway/week-01-git-programming-paradigms-c++/README.md)   |
+| → Next     | [Week 03 - Processes, Threads & Concurrency](./lecture-notes/games-dev-pathway/week-03-processes-threading-concurrency/README.md) |
 
 ---
 
