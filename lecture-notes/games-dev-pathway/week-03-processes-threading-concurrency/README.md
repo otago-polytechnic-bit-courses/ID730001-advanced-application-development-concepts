@@ -1,4 +1,4 @@
-# Week 03 — Processes, Threads & Concurrency
+# Week 03 - Processes, Threads and Concurrency
 
 ## Navigation
 
@@ -16,9 +16,9 @@ Before writing concurrent code, it helps to understand the two fundamental units
 |                     | Process                                                         | Thread                                                              |
 | ------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------- |
 | **Definition**      | An independent program in execution, with its own memory space  | A unit of execution _within_ a process; shares the process's memory |
-| **Memory**          | Isolated — processes cannot read each other's memory by default | Shared — all threads in a process see the same heap and globals     |
-| **Creation cost**   | High — the OS must allocate a new address space                 | Low — just a new stack and register set within the existing process |
-| **Communication**   | Inter-process communication (pipes, sockets, shared memory)     | Direct — via shared variables (but requires synchronisation)        |
+| **Memory**          | Isolated - processes cannot read each other's memory by default | Shared - all threads in a process see the same heap and globals     |
+| **Creation cost**   | High - the OS must allocate a new address space                 | Low - just a new stack and register set within the existing process |
+| **Communication**   | Inter-process communication (pipes, sockets, shared memory)     | Direct - via shared variables (but requires synchronisation)        |
 | **Crash isolation** | A crash in one process does not affect others                   | A crash in one thread can bring down the entire process             |
 | **C++ API**         | OS-specific (`fork` on Linux, `CreateProcess` on Windows)       | `std::thread` (cross-platform, C++11)                               |
 
@@ -28,14 +28,14 @@ Before writing concurrent code, it helps to understand the two fundamental units
 
 ## 2. `std::thread`
 
-`std::thread` (from `<thread>`) launches a function on a new OS thread. The thread runs concurrently with the caller — both execute at the same time.
+`std::thread` (from `<thread>`) launches a function on a new OS thread. The thread runs concurrently with the caller - both execute at the same time.
 
 ```cpp
 #include <iostream>
 #include <thread>
 #include <string>
 
-// A plain function — any callable can be passed to std::thread
+// A plain function - any callable can be passed to std::thread
 void process_deposit(const std::string& account, double amount)
 {
     std::cout << "Depositing $" << amount
@@ -92,27 +92,27 @@ int main()
 
 | Method       | Behaviour                                                                                                |
 | ------------ | -------------------------------------------------------------------------------------------------------- |
-| `t.join()`   | Caller blocks until `t` finishes. Safe — you know when it's done.                                        |
+| `t.join()`   | Caller blocks until `t` finishes. Safe - you know when it's done.                                        |
 | `t.detach()` | Thread runs independently; caller does not wait. Dangerous if the thread outlives objects it references. |
 
 > Prefer `join`. Only `detach` when the thread truly does not share any data with the rest of the program.
 
-📖 Reference: [C++ — std::thread](https://en.cppreference.com/w/cpp/thread/thread)
+📖 Reference: [C++ - std::thread](https://en.cppreference.com/w/cpp/thread/thread)
 
 ---
 
-## 3. Mutexes & Locks
+## 3. Mutexes and Locks
 
 When multiple threads share data, they can interleave in unpredictable ways and corrupt it. A **mutex** (mutual exclusion lock) ensures only one thread accesses a critical section at a time.
 
-### 3.1 The problem — a race condition
+### 3.1 The problem - a race condition
 
 ```cpp
 #include <iostream>
 #include <thread>
 #include <vector>
 
-// Shared bank balance — accessed by multiple threads simultaneously
+// Shared bank balance - accessed by multiple threads simultaneously
 double balance = 1000.0;
 
 void deposit(double amount)
@@ -130,13 +130,13 @@ int main()
         threads.emplace_back(deposit, 100.0);
     for (auto& t : threads) t.join();
 
-    // May print anything from 1100 to 2000 — output is non-deterministic
+    // May print anything from 1100 to 2000 - output is non-deterministic
     std::cout << "Final balance: $" << balance << "\n";
     return 0;
 }
 ```
 
-### 3.2 The solution — `std::mutex` and `std::lock_guard`
+### 3.2 The solution - `std::mutex` and `std::lock_guard`
 
 ```cpp
 #include <iostream>
@@ -203,7 +203,7 @@ int main()
 }
 ```
 
-### 3.3 `std::unique_lock` — more flexible locking
+### 3.3 `std::unique_lock` - more flexible locking
 
 `std::lock_guard` is simple but inflexible. Use `std::unique_lock` when you need to unlock early, defer locking, or use condition variables.
 
@@ -218,7 +218,7 @@ void transfer(BankAccount& from, BankAccount& to, double amount)
     std::unique_lock<std::mutex> lock(mtx);
 
     from.withdraw(amount);   // protected by the lock
-    lock.unlock();           // release early — to.deposit doesn't need this mutex
+    lock.unlock();           // release early - to.deposit doesn't need this mutex
 
     to.deposit(amount);
 }
@@ -231,15 +231,15 @@ void transfer(BankAccount& from, BankAccount& to, double amount)
 | Deferred locking               | ✗            | ✓               |
 | Works with condition variables | ✗            | ✓               |
 
-📖 Reference: [C++ — std::mutex](https://en.cppreference.com/w/cpp/thread/mutex)
+📖 Reference: [C++ - std::mutex](https://en.cppreference.com/w/cpp/thread/mutex)
 
 ---
 
-## 4. Deadlocks & Race Conditions
+## 4. Deadlocks and Race Conditions
 
 ### 4.1 Race conditions
 
-A **race condition** occurs when the correctness of a program depends on the relative timing of threads. The deposit example above is a classic race condition — the `+=` operation is not atomic.
+A **race condition** occurs when the correctness of a program depends on the relative timing of threads. The deposit example above is a classic race condition - the `+=` operation is not atomic.
 
 **Symptoms:** non-deterministic results, bugs that only appear under load, results that change between runs.
 
@@ -276,10 +276,10 @@ void unsafe_transfer(BankAccount& from, BankAccount& to, double amount)
 // Strategy 2: use std::lock() to acquire multiple mutexes atomically
 void safe_transfer(BankAccount& from, BankAccount& to, double amount)
 {
-    // std::lock acquires both mutexes simultaneously — no deadlock possible
+    // std::lock acquires both mutexes simultaneously - no deadlock possible
     std::lock(from.mtx, to.mtx);
 
-    // adopt_lock tells unique_lock the mutex is already locked — just manage its release
+    // adopt_lock tells unique_lock the mutex is already locked - just manage its release
     std::unique_lock<std::mutex> lock_from(from.mtx, std::adopt_lock);
     std::unique_lock<std::mutex> lock_to(to.mtx,   std::adopt_lock);
 
@@ -299,13 +299,13 @@ void safe_transfer(BankAccount& from, BankAccount& to, double amount)
 
 > Break any one condition to prevent deadlock. `std::lock` breaks **hold and wait** by acquiring all locks at once.
 
-📖 Reference: [C++ — std::lock](https://en.cppreference.com/w/cpp/thread/lock)
+📖 Reference: [C++ - std::lock](https://en.cppreference.com/w/cpp/thread/lock)
 
 ---
 
 ## 5. Condition Variables
 
-A **condition variable** lets a thread sleep until another thread signals that something has changed. This is the correct way to implement a waiting thread — far better than a busy loop that wastes CPU.
+A **condition variable** lets a thread sleep until another thread signals that something has changed. This is the correct way to implement a waiting thread - far better than a busy loop that wastes CPU.
 
 **Bank use case:** a fraud-checker thread waits until a transaction is queued; the transaction processor wakes it up.
 
@@ -334,7 +334,7 @@ public:
             std::lock_guard<std::mutex> lock(mtx);
             queue.push(tx);
         }
-        // Wake up one waiting consumer — called OUTSIDE the lock to avoid
+        // Wake up one waiting consumer - called OUTSIDE the lock to avoid
         // immediately blocking the consumer on the mutex we still hold
         cv.notify_one();
     }
@@ -343,11 +343,11 @@ public:
     // Blocks if the queue is empty
     Transaction pop()
     {
-        // unique_lock required — condition_variable::wait() needs to unlock temporarily
+        // unique_lock required - condition_variable::wait() needs to unlock temporarily
         std::unique_lock<std::mutex> lock(mtx);
 
         // wait() atomically: (1) unlocks mtx, (2) sleeps, (3) re-locks when notified
-        // The lambda is the wake-up condition — spurious wakeups are re-checked automatically
+        // The lambda is the wake-up condition - spurious wakeups are re-checked automatically
         cv.wait(lock, [this]() { return !queue.empty(); });
 
         Transaction tx = queue.front();
@@ -404,7 +404,7 @@ int main()
 | `cv.notify_one()` | Wakes exactly one waiting thread. Use when any one worker can handle the work.            |
 | `cv.notify_all()` | Wakes all waiting threads. Use when all of them need to respond (e.g. a shutdown signal). |
 
-📖 Reference: [C++ — std::condition_variable](https://en.cppreference.com/w/cpp/thread/condition_variable)
+📖 Reference: [C++ - std::condition_variable](https://en.cppreference.com/w/cpp/thread/condition_variable)
 
 ---
 
@@ -486,7 +486,7 @@ private:
 
 int main()
 {
-    // 4 threads handle all incoming transactions — no more thread-per-transaction
+    // 4 threads handle all incoming transactions - no more thread-per-transaction
     ThreadPool pool(4);
 
     for (int i = 1; i <= 10; ++i)
@@ -498,7 +498,7 @@ int main()
         });
     }
 
-    // pool destructor is called here — waits for all 10 tasks to complete
+    // pool destructor is called here - waits for all 10 tasks to complete
     return 0;
 }
 ```
@@ -509,26 +509,26 @@ int main()
 | ----------------------------------------- | ---------------------------------------- |
 | One thread per task                       | Fixed number of threads, unlimited tasks |
 | High creation overhead for short tasks    | Creation cost paid once at startup       |
-| Unbounded — 10,000 tasks = 10,000 threads | Bounded — 10,000 tasks on N threads      |
+| Unbounded - 10,000 tasks = 10,000 threads | Bounded - 10,000 tasks on N threads      |
 
-📖 Reference: [C++ — std::function](https://en.cppreference.com/w/cpp/utility/functional/function)
+📖 Reference: [C++ - std::function](https://en.cppreference.com/w/cpp/utility/functional/function)
 
 ---
 
-## 7. `std::async`, Futures & Promises
+## 7. `std::async`, Futures and Promises
 
 `std::thread` gives you raw control but you have to manage results manually. The higher-level `std::async` / `std::future` / `std::promise` trio lets you launch work and retrieve its return value cleanly.
 
 ### 7.1 `std::async` and `std::future`
 
-`std::async` launches a callable asynchronously and returns a `std::future` — a handle to a value that will be ready at some point in the future.
+`std::async` launches a callable asynchronously and returns a `std::future` - a handle to a value that will be ready at some point in the future.
 
 ```cpp
 #include <iostream>
 #include <future>
 #include <string>
 
-// Returns a fraud score — imagine this does real ML inference
+// Returns a fraud score - imagine this does real ML inference
 double check_fraud(const std::string& account_id, double amount)
 {
     // Simulate time-consuming analysis
@@ -547,7 +547,7 @@ int main()
     std::cout << "Validating account details...\n";
 
     // future::get() blocks until the result is ready, then returns it
-    // Can only be called ONCE — the value is moved out of the future
+    // Can only be called ONCE - the value is moved out of the future
     double score = fraud_score.get();
 
     if (score > 0.8)
@@ -576,7 +576,7 @@ int main()
         futures.push_back(
             std::async(std::launch::async, check_fraud, acc, 1000.0));
 
-    // Collect results — get() blocks on each future in turn
+    // Collect results - get() blocks on each future in turn
     for (size_t i = 0; i < futures.size(); ++i)
     {
         double score = futures[i].get();
@@ -624,7 +624,7 @@ int main()
 }
 ```
 
-**`std::async` vs `std::promise` — when to use which:**
+**`std::async` vs `std::promise` - when to use which:**
 
 | Scenario                                  | Use                            |
 | ----------------------------------------- | ------------------------------ |
@@ -632,21 +632,21 @@ int main()
 | Result is produced by a callback or event | `std::promise` + `std::future` |
 | Fire-and-forget (no return value needed)  | `std::thread` + `detach`       |
 
-📖 Reference: [C++ — std::future](https://en.cppreference.com/w/cpp/thread/future)
+📖 Reference: [C++ - std::future](https://en.cppreference.com/w/cpp/thread/future)
 
 ---
 
-## 8. Memory Model & Atomics
+## 8. Memory Model and Atomics
 
 ### 8.1 The C++ memory model
 
 Modern CPUs and compilers reorder instructions for performance. Without explicit synchronisation, one thread may observe another thread's writes in a different order than they were made. The C++ memory model defines the rules for when writes become visible across threads.
 
-**Key rule:** any access to a variable from more than one thread — where at least one access is a write — is a **data race** and is **undefined behaviour** unless the accesses are synchronised (via mutex, atomic, or other mechanism).
+**Key rule:** any access to a variable from more than one thread - where at least one access is a write - is a **data race** and is **undefined behaviour** unless the accesses are synchronised (via mutex, atomic, or other mechanism).
 
 ### 8.2 `std::atomic`
 
-`std::atomic<T>` wraps a type so that reads and writes to it are indivisible — no other thread can observe a half-completed operation. For simple counters and flags, this is cheaper than a mutex.
+`std::atomic<T>` wraps a type so that reads and writes to it are indivisible - no other thread can observe a half-completed operation. For simple counters and flags, this is cheaper than a mutex.
 
 ```cpp
 #include <iostream>
@@ -676,13 +676,13 @@ int main()
         threads.emplace_back(process_deposit, 50.0);
     for (auto& t : threads) t.join();
 
-    // Always exactly 100 — no race condition
+    // Always exactly 100 - no race condition
     std::cout << "Transactions processed: " << transaction_count << "\n";
     return 0;
 }
 ```
 
-**Atomic flag — the simplest atomic:**
+**Atomic flag - the simplest atomic:**
 
 ```cpp
 #include <atomic>
@@ -712,7 +712,7 @@ void start_processing()
 | Complex logic inside the critical section        | `std::mutex`  |
 | Lowest possible overhead for a counter or flag   | `std::atomic` |
 
-📖 Reference: [C++ — std::atomic](https://en.cppreference.com/w/cpp/atomic/atomic)
+📖 Reference: [C++ - std::atomic](https://en.cppreference.com/w/cpp/atomic/atomic)
 
 ---
 
@@ -731,8 +731,8 @@ g++ --std=c++20 -pthread -o week-03-concurrency week-03-concurrency.cpp
 
 AI tools are encouraged but use them critically:
 
-- Refine your prompts — vague prompts yield vague responses
-- Validate AI output — don't trust it blindly
+- Refine your prompts - vague prompts yield vague responses
+- Validate AI output - don't trust it blindly
 - Acknowledge AI usage at the top of any AI-assisted file:
 
 ```cpp
@@ -751,7 +751,7 @@ AI tools are encouraged but use them critically:
 
 ---
 
-### Task 1 — Thread-Safe Bank
+### Task 1 - Thread-Safe Bank
 
 Build a `Bank` class that manages multiple `BankAccount` objects and supports concurrent operations.
 
@@ -795,7 +795,7 @@ bank.print_statement();
 
 ---
 
-### Task 2 — Transaction Pipeline
+### Task 2 - Transaction Pipeline
 
 Build a producer-consumer pipeline that simulates incoming transactions being validated and then processed.
 
@@ -825,16 +825,16 @@ Expected output (order may vary):
 
 ```
 [Validator] Approved:  deposit    $200.00 for ACC-001
-[Validator] Rejected:  deposit    $-50.00 — invalid amount
-[Processor] Applied:   deposit    $200.00 — Balance: $200.00
+[Validator] Rejected:  deposit    $-50.00 - invalid amount
+[Processor] Applied:   deposit    $200.00 - Balance: $200.00
 ...
 ```
 
-> **Hint:** `close()` can set an `atomic<bool> done` flag. The `pop()` method should return `std::optional<T>` — returning `std::nullopt` when the queue is both closed and empty.
+> **Hint:** `close()` can set an `atomic<bool> done` flag. The `pop()` method should return `std::optional<T>` - returning `std::nullopt` when the queue is both closed and empty.
 
 ---
 
-### Task 3 — Async Fraud Detection
+### Task 3 - Async Fraud Detection
 
 Build a `FraudDetector` that runs multiple checks concurrently using `std::async` and combines the results.
 
@@ -875,4 +875,4 @@ std::cout << "Flagged: "        << result.is_flagged        << "\n";
 std::cout << "Recommendation: " << result.recommendation    << "\n";
 ```
 
-> **Hint:** launch all three checks with `std::async(std::launch::async, ...)` before calling `.get()` on any of them — this ensures they run in parallel rather than sequentially.
+> **Hint:** launch all three checks with `std::async(std::launch::async, ...)` before calling `.get()` on any of them - this ensures they run in parallel rather than sequentially.

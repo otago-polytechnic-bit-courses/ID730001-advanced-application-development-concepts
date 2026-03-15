@@ -2,7 +2,7 @@
 #include <thread>
 #include <string>
 
-// A plain function — any callable can be passed to std::thread
+// A plain function - any callable can be passed to std::thread
 void process_deposit(const std::string& account, double amount)
 {
     std::cout << "Depositing $" << amount

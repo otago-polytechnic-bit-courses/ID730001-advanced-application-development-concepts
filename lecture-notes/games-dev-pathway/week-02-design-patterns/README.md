@@ -1,17 +1,17 @@
-# Week 02 — Design Patterns
+# Week 02 - Design Patterns
 
 ## Navigation
 
-|            | Link                                                                                                                            |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| ← Previous | [Week 01 - Git, Programming Paradigms & C++](./lecture-notes/games-dev-pathway/week-01-git-programming-paradigms-c++/README.md)   |
-| → Next     | [Week 03 - Processes, Threads & Concurrency](./lecture-notes/games-dev-pathway/week-03-processes-threading-concurrency/README.md) |
+|            | Link                                                                                                                                |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| ← Previous | [Week 01 - Git, Programming Paradigms and C++](./lecture-notes/games-dev-pathway/week-01-git-programming-paradigms-c++/README.md)   |
+| → Next     | [Week 03 - Processes, Threads and Concurrency](./lecture-notes/games-dev-pathway/week-03-processes-threading-concurrency/README.md) |
 
 ---
 
 ## 1. Design Patterns
 
-A **design pattern** is a reusable solution to a common software design problem. Patterns are not finished code — they are templates you adapt to your situation.
+A **design pattern** is a reusable solution to a common software design problem. Patterns are not finished code - they are templates you adapt to your situation.
 
 | Category        | Focus                                | Examples                      |
 | --------------- | ------------------------------------ | ----------------------------- |
@@ -98,12 +98,12 @@ private:
 
 // --- Strategy interface ---------------------------------------------------
 
-// Pure abstract base class — all draw strategies must implement chooseCard()
+// Pure abstract base class - all draw strategies must implement chooseCard()
 class IDrawStrategy
 {
 public:
     virtual Card chooseCard(Deck& deck) = 0;
-    virtual ~IDrawStrategy() = default;   // virtual destructor — always required in base classes
+    virtual ~IDrawStrategy() = default;   // virtual destructor - always required in base classes
 };
 
 // --- Concrete strategies --------------------------------------------------
@@ -180,7 +180,7 @@ public:
     {
         Deck source;
 
-        // Each player gets a different strategy — swap these to experiment
+        // Each player gets a different strategy - swap these to experiment
         Player alice("Alice (Random)",  std::make_unique<RandomStrategy>());
         Player bob("Bob (Highest)",     std::make_unique<HighestCardStrategy>());
 
@@ -240,12 +240,12 @@ int main()
 
 | Term                                     | Meaning                                                         |
 | ---------------------------------------- | --------------------------------------------------------------- |
-| `IDrawStrategy`                          | Abstract interface — declares what every strategy must do       |
-| `RandomStrategy` / `HighestCardStrategy` | Concrete strategies — each provides a different implementation  |
+| `IDrawStrategy`                          | Abstract interface - declares what every strategy must do       |
+| `RandomStrategy` / `HighestCardStrategy` | Concrete strategies - each provides a different implementation  |
 | `std::unique_ptr`                        | Smart pointer with single ownership; memory freed automatically |
 | `std::move`                              | Transfers ownership of a `unique_ptr` to a new owner            |
 
-📖 Reference: [Strategy Pattern — Refactoring Guru](https://refactoring.guru/design-patterns/strategy)
+📖 Reference: [Strategy Pattern - Refactoring Guru](https://refactoring.guru/design-patterns/strategy)
 
 ---
 
@@ -253,7 +253,7 @@ int main()
 
 The Observer pattern defines a one-to-many dependency: when one object (the **subject**) changes state, all registered **observers** are notified automatically. Observers can be added or removed at runtime without touching the subject.
 
-**War use case:** notify a scoreboard and a logger at the end of every round — neither class needs to know about the other.
+**War use case:** notify a scoreboard and a logger at the end of every round - neither class needs to know about the other.
 
 ```cpp
 #include <iostream>
@@ -357,7 +357,7 @@ public:
 class ObserverWarGame
 {
 public:
-    // Register any observer at runtime — game doesn't care what it does
+    // Register any observer at runtime - game doesn't care what it does
     void addObserver(IGameObserver* obs) { observers.push_back(obs); }
 
     void play()
@@ -402,14 +402,14 @@ public:
         }
 
         // Print the scoreboard summary at the end
-        // dynamic_cast checks the runtime type — returns nullptr if not a Scoreboard
+        // dynamic_cast checks the runtime type - returns nullptr if not a Scoreboard
         for (auto* obs : observers)
             if (auto* sb = dynamic_cast<Scoreboard*>(obs))
                 sb->printSummary(p1, p2);
     }
 
 private:
-    std::vector<IGameObserver*> observers;  // raw pointers — we don't own these
+    std::vector<IGameObserver*> observers;  // raw pointers - we don't own these
 
     // Send the result to every observer in registration order
     void notify(const RoundResult& result)
@@ -442,7 +442,7 @@ int main()
 | `notify`        | Loops over all observers and calls `onRoundEnd`                                 |
 | `dynamic_cast`  | Safely downcasts a base pointer to a derived type; returns `nullptr` on failure |
 
-📖 Reference: [Observer Pattern — Refactoring Guru](https://refactoring.guru/design-patterns/observer)
+📖 Reference: [Observer Pattern - Refactoring Guru](https://refactoring.guru/design-patterns/observer)
 
 ---
 
@@ -450,7 +450,7 @@ int main()
 
 The Factory pattern provides an interface for creating objects, letting subclasses decide which concrete class to instantiate. Callers create objects through the factory without knowing the exact type.
 
-**War use case:** create `HumanPlayer` or `ComputerPlayer` objects through a common factory interface — swap the factory to change who is playing.
+**War use case:** create `HumanPlayer` or `ComputerPlayer` objects through a common factory interface - swap the factory to change who is playing.
 
 ```cpp
 #include <iostream>
@@ -479,7 +479,7 @@ public:
     virtual ~IPlayer() = default;
 
 protected:
-    std::vector<Card> hand;   // shared storage — accessible in child classes
+    std::vector<Card> hand;   // shared storage - accessible in child classes
 };
 
 // --- Concrete player types ------------------------------------------------
@@ -569,10 +569,10 @@ public:
 class FactoryWarGame
 {
 public:
-    // Accepts any two factories — caller decides the player types
+    // Accepts any two factories - caller decides the player types
     void startGame(IPlayerFactory& factory1, IPlayerFactory& factory2)
     {
-        // createPlayer returns IPlayer* — the game never needs to know the concrete type
+        // createPlayer returns IPlayer* - the game never needs to know the concrete type
         auto p1 = factory1.createPlayer("Alice");
         auto p2 = factory2.createPlayer("Bob (CPU)");
 
@@ -637,9 +637,9 @@ int main()
 | ---------------------------------------------- | ----------------------------------------------------------- |
 | `IPlayerFactory`                               | Abstract factory interface                                  |
 | `HumanPlayerFactory` / `ComputerPlayerFactory` | Concrete factories that return different `IPlayer` subtypes |
-| `createPlayer`                                 | Factory method — callers use this instead of `new`          |
+| `createPlayer`                                 | Factory method - callers use this instead of `new`          |
 
-📖 Reference: [Factory Method Pattern — Refactoring Guru](https://refactoring.guru/design-patterns/factory-method)
+📖 Reference: [Factory Method Pattern - Refactoring Guru](https://refactoring.guru/design-patterns/factory-method)
 
 ---
 
@@ -692,7 +692,7 @@ public:
     int getGamesPlayed() const { return gamesPlayed; }
 
 private:
-    // Private constructor — external code cannot call `new GameManager()`
+    // Private constructor - external code cannot call `new GameManager()`
     GameManager() = default;
 
     bool running     = false;
@@ -747,11 +747,11 @@ int main()
 
 | Term                                               | Meaning                                                            |
 | -------------------------------------------------- | ------------------------------------------------------------------ |
-| `static GameManager instance`                      | Local static — created once on first call, automatically destroyed |
+| `static GameManager instance`                      | Local static - created once on first call, automatically destroyed |
 | `= delete` on copy constructor and copy-assignment | Prevents creating extra instances by accident                      |
 | `private` constructor                              | External code cannot call `new GameManager()`                      |
 
-📖 Reference: [Singleton Pattern — Refactoring Guru](https://refactoring.guru/design-patterns/singleton)
+📖 Reference: [Singleton Pattern - Refactoring Guru](https://refactoring.guru/design-patterns/singleton)
 
 ---
 
@@ -774,7 +774,7 @@ struct Card { std::string suit; int value; std::string toString() const; };
 
 // --- Configuration struct -------------------------------------------------
 
-// Plain data holder — filled in by the builder, consumed by the game
+// Plain data holder - filled in by the builder, consumed by the game
 struct GameConfig
 {
     std::string player1Name = "Player 1";
@@ -803,7 +803,7 @@ public:
         return *this;
     }
 
-    // Validate the input before storing it — throw on bad values
+    // Validate the input before storing it - throw on bad values
     GameConfigBuilder& setMaxRounds(int rounds)
     {
         if (rounds < 1 || rounds > 26)
@@ -818,7 +818,7 @@ public:
         return *this;
     }
 
-    // Fluent, descriptive name — reads like English: .withTieRuleP1()
+    // Fluent, descriptive name - reads like English: .withTieRuleP1()
     GameConfigBuilder& withTieRuleP1()
     {
         config.tieGoesToP1 = true;
@@ -929,12 +929,12 @@ int main()
 
 | Term                | Meaning                                     |
 | ------------------- | ------------------------------------------- |
-| `GameConfig`        | Plain data holder — the product being built |
+| `GameConfig`        | Plain data holder - the product being built |
 | `GameConfigBuilder` | Accumulates settings step by step           |
 | `return *this`      | Enables method chaining (fluent interface)  |
 | `.build()`          | Finalises and returns the completed config  |
 
-📖 Reference: [Builder Pattern — Refactoring Guru](https://refactoring.guru/design-patterns/builder)
+📖 Reference: [Builder Pattern - Refactoring Guru](https://refactoring.guru/design-patterns/builder)
 
 ---
 
@@ -951,8 +951,8 @@ g++ --std=c++20 -o week-02-design-patterns week-02-design-patterns.cpp
 
 AI tools are encouraged but use them critically:
 
-- Refine your prompts — vague prompts yield vague responses
-- Validate AI output — don't trust it blindly
+- Refine your prompts - vague prompts yield vague responses
+- Validate AI output - don't trust it blindly
 - Acknowledge AI usage at the top of any AI-assisted file:
 
 ```cpp
@@ -971,15 +971,15 @@ AI tools are encouraged but use them critically:
 
 ---
 
-### Task 1 — Strategy Pattern Extension
+### Task 1 - Strategy Pattern Extension
 
 Extend the Strategy pattern example by adding a third draw strategy: `LowestCardStrategy`, which always plays the **lowest** card in the player's hand. Wire it into the game alongside `RandomStrategy` and `HighestCardStrategy` and observe how the win rates differ across strategies.
 
-> **Hint:** `LowestCardStrategy` follows the same structure as `HighestCardStrategy` — sort the hand and take the first element instead of the last.
+> **Hint:** `LowestCardStrategy` follows the same structure as `HighestCardStrategy` - sort the hand and take the first element instead of the last.
 
 ---
 
-### Task 2 — Observer Pattern Extension
+### Task 2 - Observer Pattern Extension
 
 Extend the Observer pattern example by adding a `StreakObserver` that tracks the **longest consecutive winning streak** for each player. It should print the result at the end of the game in the format:
 
@@ -992,7 +992,7 @@ Bob longest streak: 2
 
 ---
 
-### Task 3 — Builder Pattern Extension
+### Task 3 - Builder Pattern Extension
 
 Extend the Builder pattern example with two new configuration options:
 

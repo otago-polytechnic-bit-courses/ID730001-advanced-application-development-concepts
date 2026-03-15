@@ -1,4 +1,4 @@
-# Week 01 — Git, Programming Paradigms & C++
+# Week 01 - Git, Programming Paradigms and C++
 
 ## Navigation
 
@@ -80,18 +80,18 @@ C++ has several built-in data types. Some require including a standard library h
 
 | Type         | Example                             | Header required |
 | ------------ | ----------------------------------- | --------------- |
-| Boolean      | `true`, `false`                     | —               |
-| Integer      | `1`, `2`, `-3`                      | —               |
-| Double       | `2.5`, `-3.14`                      | —               |
+| Boolean      | `true`, `false`                     | -               |
+| Integer      | `1`, `2`, `-3`                      | -               |
+| Double       | `2.5`, `-3.14`                      | -               |
 | String       | `"Hello"`, `"World"`                | `<string>`      |
-| Null pointer | `nullptr`                           | —               |
+| Null pointer | `nullptr`                           | -               |
 | Vector       | `{1, 2, 3}`                         | `<vector>`      |
 | Pair / Tuple | `{1, 2}` / `{1, 2, 3}`              | `<tuple>`       |
 | Map          | `{{"name", "John"}, {"age", "25"}}` | `<map>`         |
 
 > We will focus on Boolean, Integer, Double, String, nullptr, Vector and Map for now.
 
-📖 Reference: [C++ — Fundamental Types](https://en.cppreference.com/w/cpp/language/types)
+📖 Reference: [C++ - Fundamental Types](https://en.cppreference.com/w/cpp/language/types)
 
 ---
 
@@ -116,7 +116,7 @@ int main() {
 }
 ```
 
-Variables are mutable by default. Use `const` to make a variable immutable — the compiler will prevent you from accidentally changing it later.
+Variables are mutable by default. Use `const` to make a variable immutable - the compiler will prevent you from accidentally changing it later.
 
 ```cpp
 // const variables cannot be reassigned after initialisation
@@ -124,7 +124,7 @@ const double PI = 3.14159;
 const int MAX_PLAYERS = 4;
 ```
 
-📖 Reference: [C++ — Declarations](https://en.cppreference.com/w/cpp/language/declarations)
+📖 Reference: [C++ - Declarations](https://en.cppreference.com/w/cpp/language/declarations)
 
 ---
 
@@ -138,7 +138,7 @@ const int MAX_PLAYERS = 4;
 | Logical               | `&&`, `\|\|`, `!`                 | `and`, `or`, `not`                |
 | Increment / Decrement | `++`, `--`                        |                                   |
 
-📖 Reference: [C++ — Expressions](https://en.cppreference.com/w/cpp/language/expressions)
+📖 Reference: [C++ - Expressions](https://en.cppreference.com/w/cpp/language/expressions)
 
 ---
 
@@ -150,19 +150,19 @@ const int MAX_PLAYERS = 4;
 int main() {
     int score = 75;
 
-    // if — runs the block only when the condition is true
+    // if - runs the block only when the condition is true
     if (score >= 90) {
         std::cout << "Excellent!" << std::endl;
     }
 
-    // if...else — one branch for true, another for false
+    // if...else - one branch for true, another for false
     if (score >= 50) {
         std::cout << "Pass" << std::endl;
     } else {
         std::cout << "Fail" << std::endl;
     }
 
-    // if...else if...else — check multiple conditions in order
+    // if...else if...else - check multiple conditions in order
     if (score >= 90) {
         std::cout << "A" << std::endl;
     } else if (score >= 75) {
@@ -171,7 +171,7 @@ int main() {
         std::cout << "C or below" << std::endl;
     }
 
-    // Ternary operator — compact single-expression conditional
+    // Ternary operator - compact single-expression conditional
     // Syntax: condition ? value_if_true : value_if_false
     std::string result = (score >= 50) ? "Pass" : "Fail";
 
@@ -179,7 +179,7 @@ int main() {
 }
 ```
 
-📖 Reference: [C++ — if statement](https://en.cppreference.com/w/cpp/language/if)
+📖 Reference: [C++ - if statement](https://en.cppreference.com/w/cpp/language/if)
 
 ---
 
@@ -190,19 +190,19 @@ int main() {
 #include <vector>
 
 int main() {
-    // Classic for loop — useful when you need the index
+    // Classic for loop - useful when you need the index
     for (int i = 0; i < 10; i++) {
         std::cout << i << std::endl;
     }
 
-    // Range-based for loop — cleaner when you just need each element
+    // Range-based for loop - cleaner when you just need each element
     std::vector<int> numbers = {1, 2, 3, 4, 5};
     for (const auto& element : numbers) {
         // const auto& avoids copying each element
         std::cout << element << std::endl;
     }
 
-    // while loop — repeat while a condition holds
+    // while loop - repeat while a condition holds
     int count = 0;
     while (count < 3) {
         std::cout << count << std::endl;
@@ -215,7 +215,7 @@ int main() {
 
 C++ also supports `break` (exit a loop early) and `continue` (skip to the next iteration).
 
-📖 Reference: [C++ — for statement](https://en.cppreference.com/w/cpp/language/for)
+📖 Reference: [C++ - for statement](https://en.cppreference.com/w/cpp/language/for)
 
 ---
 
@@ -246,14 +246,14 @@ int main() {
 }
 ```
 
-**Lambda function (anonymous function):** useful for short, inline logic — especially when passing a function to an algorithm.
+**Lambda function (anonymous function):** useful for short, inline logic - especially when passing a function to an algorithm.
 
 ```cpp
 #include <iostream>
 
 int main() {
     // Syntax: [capture](parameters) { body }
-    // The [] is the capture list — leave empty if the lambda doesn't use outer variables
+    // The [] is the capture list - leave empty if the lambda doesn't use outer variables
     auto add = [](int a, int b) { return a + b; };
     std::cout << add(1, 2) << std::endl;  // 3
 
@@ -276,13 +276,13 @@ std::string greet(const std::string& name = "World") {
 // greet("John")  => "Hello, John!"
 ```
 
-📖 Reference: [C++ — Functions](https://en.cppreference.com/w/cpp/language/functions)
+📖 Reference: [C++ - Functions](https://en.cppreference.com/w/cpp/language/functions)
 
 ---
 
 ### 3.8 `std::format`
 
-`std::format` (C++20) embeds values directly into a string using `{}` placeholders — similar to Python f-strings.
+`std::format` (C++20) embeds values directly into a string using `{}` placeholders - similar to Python f-strings.
 
 ```cpp
 #include <iostream>
@@ -306,13 +306,13 @@ int main() {
 }
 ```
 
-📖 Reference: [C++ — std::format](https://en.cppreference.com/w/cpp/utility/format/format)
+📖 Reference: [C++ - std::format](https://en.cppreference.com/w/cpp/utility/format/format)
 
 ---
 
 ### 3.9 Classes
 
-A class is a blueprint for creating objects. It bundles data (member variables) and behaviour (methods) together. In C++, members are `private` by default — use `public` to expose them to callers.
+A class is a blueprint for creating objects. It bundles data (member variables) and behaviour (methods) together. In C++, members are `private` by default - use `public` to expose them to callers.
 
 ```cpp
 #include <iostream>
@@ -321,12 +321,12 @@ A class is a blueprint for creating objects. It bundles data (member variables) 
 
 class Person {
 private:
-    // Private members — only accessible inside the class
+    // Private members - only accessible inside the class
     std::string name;
     int age;
 
 public:
-    // Constructor — called automatically when you create a Person object.
+    // Constructor - called automatically when you create a Person object.
     // The initialiser list ": name(name), age(age)" sets the members
     // before the constructor body runs (more efficient than assigning inside {})
     Person(const std::string& name, int age) : name(name), age(age) {}
@@ -346,7 +346,7 @@ int main() {
 }
 ```
 
-📖 Reference: [C++ — Classes](https://en.cppreference.com/w/cpp/language/classes)
+📖 Reference: [C++ - Classes](https://en.cppreference.com/w/cpp/language/classes)
 
 ---
 
@@ -370,7 +370,7 @@ int main() {
 }
 ```
 
-**2D vectors** — a vector of vectors, useful for grids or matrices:
+**2D vectors** - a vector of vectors, useful for grids or matrices:
 
 ```cpp
 #include <iostream>
@@ -399,13 +399,13 @@ int main() {
 }
 ```
 
-📖 Reference: [C++ — std::vector](https://en.cppreference.com/w/cpp/container/vector)
+📖 Reference: [C++ - std::vector](https://en.cppreference.com/w/cpp/container/vector)
 
 ---
 
 ### 3.11 Structured Bindings
 
-Structured bindings (C++17) let you unpack a pair, tuple, or struct into named variables in one line — making iteration over maps much cleaner.
+Structured bindings (C++17) let you unpack a pair, tuple, or struct into named variables in one line - making iteration over maps much cleaner.
 
 ```cpp
 #include <iostream>
@@ -425,7 +425,7 @@ int main() {
     auto [x, y, z] = coords;  // x = 10, y = 20, z = 30
 
     // Structured bindings shine when iterating over a map
-    // Each entry is a std::pair<key, value> — binding gives it readable names
+    // Each entry is a std::pair<key, value> - binding gives it readable names
     std::map<std::string, int> scores = {{"Alice", 95}, {"Bob", 82}};
     for (const auto& [student, score] : scores) {
         std::cout << student << ": " << score << std::endl;
@@ -437,7 +437,7 @@ int main() {
 }
 ```
 
-📖 Reference: [C++ — Structured Bindings](https://en.cppreference.com/w/cpp/language/structured_binding)
+📖 Reference: [C++ - Structured Bindings](https://en.cppreference.com/w/cpp/language/structured_binding)
 
 ---
 
@@ -469,7 +469,7 @@ int main() {
 
     std::map<std::string, int> person = {{"age", 30}, {"score", 95}};
 
-    // Copy: same as vectors — assignment copies the whole map
+    // Copy: same as vectors - assignment copies the whole map
     std::map<std::string, int> copy_of_person = person;
 
     // Merge: insert all entries from another map
@@ -482,13 +482,13 @@ int main() {
 }
 ```
 
-📖 Reference: [C++ — Parameter pack](https://en.cppreference.com/w/cpp/language/parameter_pack)
+📖 Reference: [C++ - Parameter pack](https://en.cppreference.com/w/cpp/language/parameter_pack)
 
 ---
 
 ### 3.13 `std::transform`
 
-`std::transform` applies a function to every element in a container and writes the results to an output container — equivalent to Python's `map()`.
+`std::transform` applies a function to every element in a container and writes the results to an output container - equivalent to Python's `map()`.
 
 ```cpp
 #include <iostream>
@@ -527,13 +527,13 @@ Input          Callback              Output
 5  ──────────▶ [](int n){ n*n } ───▶ 25
 ```
 
-📖 Reference: [C++ — std::transform](https://en.cppreference.com/w/cpp/algorithm/transform)
+📖 Reference: [C++ - std::transform](https://en.cppreference.com/w/cpp/algorithm/transform)
 
 ---
 
 ### 3.14 `std::copy_if`
 
-`std::copy_if` copies only the elements that satisfy a predicate into a new container — equivalent to Python's `filter()`.
+`std::copy_if` copies only the elements that satisfy a predicate into a new container - equivalent to Python's `filter()`.
 
 ```cpp
 #include <iostream>
@@ -551,7 +551,7 @@ int main() {
                  [](int num) { return num % 2 == 0; });
     // evens: {2, 4}
 
-    // Named predicate — identical result, just more readable
+    // Named predicate - identical result, just more readable
     auto is_even = [](int num) { return num % 2 == 0; };
     std::vector<int> evens2;
     std::copy_if(numbers.begin(), numbers.end(), std::back_inserter(evens2), is_even);
@@ -572,13 +572,13 @@ Input          Predicate                    Output
 5  ──────────▶ [](int n){ n%2==0 } ───────▶ removed
 ```
 
-📖 Reference: [C++ — std::copy_if](https://en.cppreference.com/w/cpp/algorithm/copy)
+📖 Reference: [C++ - std::copy_if](https://en.cppreference.com/w/cpp/algorithm/copy)
 
 ---
 
 ### 3.15 `std::accumulate`
 
-`std::accumulate` (from `<numeric>`) reduces a container to a single value by repeatedly applying a function — equivalent to Python's `reduce()`.
+`std::accumulate` (from `<numeric>`) reduces a container to a single value by repeatedly applying a function - equivalent to Python's `reduce()`.
 
 ```cpp
 #include <iostream>
@@ -614,7 +614,7 @@ Input          Callback                          Accumulator
 5  ──────────▶ [](int acc, int n){ acc+n } ────▶ 15 + 5  = 20
 ```
 
-📖 Reference: [C++ — std::accumulate](https://en.cppreference.com/w/cpp/algorithm/accumulate)
+📖 Reference: [C++ - std::accumulate](https://en.cppreference.com/w/cpp/algorithm/accumulate)
 
 ---
 
@@ -634,10 +634,10 @@ int main() {
         {"score", 95}
     };
 
-    // Access by key — [] inserts a default value if the key doesn't exist
+    // Access by key - [] inserts a default value if the key doesn't exist
     std::cout << person["age"] << std::endl;    // 25
 
-    // .at() is safer — throws an exception if the key is missing
+    // .at() is safer - throws an exception if the key is missing
     std::cout << person.at("score") << std::endl; // 95
 
     // Add or update an entry
@@ -688,7 +688,7 @@ int main() {
 
 > We use the map initialiser list syntax `{}` in this course rather than inserting entries one by one.
 
-📖 Reference: [C++ — std::map](https://en.cppreference.com/w/cpp/container/map)
+📖 Reference: [C++ - std::map](https://en.cppreference.com/w/cpp/container/map)
 
 ---
 
@@ -696,7 +696,7 @@ int main() {
 
 `std::copy_if` produces a **filtered copy**. When you need to remove elements from an existing vector **in-place**, use the erase-remove idiom instead. It works in two steps:
 
-1. `std::remove_if` shifts unwanted elements to the end and returns an iterator to the first unwanted element — the vector's size is unchanged at this point.
+1. `std::remove_if` shifts unwanted elements to the end and returns an iterator to the first unwanted element - the vector's size is unchanged at this point.
 2. `.erase()` truncates the vector at that iterator, actually removing the elements.
 
 ```cpp
@@ -731,13 +731,13 @@ After .erase():          {2, 4, 6}
 | `std::copy_if` → new vector | Keep the original; work with a filtered copy |
 | Erase-remove idiom          | Modify the existing vector in-place          |
 
-📖 Reference: [C++ — std::remove_if](https://en.cppreference.com/w/cpp/algorithm/remove)
+📖 Reference: [C++ - std::remove_if](https://en.cppreference.com/w/cpp/algorithm/remove)
 
 ---
 
 ### 3.18 STL Search Algorithms
 
-Several tasks require finding elements in a container. These algorithms all return **iterators** — dereference with `*` to get the actual value, or use `->` to access a member.
+Several tasks require finding elements in a container. These algorithms all return **iterators** - dereference with `*` to get the actual value, or use `->` to access a member.
 
 #### `std::max_element`
 
@@ -750,7 +750,7 @@ Returns an iterator to the largest element. Supply a comparator lambda to compar
 int main() {
     std::vector<int> numbers = {3, 1, 4, 1, 5, 9, 2};
 
-    // Without a comparator — finds the largest int
+    // Without a comparator - finds the largest int
     auto it = std::max_element(numbers.begin(), numbers.end());
     // *it == 9  (dereference to get the value)
 
@@ -773,7 +773,7 @@ int main() {
 }
 ```
 
-> Always check the iterator is not `.end()` before dereferencing — `.end()` is returned for an empty range.
+> Always check the iterator is not `.end()` before dereferencing - `.end()` is returned for an empty range.
 
 #### `std::min_element`
 
@@ -812,7 +812,7 @@ int main() {
 | `std::any_of(b, e, pred)`     | `true` if at least one element matches   |
 | `std::all_of(b, e, pred)`     | `true` if every element matches          |
 
-📖 Reference: [C++ — Algorithm library](https://en.cppreference.com/w/cpp/algorithm)
+📖 Reference: [C++ - Algorithm library](https://en.cppreference.com/w/cpp/algorithm)
 
 ---
 
@@ -842,7 +842,7 @@ int main() {
     struct Student { std::string name; double gpa; };
     std::vector<Student> students = {{"Charlie", 3.1}, {"Alice", 3.9}, {"Bob", 3.4}};
 
-    // Sort by GPA descending — highest first
+    // Sort by GPA descending - highest first
     std::sort(students.begin(), students.end(),
         [](const Student& a, const Student& b) {
             return a.gpa > b.gpa;
@@ -866,11 +866,11 @@ std::vector<Student> top_n(students.begin(),
 // top_n: Alice, Bob
 ```
 
-📖 Reference: [C++ — std::sort](https://en.cppreference.com/w/cpp/algorithm/sort)
+📖 Reference: [C++ - std::sort](https://en.cppreference.com/w/cpp/algorithm/sort)
 
 ---
 
-### 3.20 Inheritance & Virtual Functions
+### 3.20 Inheritance and Virtual Functions
 
 Inheritance lets a child class build on a parent class, reusing its members and overriding methods to provide specialised behaviour.
 
@@ -878,7 +878,7 @@ Inheritance lets a child class build on a parent class, reusing its members and 
 #include <iostream>
 #include <string>
 
-// Base class — defines common interface and shared behaviour
+// Base class - defines common interface and shared behaviour
 class Animal {
 protected:
     // protected: accessible inside this class and in child classes,
@@ -888,7 +888,7 @@ protected:
 public:
     Animal(const std::string& name) : name(name) {}
 
-    // virtual — marks this method as overridable by child classes
+    // virtual - marks this method as overridable by child classes
     virtual std::string speak() const {
         return name + " makes a sound";
     }
@@ -898,13 +898,13 @@ public:
     virtual ~Animal() {}
 };
 
-// Child class — inherits everything from Animal
+// Child class - inherits everything from Animal
 class Dog : public Animal {
 public:
     // Call the parent constructor via the initialiser list
     Dog(const std::string& name) : Animal(name) {}
 
-    // override — explicitly marks this as replacing the parent's speak()
+    // override - explicitly marks this as replacing the parent's speak()
     // The compiler will error if the signature doesn't match the parent
     std::string speak() const override {
         return name + " barks";
@@ -920,10 +920,10 @@ int main() {
 
 #### Pure virtual functions and abstract classes
 
-A pure virtual function (`= 0`) has no implementation in the base class. Any class with at least one pure virtual function is **abstract** — you cannot create objects of it directly. Child classes must override every pure virtual function.
+A pure virtual function (`= 0`) has no implementation in the base class. Any class with at least one pure virtual function is **abstract** - you cannot create objects of it directly. Child classes must override every pure virtual function.
 
 ```cpp
-// Shape is abstract — it defines an interface that all shapes must follow
+// Shape is abstract - it defines an interface that all shapes must follow
 class Shape {
 public:
     // = 0 means "no implementation here; subclasses must provide one"
@@ -948,7 +948,7 @@ public:
 };
 
 int main() {
-    // Shape s;     // ERROR — cannot instantiate an abstract class
+    // Shape s;     // ERROR - cannot instantiate an abstract class
     Circle c(5.0);
     std::cout << c.area() << std::endl; // 78.54
     return 0;
@@ -984,19 +984,19 @@ public:
 | Term              | Meaning                                                                    |
 | ----------------- | -------------------------------------------------------------------------- |
 | `virtual`         | Method can be overridden in a child class                                  |
-| `= 0`             | Pure virtual — child class must implement this                             |
+| `= 0`             | Pure virtual - child class must implement this                             |
 | `override`        | Explicitly marks a method as overriding a parent method (compiler-checked) |
 | Abstract class    | A class with at least one pure virtual method; cannot be instantiated      |
 | `protected:`      | Accessible in the class and its children, but not from outside             |
-| `virtual ~Base()` | Virtual destructor — always include in base classes                        |
+| `virtual ~Base()` | Virtual destructor - always include in base classes                        |
 
-📖 Reference: [C++ — Virtual functions](https://en.cppreference.com/w/cpp/language/virtual)
+📖 Reference: [C++ - Virtual functions](https://en.cppreference.com/w/cpp/language/virtual)
 
 ---
 
 ### 3.21 Smart Pointers
 
-Raw pointers (`new` / `delete`) require manual memory management. Smart pointers automate this — they free memory automatically when no longer needed.
+Raw pointers (`new` / `delete`) require manual memory management. Smart pointers automate this - they free memory automatically when no longer needed.
 
 #### `std::shared_ptr`
 
@@ -1014,13 +1014,13 @@ public:
 
 int main() {
     // make_shared allocates the object and wraps it in a shared_ptr
-    // Prefer make_shared over "new" — it's safer and more efficient
+    // Prefer make_shared over "new" - it's safer and more efficient
     auto dog = std::make_shared<Dog>("Rex");
 
     // Access members with -> just like a raw pointer
     std::cout << dog->name << std::endl;  // Rex
 
-    // Both variables now point to the same Dog — the count is 2
+    // Both variables now point to the same Dog - the count is 2
     auto same_dog = dog;
 
     // When both go out of scope, the count drops to 0 and Dog is automatically destroyed
@@ -1045,7 +1045,7 @@ auto crypto = std::make_shared<CryptoPayment>(500.0, "USD", "0xABC", "Bitcoin");
 transactions.push_back(cc);
 transactions.push_back(crypto);
 
-// Virtual dispatch — calls the correct get_fee() for each concrete type at runtime
+// Virtual dispatch - calls the correct get_fee() for each concrete type at runtime
 for (auto& payment : transactions) {
     std::cout << payment->get_fee() << std::endl;
 }
@@ -1075,7 +1075,7 @@ std::copy_if(transactions.begin(), transactions.end(), std::back_inserter(cc_onl
     });
 ```
 
-📖 Reference: [C++ — std::shared_ptr](https://en.cppreference.com/w/cpp/memory/shared_ptr)
+📖 Reference: [C++ - std::shared_ptr](https://en.cppreference.com/w/cpp/memory/shared_ptr)
 
 ---
 
@@ -1107,7 +1107,7 @@ Storing a timestamp in a class:
 ```cpp
 class Event {
 protected:
-    // Store the raw time_point — convert to string only when needed
+    // Store the raw time_point - convert to string only when needed
     std::chrono::system_clock::time_point timestamp;
 
 public:
@@ -1116,7 +1116,7 @@ public:
 };
 ```
 
-📖 Reference: [C++ — std::chrono](https://en.cppreference.com/w/cpp/chrono)
+📖 Reference: [C++ - std::chrono](https://en.cppreference.com/w/cpp/chrono)
 
 ---
 
@@ -1129,7 +1129,7 @@ public:
 #include <string>
 
 int main() {
-    // Reading a single value — stops at whitespace
+    // Reading a single value - stops at whitespace
     int number;
     std::cout << "Enter a number: ";
     std::cin >> number;
@@ -1180,13 +1180,13 @@ std::cout << "Enter your name: ";
 std::getline(std::cin, name);  // now reads the full line correctly
 ```
 
-📖 Reference: [C++ — std::cin](https://en.cppreference.com/w/cpp/io/cin)
+📖 Reference: [C++ - std::cin](https://en.cppreference.com/w/cpp/io/cin)
 
 ---
 
 ### 3.24 Random Shuffling with `std::shuffle`
 
-`std::shuffle` randomises the order of elements in a range. It requires a random number engine — use `std::mt19937` seeded from `std::random_device` for a different result each run.
+`std::shuffle` randomises the order of elements in a range. It requires a random number engine - use `std::mt19937` seeded from `std::random_device` for a different result each run.
 
 ```cpp
 #include <algorithm>  // std::shuffle
@@ -1215,7 +1215,7 @@ int main() {
 | `std::mt19937`         | Pseudo-random number engine (fast, high quality)       |
 | `std::shuffle`         | Uses the engine to permute a range uniformly at random |
 
-📖 Reference: [C++ — std::shuffle](https://en.cppreference.com/w/cpp/algorithm/random_shuffle)
+📖 Reference: [C++ - std::shuffle](https://en.cppreference.com/w/cpp/algorithm/random_shuffle)
 
 ---
 
@@ -1238,8 +1238,8 @@ Hello, World!
 
 AI tools are encouraged but use them critically:
 
-- Refine your prompts — vague prompts yield vague responses
-- Validate AI output — don't trust it blindly
+- Refine your prompts - vague prompts yield vague responses
+- Validate AI output - don't trust it blindly
 - Acknowledge AI usage at the top of any AI-assisted file:
 
 ```cpp
@@ -1258,7 +1258,7 @@ AI tools are encouraged but use them critically:
 
 ---
 
-### Task 1 — Data Pipeline
+### Task 1 - Data Pipeline
 
 Create a function `process_data_pipeline` that takes a `std::vector<User>` and applies a series of transformations using `std::copy_if`, `std::transform`, and `std::accumulate`.
 
@@ -1317,7 +1317,7 @@ average_spending: 675.00
 
 ---
 
-### Task 2 — Organisation Transformer
+### Task 2 - Organisation Transformer
 
 Create a function `transform_organisation` that enriches a nested organisation struct with computed statistics.
 
@@ -1408,7 +1408,7 @@ Summary:
 
 ---
 
-### Task 3 — Payment Processing System
+### Task 3 - Payment Processing System
 
 Build a payment processing system using inheritance and smart pointers.
 
@@ -1472,7 +1472,7 @@ total_fees_by_type:          { CreditCardPayment: 3.20, CryptoPayment: 5.00, Ban
 
 ---
 
-### Task 4 — Student Data Analysis
+### Task 4 - Student Data Analysis
 
 Build a data analysis system for student records using classes and STL algorithms.
 
@@ -1533,7 +1533,7 @@ recommendations:
 
 ---
 
-### Task 5 — Blackjack Game
+### Task 5 - Blackjack Game
 
 Build a complete, playable command-line Blackjack game using OOP.
 

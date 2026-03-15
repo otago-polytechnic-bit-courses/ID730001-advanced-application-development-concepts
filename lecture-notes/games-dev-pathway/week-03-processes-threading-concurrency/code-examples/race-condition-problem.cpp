@@ -2,7 +2,7 @@
 #include <thread>
 #include <vector>
 
-// Shared bank balance — accessed by multiple threads simultaneously
+// Shared bank balance - accessed by multiple threads simultaneously
 double balance = 1000.0;
 
 void deposit(double amount)
@@ -20,7 +20,7 @@ int main()
         threads.emplace_back(deposit, 100.0);
     for (auto& t : threads) t.join();
 
-    // May print anything from 1100 to 2000 — output is non-deterministic
+    // May print anything from 1100 to 2000 - output is non-deterministic
     std::cout << "Final balance: $" << balance << "\n";
     return 0;
 }

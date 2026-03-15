@@ -1,10 +1,10 @@
-# Week 01 — Git, Programming Paradigms & Python
+# Week 01 - Git, Programming Paradigms and Python
 
 ## Navigation
 
-|                  | Link                                                                                         |
-| ---------------- | -------------------------------------------------------------------------------------------- |
-| GitHub Classroom | [ID730001-S1-26](https://classroom.github.com/a/RgDe5bs0)                                    |
+|                  | Link                                                                                           |
+| ---------------- | ---------------------------------------------------------------------------------------------- |
+| GitHub Classroom | [ID730001-S1-26](https://classroom.github.com/a/RgDe5bs0)                                      |
 | → Next           | [Week 02 - Design Patterns](./lecture-notes/app-dev-pathway/week-02-design-patterns/README.md) |
 
 ---
@@ -60,7 +60,7 @@ Python is a high-level, interpreted programming language known for its simplicit
 
 ### 3.1 Python Interpreter
 
-Python's interpreter executes code line by line. You can run code in two ways — interactively via the Python REPL, or by executing a `.py` file. We will primarily use files so we can see results in the terminal.
+Python's interpreter executes code line by line. You can run code in two ways - interactively via the Python REPL, or by executing a `.py` file. We will primarily use files so we can see results in the terminal.
 
 📖 Reference: [python.org](https://www.python.org/)
 
@@ -84,7 +84,7 @@ Python has several built-in data types:
 
 > We will focus on Boolean, Integer, Float, String, None, List, and Dictionary for now.
 
-📖 Reference: [Python — Built-in Types](https://docs.python.org/3/library/stdtypes.html)
+📖 Reference: [Python - Built-in Types](https://docs.python.org/3/library/stdtypes.html)
 
 ---
 
@@ -100,9 +100,9 @@ print(type(name))  # <class 'str'>
 print(type(age))   # <class 'int'>
 ```
 
-In Python, all variables are mutable by default — their values can be reassigned. However, some data types (strings, numbers, tuples) are **immutable** — once created, their values cannot be modified in place (you can only reassign the variable).
+In Python, all variables are mutable by default - their values can be reassigned. However, some data types (strings, numbers, tuples) are **immutable** - once created, their values cannot be modified in place (you can only reassign the variable).
 
-📖 Reference: [Python — Variables](https://docs.python.org/3/tutorial/introduction.html#using-python-as-a-calculator)
+📖 Reference: [Python - Variables](https://docs.python.org/3/tutorial/introduction.html#using-python-as-a-calculator)
 
 ---
 
@@ -117,7 +117,7 @@ In Python, all variables are mutable by default — their values can be reassign
 | Membership | `in`, `not in`                           |
 | Identity   | `is`, `is not`                           |
 
-📖 Reference: [Python — Operators](https://docs.python.org/3/library/operator.html)
+📖 Reference: [Python - Operators](https://docs.python.org/3/library/operator.html)
 
 ---
 
@@ -146,7 +146,7 @@ else:
 x = value_if_true if condition else value_if_false
 ```
 
-📖 Reference: [Python — if Statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements)
+📖 Reference: [Python - if Statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements)
 
 ---
 
@@ -171,7 +171,7 @@ new_list = [expression for item in iterable if condition]
 
 Python also supports `break` (exit a loop early) and `continue` (skip to the next iteration).
 
-📖 Reference: [Python — for Statements](https://docs.python.org/3/tutorial/controlflow.html#for-statements)
+📖 Reference: [Python - for Statements](https://docs.python.org/3/tutorial/controlflow.html#for-statements)
 
 ---
 
@@ -210,7 +210,7 @@ print(greet())        # Hello, World!
 print(greet("John"))  # Hello, John!
 ```
 
-📖 Reference: [Python — Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+📖 Reference: [Python - Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
 
 ---
 
@@ -229,7 +229,7 @@ print(greeting)  # Hello, my name is John and I am 30 years old
 print(f"Next year I will be {age + 1} years old")  # Next year I will be 31 years old
 ```
 
-📖 Reference: [Python — Formatted String Literals](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals)
+📖 Reference: [Python - Formatted String Literals](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals)
 
 ---
 
@@ -251,7 +251,7 @@ john = Person("John", 30)
 print(john.greet())  # Hello, my name is John and I am 30 years old
 ```
 
-📖 Reference: [Python — Classes](https://docs.python.org/3/tutorial/classes.html)
+📖 Reference: [Python - Classes](https://docs.python.org/3/tutorial/classes.html)
 
 ---
 
@@ -280,7 +280,7 @@ print(grid[0][0])  # 1
 print(grid[1][2])  # 6
 ```
 
-📖 Reference: [Python — Lists](https://docs.python.org/3/tutorial/introduction.html#lists)
+📖 Reference: [Python - Lists](https://docs.python.org/3/tutorial/introduction.html#lists)
 
 ---
 
@@ -294,7 +294,7 @@ numbers = [1, 2, 3]
 a, b, c = numbers
 print(a, b, c)  # 1 2 3
 
-# Dictionary — unpacking keys by default
+# Dictionary - unpacking keys by default
 person = {"name": "John", "age": 30}
 name, age = person  # unpacks keys: "name", "age"
 
@@ -302,7 +302,7 @@ name, age = person  # unpacks keys: "name", "age"
 name, age = person.values()  # "John", 30
 ```
 
-📖 Reference: [Python — Unpacking Argument Lists](https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists)
+📖 Reference: [Python - Unpacking Argument Lists](https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists)
 
 ---
 
@@ -327,7 +327,7 @@ details = {"is_male": True, "country": "USA"}
 full = {**person, **details}  # {'name': 'John', 'age': 30, 'is_male': True, 'country': 'USA'}
 ```
 
-📖 Reference: [Python — Unpacking Argument Lists](https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists)
+📖 Reference: [Python - Unpacking Argument Lists](https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists)
 
 ---
 
@@ -352,7 +352,7 @@ Input          Callback                      Output
 5  ──────────▶ lambda num: num * num ───────▶ 25
 ```
 
-📖 Reference: [Python — map()](https://docs.python.org/3/library/functions.html#map)
+📖 Reference: [Python - map()](https://docs.python.org/3/library/functions.html#map)
 
 ---
 
@@ -377,7 +377,7 @@ Input          Callback                           Output
 5  ──────────▶ lambda num: num % 2 == 0 ─────────▶ removed
 ```
 
-📖 Reference: [Python — filter()](https://docs.python.org/3/library/functions.html#filter)
+📖 Reference: [Python - filter()](https://docs.python.org/3/library/functions.html#filter)
 
 ---
 
@@ -410,7 +410,7 @@ Input          Callback                             Accumulator
 5  ──────────▶ lambda acc, num: acc + num ─────────▶ 15 + 5 = 20
 ```
 
-📖 Reference: [Python — functools.reduce()](https://docs.python.org/3/library/functools.html#functools.reduce)
+📖 Reference: [Python - functools.reduce()](https://docs.python.org/3/library/functools.html#functools.reduce)
 
 ---
 
@@ -426,7 +426,7 @@ person = {
 }
 
 print(person["name"])       # John
-print(person.get("name"))   # John  (safer — returns None if key missing)
+print(person.get("name"))   # John  (safer - returns None if key missing)
 ```
 
 Dictionaries can hold mixed types, including lists and functions:
@@ -456,7 +456,7 @@ print(people[1]["age"])   # 20
 
 > We use dictionary literal syntax `{}` in this course rather than the `dict()` constructor.
 
-📖 Reference: [Python — Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
+📖 Reference: [Python - Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
 
 ---
 
@@ -478,8 +478,8 @@ Hello, World!
 
 AI tools are encouraged but use them critically:
 
-- Refine your prompts — vague prompts yield vague responses
-- Validate AI output — don't trust it blindly
+- Refine your prompts - vague prompts yield vague responses
+- Validate AI output - don't trust it blindly
 - Acknowledge AI usage at the top of any AI-assisted file:
 
 ```python
@@ -498,7 +498,7 @@ Usage: Describe how you used the AI responses to help you with your work
 
 ---
 
-### Task 1 — Data Pipeline
+### Task 1 - Data Pipeline
 
 Create a function `process_data_pipeline` that takes a list of user dictionaries and applies a series of transformations using `map`, `filter`, and `reduce`.
 
@@ -561,7 +561,7 @@ Expected output:
 
 ---
 
-### Task 2 — Organisation Transformer
+### Task 2 - Organisation Transformer
 
 Create a function `transform_organisation` that takes a nested dictionary representing a company structure and enriches it with computed statistics.
 
@@ -626,7 +626,7 @@ For the example above: Backend has `total_salary = 175000`, `avg_performance = 4
 
 ---
 
-### Task 3 — Payment Processing System
+### Task 3 - Payment Processing System
 
 Build a payment processing system using inheritance.
 
@@ -636,9 +636,9 @@ Build a payment processing system using inheritance.
 | ------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `amount`, `currency`, `timestamp`, `status` | Properties (`timestamp` set via `datetime.now()`, `status` defaults to `"pending"`) |
 | `__init__(self, amount, currency="USD")`    | Constructor                                                                         |
-| `process(self)`                             | Abstract — raise `NotImplementedError`                                              |
+| `process(self)`                             | Abstract - raise `NotImplementedError`                                              |
 | `validate(self)`                            | Returns `True` if `amount > 0`                                                      |
-| `get_fee(self)`                             | Abstract — raise `NotImplementedError`                                              |
+| `get_fee(self)`                             | Abstract - raise `NotImplementedError`                                              |
 | `get_total(self)`                           | Returns `amount + fee`                                                              |
 | `__str__(self)`                             | Returns formatted payment info                                                      |
 
@@ -692,7 +692,7 @@ Expected report:
 
 ---
 
-### Task 4 — Student Data Analysis
+### Task 4 - Student Data Analysis
 
 Build a data analysis system for student records using classes and functional programming.
 
@@ -755,7 +755,7 @@ Expected report output:
 
 ---
 
-### Task 5 — Blackjack Game
+### Task 5 - Blackjack Game
 
 Build a complete, playable command-line Blackjack game using OOP.
 

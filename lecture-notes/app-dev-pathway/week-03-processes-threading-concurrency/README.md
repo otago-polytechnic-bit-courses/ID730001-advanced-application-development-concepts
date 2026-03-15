@@ -1,11 +1,11 @@
-# Week 03 — Processes, Threads & Concurrency
+# Week 03 - Processes, Threads and Concurrency
 
 ## Navigation
 
-|                  | Link        |
-| ---------------- | ----------- |
-| ← Previous       | [Week 02 - Design Patterns](./lecture-notes/app-dev-pathway/week-02-design-patterns/README.md) |
-| → Next           | [Week 04 - Networking](./lecture-notes/app-dev-pathway/week-04-networking/README.md) |
+|            | Link                                                                                           |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| ← Previous | [Week 02 - Design Patterns](./lecture-notes/app-dev-pathway/week-02-design-patterns/README.md) |
+| → Next     | [Week 04 - Networking](./lecture-notes/app-dev-pathway/week-04-networking/README.md)           |
 
 ---
 
@@ -16,9 +16,9 @@ Before writing concurrent code, it helps to understand the two fundamental units
 |                     | Process                                                         | Thread                                                              |
 | ------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------- |
 | **Definition**      | An independent program in execution, with its own memory space  | A unit of execution _within_ a process; shares the process's memory |
-| **Memory**          | Isolated — processes cannot read each other's memory by default | Shared — all threads in a process see the same heap and globals     |
-| **Creation cost**   | High — the OS must allocate a new address space                 | Low — just a new stack and register set within the existing process |
-| **Communication**   | `multiprocessing.Queue`, `Pipe`, shared memory                  | Direct — via shared variables (but requires synchronisation)        |
+| **Memory**          | Isolated - processes cannot read each other's memory by default | Shared - all threads in a process see the same heap and globals     |
+| **Creation cost**   | High - the OS must allocate a new address space                 | Low - just a new stack and register set within the existing process |
+| **Communication**   | `multiprocessing.Queue`, `Pipe`, shared memory                  | Direct - via shared variables (but requires synchronisation)        |
 | **Crash isolation** | A crash in one process does not affect others                   | A crash in one thread can bring down the entire process             |
 | **Python API**      | `multiprocessing.Process`                                       | `threading.Thread`                                                  |
 
@@ -35,19 +35,19 @@ Before writing concurrent code, it helps to understand the two fundamental units
 
 ## 2. `threading.Thread`
 
-`threading.Thread` launches a function on a new OS thread. The thread runs concurrently with the caller — both execute at the same time.
+`threading.Thread` launches a function on a new OS thread. The thread runs concurrently with the caller - both execute at the same time.
 
 ```python
 import threading
 
-# A plain function — any callable can be passed to Thread
+# A plain function - any callable can be passed to Thread
 def process_deposit(account: str, amount: float) -> None:
     print(f"Depositing ${amount} into account {account}")
 
 # target= is the callable; args= is the tuple of arguments passed to it
 t = threading.Thread(target=process_deposit, args=("ACC-001", 500.0))
 
-# start() launches the thread — it begins running immediately
+# start() launches the thread - it begins running immediately
 t.start()
 
 # join() blocks the calling thread until t finishes
@@ -73,7 +73,7 @@ workers.append(threading.Thread(target=process_transaction, args=(1, "Deposit", 
 workers.append(threading.Thread(target=process_transaction, args=(2, "Withdrawal",  50.0)))
 workers.append(threading.Thread(target=process_transaction, args=(3, "Transfer",   300.0)))
 
-# Start all threads before joining any — otherwise they run sequentially
+# Start all threads before joining any - otherwise they run sequentially
 for t in workers:
     t.start()
 
@@ -88,12 +88,12 @@ print("All transactions processed.")
 
 | Approach                           | Behaviour                                                                                                             |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `t.join()`                         | Caller blocks until `t` finishes. Safe — you know when it's done.                                                     |
+| `t.join()`                         | Caller blocks until `t` finishes. Safe - you know when it's done.                                                     |
 | `t.daemon = True` then `t.start()` | Thread runs independently; exits when the main program exits. Dangerous if the thread outlives objects it references. |
 
 > Prefer `join()`. Only use daemon threads when the thread truly does not share any data with the rest of the program.
 
-📖 Reference: [Python — threading.Thread](https://docs.python.org/3/library/threading.html#threading.Thread)
+📖 Reference: [Python - threading.Thread](https://docs.python.org/3/library/threading.html#threading.Thread)
 
 ---
 
@@ -101,12 +101,12 @@ print("All transactions processed.")
 
 When multiple threads share data, they can interleave in unpredictable ways and corrupt it. A **lock** ensures only one thread accesses a critical section at a time.
 
-### 3.1 The problem — a race condition
+### 3.1 The problem - a race condition
 
 ```python
 import threading
 
-# Shared bank balance — accessed by multiple threads simultaneously
+# Shared bank balance - accessed by multiple threads simultaneously
 balance = 1000.0
 
 def deposit(amount: float) -> None:
@@ -120,11 +120,11 @@ threads = [threading.Thread(target=deposit, args=(100.0,)) for _ in range(10)]
 for t in threads: t.start()
 for t in threads: t.join()
 
-# May print anything from 1100 to 2000 — output is non-deterministic
+# May print anything from 1100 to 2000 - output is non-deterministic
 print(f"Final balance: ${balance}")
 ```
 
-### 3.2 The solution — `threading.Lock`
+### 3.2 The solution - `threading.Lock`
 
 ```python
 import threading
@@ -133,12 +133,12 @@ class BankAccount:
     def __init__(self, account_id: str, initial_balance: float) -> None:
         self.account_id = account_id
         self._balance   = initial_balance
-        # One lock per account — only one thread can hold it at a time
+        # One lock per account - only one thread can hold it at a time
         self._lock      = threading.Lock()
 
     def deposit(self, amount: float) -> None:
         # The 'with' statement acquires the lock on entry and releases it on exit,
-        # even if an exception is raised — equivalent to C++ lock_guard
+        # even if an exception is raised - equivalent to C++ lock_guard
         with self._lock:
             self._balance += amount
             print(f"[{self.account_id}] Deposited ${amount}  "
@@ -175,7 +175,7 @@ for t in threads: t.join()
 print(f"Final balance: ${account.balance}")
 ```
 
-### 3.3 `threading.RLock` — re-entrant locking
+### 3.3 `threading.RLock` - re-entrant locking
 
 Python also provides `threading.RLock` (re-entrant lock), which allows the **same thread** to acquire the lock multiple times without deadlocking. Use it when a method that holds a lock needs to call another method that also acquires the same lock.
 
@@ -195,7 +195,7 @@ class BankAccount:
 
     def deposit_with_bonus(self, amount: float, bonus: float) -> None:
         with self._lock:
-            # Calls deposit(), which also acquires _lock — safe with RLock
+            # Calls deposit(), which also acquires _lock - safe with RLock
             # Would deadlock with a plain Lock
             self.deposit(amount)
             self.deposit(bonus)
@@ -207,15 +207,15 @@ class BankAccount:
 | Overhead                   | Minimal           | Slightly higher                   |
 | Use when                   | No nested locking | Methods call other locked methods |
 
-📖 Reference: [Python — threading.Lock](https://docs.python.org/3/library/threading.html#lock-objects)
+📖 Reference: [Python - threading.Lock](https://docs.python.org/3/library/threading.html#lock-objects)
 
 ---
 
-## 4. Deadlocks & Race Conditions
+## 4. Deadlocks and Race Conditions
 
 ### 4.1 Race conditions
 
-A **race condition** occurs when the correctness of a program depends on the relative timing of threads. The deposit example above is a classic race condition — `balance += amount` is not atomic.
+A **race condition** occurs when the correctness of a program depends on the relative timing of threads. The deposit example above is a classic race condition - `balance += amount` is not atomic.
 
 **Symptoms:** non-deterministic results, bugs that only appear under load, results that change between runs.
 
@@ -245,7 +245,7 @@ def unsafe_transfer(from_account, to_account, amount):
                                       # waits for ACC-001 → deadlock
 ```
 
-**Prevention — always acquire locks in a consistent order:**
+**Prevention - always acquire locks in a consistent order:**
 
 ```python
 import threading
@@ -254,7 +254,7 @@ def safe_transfer(from_account: BankAccount,
                   to_account:   BankAccount,
                   amount:       float) -> bool:
     # Determine a consistent lock ordering using the object's id()
-    # id() returns a unique integer for each object — acts like a memory address
+    # id() returns a unique integer for each object - acts like a memory address
     # Always locking lower-id first breaks circular wait
     first, second = (
         (from_account, to_account)
@@ -282,13 +282,13 @@ def safe_transfer(from_account: BankAccount,
 
 > Break any one condition to prevent deadlock. The consistent ordering above breaks **circular wait**.
 
-📖 Reference: [Python — threading](https://docs.python.org/3/library/threading.html)
+📖 Reference: [Python - threading](https://docs.python.org/3/library/threading.html)
 
 ---
 
 ## 5. Condition Variables
 
-A **condition variable** lets a thread sleep until another thread signals that something has changed. This is the correct way to implement a waiting thread — far better than a busy loop that wastes CPU.
+A **condition variable** lets a thread sleep until another thread signals that something has changed. This is the correct way to implement a waiting thread - far better than a busy loop that wastes CPU.
 
 **Bank use case:** a fraud-checker thread waits until a transaction is queued; the transaction processor wakes it up.
 
@@ -306,14 +306,14 @@ class Transaction:
 
 class TransactionQueue:
     def __init__(self) -> None:
-        self._queue = queue.Queue()   # thread-safe by design — no manual locking needed
+        self._queue = queue.Queue()   # thread-safe by design - no manual locking needed
 
     def push(self, tx: Transaction) -> None:
         # Queue.put() is thread-safe and wakes any blocked get() calls automatically
         self._queue.put(tx)
 
     def pop(self) -> Transaction:
-        # Queue.get() blocks if the queue is empty — equivalent to condition_variable::wait()
+        # Queue.get() blocks if the queue is empty - equivalent to condition_variable::wait()
         return self._queue.get()
 
     def empty(self) -> bool:
@@ -352,7 +352,7 @@ class ManualTransactionQueue:
     def __init__(self) -> None:
         self._queue: deque[Transaction] = deque()
         self._lock  = threading.Lock()
-        # Condition wraps a lock — wait() releases the lock and sleeps atomically
+        # Condition wraps a lock - wait() releases the lock and sleeps atomically
         self._cv    = threading.Condition(self._lock)
 
     def push(self, tx: Transaction) -> None:
@@ -374,7 +374,7 @@ class ManualTransactionQueue:
 | `cv.notify()`     | Wakes exactly one waiting thread. Use when any one worker can handle the work.            |
 | `cv.notify_all()` | Wakes all waiting threads. Use when all of them need to respond (e.g. a shutdown signal). |
 
-📖 Reference: [Python — threading.Condition](https://docs.python.org/3/library/threading.html#condition-objects)
+📖 Reference: [Python - threading.Condition](https://docs.python.org/3/library/threading.html#condition-objects)
 
 ---
 
@@ -481,31 +481,31 @@ pool.shutdown()
 | ----------------------------------------- | ---------------------------------------- |
 | One thread per task                       | Fixed number of threads, unlimited tasks |
 | High creation overhead for short tasks    | Creation cost paid once at startup       |
-| Unbounded — 10,000 tasks = 10,000 threads | Bounded — 10,000 tasks on N threads      |
+| Unbounded - 10,000 tasks = 10,000 threads | Bounded - 10,000 tasks on N threads      |
 
-📖 Reference: [Python — concurrent.futures.ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor)
+📖 Reference: [Python - concurrent.futures.ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor)
 
 ---
 
-## 7. `concurrent.futures`, Futures & `asyncio`
+## 7. `concurrent.futures`, Futures and `asyncio`
 
 Python's `concurrent.futures` module provides `Future` objects equivalent to C++ `std::future`. For cooperative concurrency (especially I/O-bound work), Python also offers `asyncio`.
 
 ### 7.1 `ThreadPoolExecutor` and `Future`
 
-`executor.submit()` schedules a callable and returns a `Future` — a handle to a value that will be ready at some point.
+`executor.submit()` schedules a callable and returns a `Future` - a handle to a value that will be ready at some point.
 
 ```python
 from concurrent.futures import ThreadPoolExecutor
 import time
 
 def check_fraud(account_id: str, amount: float) -> float:
-    """Returns a fraud score — imagine this does real ML inference."""
+    """Returns a fraud score - imagine this does real ML inference."""
     time.sleep(0.1)   # simulate time-consuming analysis
     return 0.95 if amount > 5000.0 else 0.02
 
 with ThreadPoolExecutor() as pool:
-    # submit() returns immediately — check_fraud runs in the background
+    # submit() returns immediately - check_fraud runs in the background
     fraud_future = pool.submit(check_fraud, "ACC-001", 7500.0)
 
     # Do other work here while check_fraud runs concurrently
@@ -528,7 +528,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 accounts = ["ACC-001", "ACC-002", "ACC-003"]
 
 with ThreadPoolExecutor() as pool:
-    # Launch all checks at the same time — dict maps future → account name
+    # Launch all checks at the same time - dict maps future → account name
     future_to_account = {
         pool.submit(check_fraud, acc, 1000.0): acc
         for acc in accounts
@@ -541,7 +541,7 @@ with ThreadPoolExecutor() as pool:
         print(f"{acc}: fraud score = {score}")
 ```
 
-### 7.2 Promises — `concurrent.futures.Future` set externally
+### 7.2 Promises - `concurrent.futures.Future` set externally
 
 Python's equivalent of `std::promise` is manually creating a `Future` and fulfilling it from another thread.
 
@@ -550,7 +550,7 @@ from concurrent.futures import Future
 import threading
 import time
 
-# Create a Future manually — this is the write end (the "promise")
+# Create a Future manually - this is the write end (the "promise")
 approval_future: Future[str] = Future()
 
 def worker() -> None:
@@ -571,7 +571,7 @@ print(f"Transaction status: {result}")
 t.join()
 ```
 
-### 7.3 `asyncio` — cooperative concurrency
+### 7.3 `asyncio` - cooperative concurrency
 
 For I/O-bound work, `asyncio` offers a lighter alternative to threads. Instead of OS threads, it uses a single-threaded **event loop** with `async`/`await` syntax.
 
@@ -579,7 +579,7 @@ For I/O-bound work, `asyncio` offers a lighter alternative to threads. Instead o
 import asyncio
 
 async def check_fraud_async(account_id: str, amount: float) -> float:
-    """Async version — yields control during the sleep instead of blocking."""
+    """Async version - yields control during the sleep instead of blocking."""
     await asyncio.sleep(0.1)   # non-blocking sleep; other tasks run during this
     return 0.95 if amount > 5000.0 else 0.02
 
@@ -598,7 +598,7 @@ async def main() -> None:
 asyncio.run(main())
 ```
 
-**`threading` vs `asyncio` — when to use which:**
+**`threading` vs `asyncio` - when to use which:**
 
 | Scenario                                            | Use                              |
 | --------------------------------------------------- | -------------------------------- |
@@ -608,11 +608,11 @@ asyncio.run(main())
 | Result produced by a callback or event              | `Future.set_result()`            |
 | Fire-and-forget (no return value needed)            | `threading.Thread(daemon=True)`  |
 
-📖 Reference: [Python — concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html)
+📖 Reference: [Python - concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html)
 
 ---
 
-## 8. Thread Safety & Atomic Operations
+## 8. Thread Safety and Atomic Operations
 
 ### 8.1 The GIL and thread safety
 
@@ -620,9 +620,9 @@ Python's GIL makes some operations implicitly thread-safe that are not in C++. S
 
 **Rule:** never rely on GIL protection for correctness. Always use explicit synchronisation (`Lock`, `Queue`, `atomic`) for shared mutable state.
 
-### 8.2 `threading.Event` — simple one-shot signals
+### 8.2 `threading.Event` - simple one-shot signals
 
-`threading.Event` is the simplest synchronisation primitive — one thread sets a flag, others wait for it. Equivalent to `std::atomic<bool>` + `std::condition_variable` used as a one-shot signal.
+`threading.Event` is the simplest synchronisation primitive - one thread sets a flag, others wait for it. Equivalent to `std::atomic<bool>` + `std::condition_variable` used as a one-shot signal.
 
 ```python
 import threading
@@ -641,15 +641,15 @@ def worker() -> None:
 t = threading.Thread(target=worker)
 t.start()
 
-# wait() blocks until set() is called — like condition_variable::wait with a bool flag
+# wait() blocks until set() is called - like condition_variable::wait with a bool flag
 processing_started.wait()
 print("Main: worker has started, proceeding.")
 t.join()
 ```
 
-### 8.3 `threading.Semaphore` — limiting concurrency
+### 8.3 `threading.Semaphore` - limiting concurrency
 
-A `Semaphore` allows up to N threads into a section simultaneously — useful for rate-limiting (e.g. at most 3 concurrent API calls).
+A `Semaphore` allows up to N threads into a section simultaneously - useful for rate-limiting (e.g. at most 3 concurrent API calls).
 
 ```python
 import threading
@@ -680,13 +680,13 @@ for t in threads: t.join()
 | Limit N concurrent accesses                | `threading.Semaphore` |
 | Thread-safe producer/consumer queue        | `queue.Queue`         |
 
-📖 Reference: [Python — threading synchronisation](https://docs.python.org/3/library/threading.html#semaphore-objects)
+📖 Reference: [Python - threading synchronisation](https://docs.python.org/3/library/threading.html#semaphore-objects)
 
 ---
 
 ## Exercises
 
-No special compile flags are needed — Python threads are available in the standard library.
+No special compile flags are needed - Python threads are available in the standard library.
 
 ```bash
 python week-03-concurrency.py
@@ -696,8 +696,8 @@ python week-03-concurrency.py
 
 AI tools are encouraged but use them critically:
 
-- Refine your prompts — vague prompts yield vague responses
-- Validate AI output — don't trust it blindly
+- Refine your prompts - vague prompts yield vague responses
+- Validate AI output - don't trust it blindly
 - Acknowledge AI usage at the top of any AI-assisted file:
 
 ```python
@@ -716,7 +716,7 @@ Usage: Describe how you used the AI responses to help you with your work
 
 ---
 
-### Task 1 — Thread-Safe Bank
+### Task 1 - Thread-Safe Bank
 
 Build a `Bank` class that manages multiple `BankAccount` objects and supports concurrent operations.
 
@@ -755,11 +755,11 @@ bank.print_statement()
 # Total assets must always equal 1500.00
 ```
 
-> **Hint:** use the consistent lock-ordering strategy from section 4.2 — order locks by `id()` of each account to avoid deadlock.
+> **Hint:** use the consistent lock-ordering strategy from section 4.2 - order locks by `id()` of each account to avoid deadlock.
 
 ---
 
-### Task 2 — Transaction Pipeline
+### Task 2 - Transaction Pipeline
 
 Build a producer-consumer pipeline that simulates incoming transactions being validated and then processed.
 
@@ -796,8 +796,8 @@ Expected output (order may vary):
 
 ```
 [Validator] Approved:  deposit    $200.00 for ACC-001
-[Validator] Rejected:  deposit    $-50.00 — invalid amount
-[Processor] Applied:   deposit    $200.00 — Balance: $200.00
+[Validator] Rejected:  deposit    $-50.00 - invalid amount
+[Processor] Applied:   deposit    $200.00 - Balance: $200.00
 ...
 ```
 
@@ -805,7 +805,7 @@ Expected output (order may vary):
 
 ---
 
-### Task 3 — Async Fraud Detection
+### Task 3 - Async Fraud Detection
 
 Build a `FraudDetector` that runs multiple checks concurrently using `ThreadPoolExecutor` and combines the results.
 
@@ -845,4 +845,4 @@ print(f"Flagged: {result.is_flagged}")
 print(f"Recommendation: {result.recommendation}")
 ```
 
-> **Hint:** submit all three checks with `executor.submit()` before calling `.result()` on any of them — this ensures they run in parallel rather than sequentially.
+> **Hint:** submit all three checks with `executor.submit()` before calling `.result()` on any of them - this ensures they run in parallel rather than sequentially.

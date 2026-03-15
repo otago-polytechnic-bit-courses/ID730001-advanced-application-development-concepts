@@ -1,11 +1,11 @@
-# Week 02 — Design Patterns
+# Week 02 - Design Patterns
 
 ## Navigation
 
-|            | Link                                                                                                                              |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| ← Previous | [Week 01 - Git, Programming Paradigms & Python](./lecture-notes/app-dev-pathway/week-01-git-programming-paradigms-python/README.md) |
-| → Next     | [Week 03 - Processes, Threads & Concurrency](./lecture-notes/app-dev-pathway/week-03-processes-threading-concurrency/README.md)     |
+|            | Link                                                                                                                                |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| ← Previous | [Week 01 - Git, Programming Paradigms and Python](./lecture-notes/app-dev-pathway/week-01-git-programming-paradigms-python/README.md) |
+| → Next     | [Week 03 - Processes, Threads and Concurrency](./lecture-notes/app-dev-pathway/week-03-processes-threading-concurrency/README.md)     |
 
 ---
 
@@ -21,7 +21,7 @@ There are three broad categories:
 | **Creational**  | Object creation                                        | Singleton, Factory, Builder   |
 | **Structural**  | How classes and objects compose into larger structures | Adapter, Decorator, Composite |
 
-We use the card game **War** as a running example throughout. In War, two players each have a deck of cards. Each player draws a card — the player with the higher card wins the round. The game continues until one player holds all the cards.
+We use the card game **War** as a running example throughout. In War, two players each have a deck of cards. Each player draws a card - the player with the higher card wins the round. The game continues until one player holds all the cards.
 
 ---
 
@@ -31,7 +31,7 @@ We use the card game **War** as a running example throughout. In War, two player
 
 The **Strategy** pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. The algorithm can vary independently from the clients that use it.
 
-**In War:** Different strategies for how a player chooses which card to play — always random, or always the highest card available.
+**In War:** Different strategies for how a player chooses which card to play - always random, or always the highest card available.
 
 ```python
 import random
@@ -172,7 +172,7 @@ game.play()
 
 The **Observer** pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified automatically.
 
-**In War:** Notify interested parties whenever a round ends — a scoreboard that tracks wins, and a logger that records what happened.
+**In War:** Notify interested parties whenever a round ends - a scoreboard that tracks wins, and a logger that records what happened.
 
 ```python
 import random
@@ -322,7 +322,7 @@ game.play()
 
 The **Factory** pattern provides an interface for creating objects, allowing subclasses to decide which concrete class to instantiate.
 
-**In War:** Create different types of players — a human player who is prompted for input, and a computer player who plays automatically.
+**In War:** Create different types of players - a human player who is prompted for input, and a computer player who plays automatically.
 
 ```python
 import random
@@ -554,7 +554,7 @@ print(f"Total games played: {GameManager.get_instance().get_games_played()}")
 
 The **Builder** pattern constructs complex objects step by step. The same construction process can create different representations, avoiding large constructor parameter lists.
 
-**In War:** Configure a game session — number of rounds, shuffle behaviour, house rules — before the game starts.
+**In War:** Configure a game session - number of rounds, shuffle behaviour, house rules - before the game starts.
 
 ```python
 import random
@@ -677,8 +677,8 @@ game.play(cfg)
 
 AI tools are encouraged but use them critically:
 
-- Refine your prompts — vague prompts yield vague responses
-- Validate AI output — don't trust it blindly
+- Refine your prompts - vague prompts yield vague responses
+- Validate AI output - don't trust it blindly
 - Acknowledge AI usage at the top of any AI-assisted file:
 
 ```python
@@ -697,13 +697,13 @@ Usage: Describe how you used the AI responses to help you with your work
 
 ---
 
-### Task 1 — Third Draw Strategy
+### Task 1 - Third Draw Strategy
 
 Extend the Strategy pattern example by adding a `LowestCardStrategy` that always plays the lowest card in the player's hand. Wire it into the game alongside `RandomStrategy` and `HighestCardStrategy`, and observe how the win rates differ across the three strategies.
 
 ---
 
-### Task 2 — Streak Observer
+### Task 2 - Streak Observer
 
 Extend the Observer pattern example by adding a `StreakObserver` that tracks the longest consecutive winning streak for each player. It should print the result at the end of the game in the following format:
 
@@ -714,11 +714,11 @@ Bob longest streak: 2
 
 ---
 
-### Task 3 — Extended Builder Options
+### Task 3 - Extended Builder Options
 
 Extend the Builder pattern example with two new configuration options:
 
-- `set_num_decks(n)` — combines `n` standard 52-card decks into one before splitting between players
-- `set_aces_high(value)` — when `False`, treats Aces as value `1` instead of `14`
+- `set_num_decks(n)` - combines `n` standard 52-card decks into one before splitting between players
+- `set_aces_high(value)` - when `False`, treats Aces as value `1` instead of `14`
 
 Update the game logic to respect both settings.
