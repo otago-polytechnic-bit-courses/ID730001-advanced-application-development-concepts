@@ -295,7 +295,7 @@ Implement an `IGameObserver` interface and attach at least **two** concrete obse
 | Observer     | Behaviour                                                                                                         |
 | ------------ | ----------------------------------------------------------------------------------------------------------------- |
 | `Scoreboard` | Tracks wins, losses, ties and surrenders per player and prints a summary at the end of each round                 |
-| `GameLogger` | Logs every significant game event (card dealt, player action, winner declared, etc.) to a timestamped `.log` file |
+| `GameLogger` | Logs every significant game event, e.g., card dealt, player action, winner declared, etc., to a timestamped `.log` file |
 
 The `BlackjackGame` class must maintain a list of observers and notify all of them at appropriate points during the game, e.g., after each round ends.
 
@@ -333,7 +333,7 @@ The `BlackjackGame` class must accept a `GameConfig` object and respect all conf
 
 ##### Additional Design Patterns - Research and Implement Two (6 marks)
 
-You must research and implement **two additional design patterns** of your own choosing. These patterns must be meaningfully integrated into your application - not artificially added. For each pattern, your design document must explain what the pattern does, why you chose it for this application, and which classes are involved.
+You must research and implement **two additional design patterns** of your own choosing. These patterns must be meaningfully integrated into your application, not artificially added. For each pattern, your design document must explain what the pattern does, why you chose it for this application, and which classes are involved.
 
 The following patterns are suggested, but you are not limited to this list:
 
@@ -464,7 +464,7 @@ After each round, a statistics engine computes and displays updated player analy
 
 #### Persistent Statistics with SQLite (6 marks)
 
-Implement a `GameDatabase` class that records game history persistently to a SQLite database (`blackjack.db`). The database must use the following schema:
+Implement a `GameDatabase` class that records game history persistently to a SQLite database, i.e., `blackjack.db`. The database must use the following schema:
 
 ```sql
 players      (id, name, created_at)
@@ -511,11 +511,13 @@ Implement a standalone module `blackjack_analysis.py` that analyses a completed 
   ```python
   {"player": "Alice", "outcome": "win", "score_before": 0, "score_after": 1}
   ```
-- Use `map`, `filter`, and `reduce` (imported from `functools`) to compute the following - no explicit `for` loops or list comprehensions are permitted within these computations:
-  - Total score gained across all winning rounds for each player (using `filter` then `reduce`)
-  - A list of rounds where the outcome was a surrender (using `filter`)
-  - The overall score change per player as a dictionary (using `map` and `reduce`)
+- Use `map`, `filter`, and `reduce` to compute the following:
+  - Total score gained across all winning rounds for each player 
+  - A list of rounds where the outcome was a surrender
+  - The overall score change per player as a dictionary
 - Return all results in a single dictionary from a function named `analyse_session(results)`
+
+No explicit `for` loops or list comprehensions are permitted within these computations
 
 ---
 
