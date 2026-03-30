@@ -188,7 +188,7 @@ Players accumulate points across rounds based on their outcomes. There are no ch
 
 - Players start with a score of 0
 - A player's score can go negative
-- A player is eliminated when their score reaches -10 (configurable via `GameConfig`)
+- A player is eliminated when their score reaches -10
 - The game ends when all players have been eliminated or all players choose to quit
 - A final leaderboard is displayed when the game ends, ranked by score
 
@@ -196,7 +196,7 @@ Players accumulate points across rounds based on their outcomes. There are no ch
 
 In addition to hit and stand, players may take the following actions on their turn:
 
-- **Split**: available when the player's first two cards are a pair (same rank). Splits the hand into two separate hands, each receiving an additional card. Each split hand is then played independently.
+- **Split**: available when the player's first two cards are a pair. Splits the hand into two separate hands, each receiving an additional card. Each split hand is then played independently.
 - **Surrender**: available on the player's first action of a round (before any hits). The player forfeits the round immediately and receives -1 point.
 
 **Game rules:**
@@ -204,13 +204,13 @@ In addition to hit and stand, players may take the following actions on their tu
 - Goal: get closer to 21 than the dealer without going over, i.e., "busting"
 - Face cards (J, Q, K) = 10; Aces = 11 or 1; number cards = face value
 - Dealer must hit on ≤ 16 and stand on ≥ 17
-- Players may hit, stand, split (if eligible), or surrender on their turn
+- Players may hit, stand, split, or surrender on their turn
 - A Blackjack, i.e., Ace + 10-value card on the initial deal, beats any non-Blackjack 21
 - The game ends when all players have been eliminated or all players choose to quit
 
 **Game flow:**
 
-1. Display a welcome message with player names and starting scores (0)
+1. Display a welcome message with player names and starting scores 
 2. Each round:
    a. Deal two cards to each player and the dealer. The dealer's second card is hidden
    b. Check for Blackjack
@@ -257,7 +257,7 @@ game.play_game()
 
 #### Design Patterns (12 marks)
 
-Implement **four** design patterns within your Blackjack application. The patterns must be meaningfully integrated - they should add clear value to the design, not be bolted on artificially.
+Implement **four** design patterns within your Blackjack application. The patterns must be meaningfully integrated. They should add clear value to the design, not be bolted on artificially.
 
 ---
 
