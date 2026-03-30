@@ -103,10 +103,10 @@ To move onto the Development Phase, the course lecturer must approve your design
   - Class name
   - All attributes with their names and data types
   - All methods with their names, parameters and return types
-  - Visibility modifiers where appropriate (`+` public, `-` private)
+  - Visibility modifiers where appropriate, i.e., `+` public, `-` private
 - For each relationship between classes, include:
-  - Relationship type (association, composition, inheritance, etc.)
-  - Multiplicity/cardinality (e.g., one-to-many)
+  - Relationship type, e.g., association, composition, inheritance, etc.
+  - Multiplicity/cardinality, e.g., one-to-many
   - Direction of the relationship
 
 ---
@@ -116,11 +116,11 @@ To move onto the Development Phase, the course lecturer must approve your design
 In a written document, describe how you plan to apply the following to your Blackjack application:
 
 - **Four design patterns** in total:
-  - **The Strategy Pattern** (compulsory). For this pattern:
+  - **The Strategy Pattern**. For this pattern:
     - Identify which classes are involved
     - Explain why this pattern is appropriate for this part of the application
     - Provide a brief pseudocode or diagram illustrating the pattern's structure in your design
-  - **One chosen from the provided list** (Observer, Factory, or Builder). For this pattern:
+  - **One chosen from the provided list** - Observer, Factory, or Builder. For this pattern:
     - Identify which classes are involved
     - Explain why this pattern is appropriate for this part of the application
     - Provide a brief pseudocode or diagram illustrating the pattern's structure in your design
@@ -210,7 +210,7 @@ In addition to hit and stand, players may take the following actions on their tu
 
 **Game flow:**
 
-1. Display a welcome message with player names and starting scores 
+1. Display a welcome message with player names and starting scores
 2. Each round:
    a. Deal two cards to each player and the dealer. The dealer's second card is hidden
    b. Check for Blackjack
@@ -271,12 +271,12 @@ The Strategy Pattern is compulsory. You must implement it.
 
 Implement a `DrawStrategy` interface with at least **four** concrete strategies that control how a player decides to hit, stand, split, or surrender. Bot strategies must follow the standard Blackjack basic strategy tables provided below.
 
-| Strategy               | Behaviour                                                                                                              |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `HumanStrategy`        | Prompts the player for input (`hit`, `stand`, `split`, or `surrender`) via the command line                            |
-| `BasicStrategy`        | Follows the standard Blackjack basic strategy tables exactly (hard totals, soft totals, pair splitting, and surrender) |
-| `ConservativeStrategy` | Stands if the hand value is ≥ 15, never splits, never surrenders; otherwise hits                                       |
-| `AggressiveStrategy`   | Stands only if the hand value is ≥ 18, always splits pairs, never surrenders; otherwise hits                           |
+| Strategy               | Behaviour                                                                                    |
+| ---------------------- | -------------------------------------------------------------------------------------------- |
+| `HumanStrategy`        | Prompts the player for input via the command line                                            |
+| `BasicStrategy`        | Follows the standard Blackjack basic strategy tables exactly                                 |
+| `ConservativeStrategy` | Stands if the hand value is ≥ 15, never splits, never surrenders; otherwise hits             |
+| `AggressiveStrategy`   | Stands only if the hand value is ≥ 18, always splits pairs, never surrenders; otherwise hits |
 
 Players must be configurable with any strategy at construction time. The game loop must not need to know which strategy a player is using.
 
@@ -292,9 +292,9 @@ Select and implement **one** of the following design patterns:
 
 Implement an `IGameObserver` interface and attach at least **two** concrete observers to the game:
 
-| Observer     | Behaviour                                                                                                         |
-| ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `Scoreboard` | Tracks wins, losses, ties and surrenders per player and prints a summary at the end of each round                 |
+| Observer     | Behaviour                                                                                                               |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `Scoreboard` | Tracks wins, losses, ties and surrenders per player and prints a summary at the end of each round                       |
 | `GameLogger` | Logs every significant game event, e.g., card dealt, player action, winner declared, etc., to a timestamped `.log` file |
 
 The `BlackjackGame` class must maintain a list of observers and notify all of them at appropriate points during the game, e.g., after each round ends.
@@ -337,13 +337,13 @@ You must research and implement **two additional design patterns** of your own c
 
 The following patterns are suggested, but you are not limited to this list:
 
-| Pattern             | Possible Application in Blackjack                                                                                           |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Pattern             | Possible Application in Blackjack                                                                                                 |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **Command**         | Encapsulate player actions, e.g., hit, stand, split, surrender) as command objects, enabling action history or undo functionality |
-| **State**           | Model the game's phases, e.g., player turn, dealer turn, round resolution as explicit state objects with defined transitions     |
-| **Singleton**       | Ensure only one instance of `GameDatabase` or a configuration manager exists throughout the application                     |
-| **Decorator**       | Wrap player objects with additional behaviours such as logging or statistics tracking without modifying the base class      |
-| **Template Method** | Define the skeleton of a game round in a base class and let subclasses override specific steps                              |
+| **State**           | Model the game's phases, e.g., player turn, dealer turn, round resolution as explicit state objects with defined transitions      |
+| **Singleton**       | Ensure only one instance of `GameDatabase` or a configuration manager exists throughout the application                           |
+| **Decorator**       | Wrap player objects with additional behaviours such as logging or statistics tracking without modifying the base class            |
+| **Template Method** | Define the skeleton of a game round in a base class and let subclasses override specific steps                                    |
 
 Your chosen additional patterns must be different from the Strategy Pattern and the one pattern you selected above. All four patterns must be meaningfully distinct from one another.
 
@@ -507,12 +507,12 @@ Current score: 8
 
 Implement a standalone module `blackjack_analysis.py` that analyses a completed game session using functional programming techniques. The module must:
 
-- Accept a list of `round_results` dictionaries (as would be returned from a database query) with the structure:
+- Accept a list of `round_results` dictionaries with the structure:
   ```python
   {"player": "Alice", "outcome": "win", "score_before": 0, "score_after": 1}
   ```
 - Use `map`, `filter`, and `reduce` to compute the following:
-  - Total score gained across all winning rounds for each player 
+  - Total score gained across all winning rounds for each player
   - A list of rounds where the outcome was a surrender
   - The overall score change per player as a dictionary
 - Return all results in a single dictionary from a function named `analyse_session(results)`
