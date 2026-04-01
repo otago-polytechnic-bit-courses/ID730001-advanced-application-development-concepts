@@ -1,7 +1,3 @@
-# Project
-
-<img src="../../resources (ignore)/img/logo.jpg" alt="Otago Polytechnic Logo" width="200" height="auto" />
-
 # ID730001: Advanced Application Development Concepts
 
 ## Assessment Information
@@ -12,10 +8,10 @@
 
 ## Assessment Overview
 
-In this individual assessment, you will design and develop a Blackjack application in Python. The project is divided into two parts:
+In this individual assessment, you will complete two parts:
 
-- **Part 1:** A fully playable command-line Blackjack game that demonstrates object-oriented programming, design patterns, concurrency, and persistent data storage using SQLite.
-- **Part 2:** TBC.
+- **Part 1:** A fully playable command-line Blackjack application that demonstrates object-oriented programming, design patterns, concurrency, and persistent data storage using a relational database.
+- **Part 2:** An independently researched tool or framework implemented as a working prototype and presented to the course lecturer.
 
 ## Learning Outcomes
 
@@ -58,17 +54,15 @@ All parts of your submitted assessment must be completely your work. Do your bes
 
 Learning to use AI tools is an important skill. While AI tools are powerful, you must be aware of the following:
 
-- If you provide an AI tool with a prompt that is not refined enough, it may generate a not-so-useful response
-- Do not trust the AI tool's responses blindly. You must still use your judgement and may need to do additional research to determine if the response is correct
-- Acknowledge what AI tool you have used. In the assessment's repository `README.md` file, please include what prompt(s) you provided to the AI tool and how you used the response(s) to help you with your work
+- If you provide an AI tool with a prompt that is not refined enough, it may generate a not-so-useful response.
+- Do not trust the AI tool's responses blindly. You must still use your judgement and may need to do additional research to determine if the response is correct.
+- Acknowledge what AI tool you have used. In the assessment's repository `README.md` file, please include what prompt(s) you provided to the AI tool and how you used the response(s) to help you with your work.
 
-This also applies to code snippets retrieved from StackOverflow and GitHub.
-
-Failure to do this may result in a mark of zero for this assessment.
+This also applies to code snippets retrieved from StackOverflow and GitHub. Failure to do this may result in a mark of zero for this assessment.
 
 ## Policy on Submissions, Extensions, Resubmissions and Resits
 
-The school's process concerning submissions, extensions, resubmissions and resits complies with Otago Polytechnic policies. Learners can view policies on the Otago Polytechnic website located at [https://www.op.ac.nz/about-us/governance-and-management/policies](https://www.op.ac.nz/about-us/governance-and-management/policies).
+The school's process concerning submissions, extensions, resubmissions and resits complies with Otago Polytechnic policies. Learners can view policies on the Otago Polytechnic website at [https://www.op.ac.nz/about-us/governance-and-management/policies](https://www.op.ac.nz/about-us/governance-and-management/policies).
 
 ### Extensions
 
@@ -80,23 +74,21 @@ Resits and reassessments are not applicable in ID730001: Advanced Application De
 
 ---
 
-## Assessment Requirements - Part 1: Blackjack Application
-
-The Part 1 marking rubric is available [here]().
+# Part 1: Blackjack Application
 
 ---
 
-### Design Phase - Learning Outcomes 1 and 2 (10 marks)
+## Design Phase - Learning Outcomes 1 and 2 (10 marks)
 
 Before you start the Design Phase, read through the Development Phase requirements below. This will help you understand what you need to build and ensure your design document is comprehensive.
 
 Once you understand the requirements, create a design document that outlines the structure of your application. This will help you plan your work effectively.
 
-To move onto the Development Phase, the course lecturer must approve your design document.
+> **Note:** To move onto the Development Phase, the course lecturer must approve your design document.
 
 ---
 
-#### Class Diagram (5 marks)
+### Class Diagram (5 marks)
 
 - Create a UML class diagram using a digital tool of your choice that shows all required classes, their attributes, methods and relationships.
 - For each class, include:
@@ -111,37 +103,28 @@ To move onto the Development Phase, the course lecturer must approve your design
 
 ---
 
-#### Design Patterns and Concurrency Plan (5 marks)
+### Design Patterns and Concurrency Plan (5 marks)
 
 In a written document, describe how you plan to apply the following to your Blackjack application:
 
 - **Four design patterns** in total:
-  - **The Strategy Pattern**. For this pattern:
-    - Identify which classes are involved
-    - Explain why this pattern is appropriate for this part of the application
-    - Provide a brief pseudocode or diagram illustrating the pattern's structure in your design
-  - **One chosen from the provided list** - Observer, Factory, or Builder. For this pattern:
-    - Identify which classes are involved
-    - Explain why this pattern is appropriate for this part of the application
-    - Provide a brief pseudocode or diagram illustrating the pattern's structure in your design
-  - **Two additional patterns** researched and selected independently (see the Additional Design Patterns section below). For each pattern:
-    - Identify which classes are involved
-    - Explain why this pattern is appropriate for this part of the application
-    - Provide a brief pseudocode or diagram illustrating the pattern's structure in your design
-- **One concurrency mechanism** from the course, e.g., threading, thread pool, locks, asyncio. Describe:
+  - **The Strategy Pattern.** Identify which classes are involved, explain why this pattern is appropriate for this part of the application, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
+  - **One chosen from the provided list** - Observer, Factory, or Builder. Identify which classes are involved, explain why this pattern is appropriate, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
+  - **Two additional patterns** researched and selected independently (see the Additional Design Patterns section below). For each, identify which classes are involved, explain why this pattern is appropriate, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
+- **One concurrency mechanism** appropriate to your chosen language, e.g., threads, thread pools, locks, async/await, coroutines. Describe:
   - What concurrent task(s) you plan to implement
-  - Which Python concurrency tools you will use and why
+  - Which concurrency tools your chosen language provides and why you selected them
   - How you will ensure thread safety where shared state is involved
 
 ---
 
-### Development Phase - Learning Outcomes 1 and 2 (28 marks)
+## Development Phase - Learning Outcomes 1 and 2 (28 marks)
 
 Once the course lecturer has approved your design document, you can start developing your application. You should follow the requirements in your design document, but you can make changes as needed. If you make significant changes to your design document, please update it accordingly.
 
 ---
 
-#### Project Management (2 marks)
+### Project Management (2 marks)
 
 In this phase, you will use the Agile software development methodology.
 
@@ -155,26 +138,28 @@ Here is an example of how to break down your work into sprints and tasks:
 | ------ | --------------------------------------------------------------------------------------------------------------------- |
 | 1      | Set up project structure, implement `Card`, `Deck`, and `Hand` classes, implement basic `Player` and `Dealer` classes |
 | 2      | Implement `BlackjackGame` class and core game loop, implement split and surrender actions, implement design pattern 1 |
-| 3      | Implement design pattern 2, implement concurrency feature, implement SQLite database layer                            |
-| 4      | Research and implement additional design patterns 3 and 4, implement functional programming tasks                     |
-| 5      | Write unit tests, finalise documentation                                                                              |
+| 3      | ...                                                                                                                   |
+| 4      | ...                                                                                                                   |
+| 5      | ...                                                                                                                   |
 
 ---
 
-#### Core Game (8 marks)
+### Core Game (8 marks)
 
 Implement a fully playable command-line Blackjack game using object-oriented programming. The game must include the following classes:
 
-| Class           | Required Attributes                          | Required Methods                                                                                                                                                                       |
-| --------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Card`          | `rank`, `suit`                               | `get_value()` - returns the card's numeric value; `__str__()` - returns a human-readable representation such as `"Ace of Spades"`                                                      |
-| `Deck`          | `cards`                                      | `shuffle()`, `deal_card()`, `cards_remaining()`, `reset()`                                                                                                                             |
-| `Hand`          | `cards`                                      | `add_card(card)`, `get_value()` - correctly handles Ace as 11 or 1; `is_blackjack()`, `is_bust()`, `is_soft()` - returns `True` if the hand contains an Ace counted as 11; `__str__()` |
-| `Player`        | `name`, `hand`, `score`                      | `receive_result(outcome)` - updates score based on outcome; `get_score()` - returns current score; `__str__()`                                                                         |
-| `Dealer`        | `hand`, `name`                               | `show_partial_hand()` - reveals only the first card; `show_full_hand()`, `should_hit()` - returns `True` if hand value ≤ 16; `__str__()`                                               |
-| `BlackjackGame` | `deck`, `dealer`, `players`, `current_round` | `start_round()`, `deal_initial_cards()`, `player_turn(player)`, `dealer_turn()`, `determine_winners()`, `display_game_state()`, `play_game()`, `game_over()`                           |
+| Class           | Required Attributes                         | Required Methods                                                                                                                                                                 |
+| --------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Card`          | `rank`, `suit`                              | `getValue()` - returns the card's numeric value; `toString()` - returns a human-readable representation such as `"Ace of Spades"`                                                |
+| `Deck`          | `cards`                                     | `shuffle()`, `dealCard()`, `cardsRemaining()`, `reset()`                                                                                                                         |
+| `Hand`          | `cards`                                     | `addCard(card)`, `getValue()` - correctly handles Ace as 11 or 1; `isBlackjack()`, `isBust()`, `isSoft()` - returns true if the hand contains an Ace counted as 11; `toString()` |
+| `Player`        | `name`, `hand`, `score`                     | `receiveResult(outcome)` - updates score based on outcome; `getScore()` - returns current score; `toString()`                                                                    |
+| `Dealer`        | `hand`, `name`                              | `showPartialHand()` - reveals only the first card; `showFullHand()`, `shouldHit()` - returns true if hand value ≤ 16; `toString()`                                               |
+| `BlackjackGame` | `deck`, `dealer`, `players`, `currentRound` | `startRound()`, `dealInitialCards()`, `playerTurn(player)`, `dealerTurn()`, `determineWinners()`, `displayGameState()`, `playGame()`, `gameOver()`                               |
 
-**Scoring system:**
+> **Note:** Method and attribute names should follow the naming conventions of your chosen language. The names above are illustrative. What matters is that the behaviour matches the descriptions given.
+
+#### Scoring System
 
 Players accumulate points across rounds based on their outcomes. There are no chips or bets.
 
@@ -186,40 +171,48 @@ Players accumulate points across rounds based on their outcomes. There are no ch
 | Loss                                            | -1     |
 | Surrender                                       | -1     |
 
-- Players start with a score of 0
-- A player's score can go negative
-- A player is eliminated when their score reaches -10
-- The game ends when all players have been eliminated or all players choose to quit
-- A final leaderboard is displayed when the game ends, ranked by score
+- Players start with a score of 0.
+- A player's score can go negative.
+- A player is eliminated when their score reaches -10.
+- The game ends when all players have been eliminated or all players choose to quit.
+- A final leaderboard is displayed when the game ends, ranked by score.
 
-**Player actions:**
+#### Player Actions
 
 In addition to hit and stand, players may take the following actions on their turn:
 
-- **Split**: available when the player's first two cards are a pair. Splits the hand into two separate hands, each receiving an additional card. Each split hand is then played independently.
-- **Surrender**: available on the player's first action of a round (before any hits). The player forfeits the round immediately and receives -1 point.
+- **Split:** available when the player's first two cards are a pair. Splits the hand into two separate hands, each receiving an additional card. Each split hand is then played independently.
+- **Surrender:** available on the player's first action of a round (before any hits). The player forfeits the round immediately and receives -1 point.
 
-**Game rules:**
+#### Game Rules
 
-- Goal: get closer to 21 than the dealer without going over, i.e., "busting"
-- Face cards (J, Q, K) = 10; Aces = 11 or 1; number cards = face value
-- Dealer must hit on ≤ 16 and stand on ≥ 17
-- Players may hit, stand, split, or surrender on their turn
-- A Blackjack, i.e., Ace + 10-value card on the initial deal, beats any non-Blackjack 21
-- The game ends when all players have been eliminated or all players choose to quit
+- Goal: get closer to 21 than the dealer without going over, i.e., busting.
+- Face cards (J, Q, K) = 10; Aces = 11 or 1; number cards = face value.
+- Dealer must hit on ≤ 16 and stand on ≥ 17.
+- Players may hit, stand, split, or surrender on their turn.
+- A Blackjack (Ace + 10-value card on the initial deal) beats any non-Blackjack 21.
+- The game ends when all players have been eliminated or all players choose to quit.
 
-**Game flow:**
+#### Game Flow
 
-1. Display a welcome message with player names and starting scores
+1. Display a welcome message with player names and starting scores.
 2. Each round:
-   a. Deal two cards to each player and the dealer. The dealer's second card is hidden
-   b. Check for Blackjack
-   c. Each player takes their turn, skip if they have Blackjack
-   d. Dealer reveals hidden card and plays their turn
-   e. Determine and announce winners; update scores
-   f. Remove eliminated players, i.e., score ≤ -10
-   g. Ask remaining players whether to play another round
-3. Display a final leaderboard when the game ends
+
+   a. Deal two cards to each player and the dealer. The dealer's second card is hidden.
+
+   b. Check for Blackjack.
+
+   c. Each player takes their turn; skip if they have Blackjack.
+
+   d. Dealer reveals hidden card and plays their turn.
+
+   e. Determine and announce winners; update scores.
+
+   f. Remove eliminated players (score ≤ -10).
+
+   g. Ask remaining players whether to play another round.
+
+3. Display a final leaderboard when the game ends.
 
 Example game session:
 
@@ -246,28 +239,24 @@ Bob wins! - Score: +1 (Total: 1)
 Do you want to play another round? (Alice: yes / Bob: yes)
 ```
 
-To start the game:
+To start the game, your entry point should construct a `BlackjackGame` with a list of player names and begin play:
 
-```python
-game = BlackjackGame(["Alice", "Bob"])
-game.play_game()
+```
+game = new BlackjackGame(["Alice", "Bob"])
+game.playGame()
 ```
 
 ---
 
-#### Design Patterns (12 marks)
+### Design Patterns (12 marks)
 
 Implement **four** design patterns within your Blackjack application. The patterns must be meaningfully integrated. They should add clear value to the design, not be bolted on artificially.
 
 ---
 
-##### Compulsory Pattern (3 marks)
+#### Compulsory Pattern - Strategy (3 marks)
 
 The Strategy Pattern is compulsory. You must implement it.
-
----
-
-###### Strategy Pattern (3 marks)
 
 Implement a `DrawStrategy` interface with at least **four** concrete strategies that control how a player decides to hit, stand, split, or surrender. Bot strategies must follow the standard Blackjack basic strategy tables provided below.
 
@@ -282,13 +271,13 @@ Players must be configurable with any strategy at construction time. The game lo
 
 ---
 
-##### Chosen Pattern - Pick One (3 marks)
+#### Chosen Pattern - Pick One (3 marks)
 
 Select and implement **one** of the following design patterns:
 
 ---
 
-###### Option A - Observer Pattern (3 marks)
+##### Option A - Observer Pattern
 
 Implement an `IGameObserver` interface and attach at least **two** concrete observers to the game:
 
@@ -301,7 +290,7 @@ The `BlackjackGame` class must maintain a list of observers and notify all of th
 
 ---
 
-###### Option B - Factory Pattern (3 marks)
+##### Option B - Factory Pattern
 
 Implement a `PlayerFactory` interface with at least **two** concrete factories:
 
@@ -314,46 +303,48 @@ The `BlackjackGame` class must accept factories rather than constructing players
 
 ---
 
-###### Option C - Builder Pattern (3 marks)
+##### Option C - Builder Pattern
 
 Implement a `GameConfigBuilder` that constructs a `GameConfig` object step-by-step before the game starts. The builder must support at least the following options:
 
-| Method                         | Effect                                                                                        |
-| ------------------------------ | --------------------------------------------------------------------------------------------- |
-| `set_num_players(n)`           | Sets the number of players (1–6)                                                              |
-| `set_num_decks(n)`             | Combines `n` standard 52-card decks into one shoe                                             |
-| `set_elimination_threshold(n)` | Sets the score at which a player is eliminated (default: -10)                                 |
-| `set_time_limit(seconds)`      | Sets the time limit per player turn in seconds (used with the timed turns concurrency option) |
-| `with_verbose_output(bool)`    | Enables or disables detailed play-by-play output                                              |
-| `build()`                      | Returns the validated `GameConfig` object; raises `ValueError` for invalid configurations     |
+| Method                       | Effect                                                                                            |
+| ---------------------------- | ------------------------------------------------------------------------------------------------- |
+| `setNumPlayers(n)`           | Sets the number of players (1–6)                                                                  |
+| `setNumDecks(n)`             | Combines `n` standard 52-card decks into one shoe                                                 |
+| `setEliminationThreshold(n)` | Sets the score at which a player is eliminated (default: -10)                                     |
+| `setTimeLimit(seconds)`      | Sets the time limit per player turn in seconds (used with the timed turns concurrency option)     |
+| `withVerboseOutput(bool)`    | Enables or disables detailed play-by-play output                                                  |
+| `build()`                    | Returns the validated `GameConfig` object; raises an appropriate error for invalid configurations |
+
+> **Note:** Method names should follow the naming conventions of your chosen language.
 
 The `BlackjackGame` class must accept a `GameConfig` object and respect all configured options during play.
 
 ---
 
-##### Additional Design Patterns - Research and Implement Two (6 marks)
+#### Additional Design Patterns - Research and Implement Two (6 marks)
 
 You must research and implement **two additional design patterns** of your own choosing. These patterns must be meaningfully integrated into your application, not artificially added. For each pattern, your design document must explain what the pattern does, why you chose it for this application, and which classes are involved.
 
 The following patterns are suggested, but you are not limited to this list:
 
-| Pattern             | Possible Application in Blackjack                                                                                                 |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **Command**         | Encapsulate player actions, e.g., hit, stand, split, surrender) as command objects, enabling action history or undo functionality |
-| **State**           | Model the game's phases, e.g., player turn, dealer turn, round resolution as explicit state objects with defined transitions      |
-| **Singleton**       | Ensure only one instance of `GameDatabase` or a configuration manager exists throughout the application                           |
-| **Decorator**       | Wrap player objects with additional behaviours such as logging or statistics tracking without modifying the base class            |
-| **Template Method** | Define the skeleton of a game round in a base class and let subclasses override specific steps                                    |
+| Pattern             | Possible Application in Blackjack                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Command**         | Encapsulate player actions, e.g., hit, stand, split, surrender as command objects, enabling action history or undo functionality |
+| **State**           | Model the game's phases, e.g., player turn, dealer turn, round resolution as explicit state objects with defined transitions     |
+| **Singleton**       | Ensure only one instance of `GameDatabase` or a configuration manager exists throughout the application                          |
+| **Decorator**       | Wrap player objects with additional behaviours such as logging or statistics tracking without modifying the base class           |
+| **Template Method** | Define the skeleton of a game round in a base class and let subclasses override specific steps                                   |
 
 Your chosen additional patterns must be different from the Strategy Pattern and the one pattern you selected above. All four patterns must be meaningfully distinct from one another.
 
 ---
 
-#### Blackjack Basic Strategy Tables
+### Blackjack Basic Strategy Tables
 
 Bot strategies must follow these tables. Decisions are based on the player's hand and the dealer's visible up card.
 
-##### Hard Totals
+#### Hard Totals
 
 Hard totals are hands that do not contain an Ace, or contain an Ace that is counted as 1.
 
@@ -372,7 +363,7 @@ Hard totals are hands that do not contain an Ace, or contain an Ace that is coun
 | 13–16               | 7–10, A          | Hit                |
 | 17 or more          | Any              | Stand              |
 
-##### Soft Totals
+#### Soft Totals
 
 Soft totals are hands that contain an Ace that is counted as 11.
 
@@ -389,7 +380,7 @@ Soft totals are hands that contain an Ace that is counted as 11.
 | A, 7                | 9–10, A          | Hit                |
 | A, 8 or A, 9        | Any              | Stand              |
 
-##### Pair Splitting
+#### Pair Splitting
 
 | Player's Hand | Dealer's Up Card | Recommended Action |
 | ------------- | ---------------- | ------------------ |
@@ -407,7 +398,7 @@ Soft totals are hands that contain an Ace that is counted as 11.
 | 9, 9          | 7, 10, A         | Stand              |
 | A, A          | Any              | Split              |
 
-##### Surrender
+#### Surrender
 
 | Player's Hand Total | Dealer's Up Card | Recommended Action |
 | ------------------- | ---------------- | ------------------ |
@@ -417,54 +408,54 @@ Soft totals are hands that contain an Ace that is counted as 11.
 
 ---
 
-#### Concurrency (4 marks)
+### Concurrency (4 marks)
 
-Add a concurrent feature to your Blackjack application using the threading tools covered in the course. You must implement **one** of the following:
-
----
-
-##### Option A - Concurrent Fraud / Cheat Detection (4 marks)
-
-While the game is running, a background `CheatDetector` thread monitors player activity for suspicious patterns. The detector must:
-
-- Run as a separate `threading.Thread` or via `ThreadPoolExecutor` so it does not block the main game loop
-- Use a thread-safe `queue.Queue` to receive game events from the main thread, e.g., a player hitting 5+ times in a single round, or surrendering every round
-- Use a `threading.Lock` or `threading.Event` to safely communicate a detection result back to the main thread
-- Print a warning message during normal output if a suspicious pattern is detected, e.g., `[CheatDetector] Warning: Alice has hit 6 times this round`
-- Not cause any race conditions or deadlocks
+Add a concurrent feature to your Blackjack application using concurrency tools available in your chosen language, e.g., threads, thread pools, locks, async/await, coroutines. You must implement **one** of the following:
 
 ---
 
-##### Option B - Timed Player Turns (4 marks)
+#### Option A - Concurrent Fraud / Cheat Detection
+
+While the game is running, a background `CheatDetector` task monitors player activity for suspicious patterns. The detector must:
+
+- Run concurrently so it does not block the main game loop.
+- Use a thread-safe queue or equivalent mechanism to receive game events from the main thread, e.g., a player hitting 5+ times in a single round, or surrendering every round.
+- Use a lock, event, or equivalent synchronisation primitive to safely communicate a detection result back to the main thread.
+- Print a warning message during normal output if a suspicious pattern is detected, e.g., `[CheatDetector] Warning: Alice has hit 6 times this round`.
+- Not cause any race conditions or deadlocks.
+
+---
+
+#### Option B - Timed Player Turns
 
 Each human player has a limited time to make their hit/stand/split/surrender decision. The timer must:
 
-- Use `threading.Thread` to run a countdown concurrently with waiting for player input
-- Use `threading.Event` to signal between the input thread and the timer thread
-- Automatically stand the player, i.e., default to `stand`, if the time limit expires before input is received
-- Display a live countdown to the terminal while waiting for input, e.g., `Bob, hit or stand? [8s remaining]`
-- Be configurable - the time limit must be set via the `GameConfig` (default: 30 seconds)
-- Not cause any race conditions or deadlocks
+- Run a countdown concurrently with waiting for player input.
+- Use a synchronisation primitive, e.g., an event, semaphore, or channel to signal between the input handler and the timer.
+- Automatically stand the player (default to `stand`) if the time limit expires before input is received.
+- Display a live countdown to the terminal while waiting for input, e.g., `Bob, hit or stand? [8s remaining]`.
+- Be configurable - the time limit must be set via the `GameConfig`. The default time limit is 30 seconds if not configured.
+- Not cause any race conditions or deadlocks.
 
 ---
 
-##### Option C - Async Statistics Engine (4 marks)
+#### Option C - Async Statistics Engine
 
 After each round, a statistics engine computes and displays updated player analytics concurrently so computation does not block the game loop. The engine must:
 
-- Use `ThreadPoolExecutor` with `submit()` to run at least **three** computations in parallel after each round ends:
-  - Win/loss/tie/surrender ratio per player
-  - Running score trend per player across all rounds played
-  - A "hot streak" flag: `True` if the player has won the last three consecutive rounds
-- Collect results using `Future.result()` and display a formatted stats panel before the next round begins
-- Use a `threading.Lock` to protect the shared statistics store that persists across rounds
-- Not cause any race conditions or deadlocks
+- Use a thread pool or equivalent concurrent execution mechanism to run at least **three** computations in parallel after each round ends:
+  - Win/loss/tie/surrender ratio per player.
+  - Running score trend per player across all rounds played.
+  - A "hot streak" flag: true if the player has won the last three consecutive rounds.
+- Collect and await all results before displaying a formatted stats panel before the next round begins.
+- Use a lock or equivalent mechanism to protect the shared statistics store that persists across rounds.
+- Not cause any race conditions or deadlocks.
 
 ---
 
-#### Persistent Statistics with SQLite (6 marks)
+### Persistent Statistics with a Relational Database (6 marks)
 
-Implement a `GameDatabase` class that records game history persistently to a SQLite database, i.e., `blackjack.db`. The database must use the following schema:
+Implement a `GameDatabase` class that records game history persistently to a relational database, e.g., SQLite, PostgreSQL, MySQL. The database must use the following schema:
 
 ```sql
 players      (id, name, created_at)
@@ -475,20 +466,22 @@ round_results(id, round_id, player_id, outcome, score_before, score_after)
 
 **`GameDatabase` class:**
 
-| Method                                                                   | Description                                                                                                             |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| `__init__(path: str)`                                                    | Opens or creates the database, creates the schema if it does not exist, enables foreign key enforcement                 |
-| `get_or_create_player(name: str) -> int`                                 | Returns the existing player ID if the name is found, otherwise inserts a new player and returns the new ID              |
-| `start_session() -> int`                                                 | Inserts a new game session record with the current timestamp and returns the session ID                                 |
-| `end_session(session_id: int, num_rounds: int)`                          | Updates the session record with the end timestamp and total rounds played                                               |
-| `record_round(session_id: int, round_number: int) -> int`                | Inserts a round record and returns its ID                                                                               |
-| `record_result(round_id, player_id, outcome, score_before, score_after)` | Inserts a `round_results` row for one player's outcome in a round                                                       |
-| `get_player_summary(name: str)`                                          | Prints a formatted summary for the named player - see expected output below                                             |
-| `get_leaderboard()`                                                      | Prints the top five players ranked by total score accumulated (score_after minus score_before summed across all rounds) |
+| Method                                                              | Description                                                                                                              |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `constructor(connectionString)`                                     | Opens or creates the database, creates the schema if it does not exist, enables foreign key enforcement where applicable |
+| `getOrCreatePlayer(name) -> id`                                     | Returns the existing player ID if the name is found, otherwise inserts a new player and returns the new ID               |
+| `startSession() -> id`                                              | Inserts a new game session record with the current timestamp and returns the session ID                                  |
+| `endSession(sessionId, numRounds)`                                  | Updates the session record with the end timestamp and total rounds played                                                |
+| `recordRound(sessionId, roundNumber) -> id`                         | Inserts a round record and returns its ID                                                                                |
+| `recordResult(roundId, playerId, outcome, scoreBefore, scoreAfter)` | Inserts a round_results row for one player's outcome in a round                                                          |
+| `getPlayerSummary(name)`                                            | Prints a formatted summary for the named player - see expected output below                                              |
+| `getLeaderboard()`                                                  | Prints the top five players ranked by total score accumulated (scoreAfter minus scoreBefore summed across all rounds)    |
+
+> **Note:** Method names should follow the naming conventions of your chosen language.
 
 The `BlackjackGame` class must use `GameDatabase` to record every session, round, and result as the game is played.
 
-Expected output for `get_player_summary("Alice")`:
+Expected output for `getPlayerSummary("Alice")`:
 
 ```
 Player: Alice
@@ -499,82 +492,77 @@ Best round: +2 (Blackjack, Session 3, Round 7)
 Current score: 8
 ```
 
-> **Hint:** use `with conn:` inside all write operations to manage transactions automatically. Always enable foreign keys with `PRAGMA foreign_keys = ON`.
+> **Hint:** Use transactions for all write operations to ensure data integrity. Always enforce foreign key constraints where your database supports it.
 
 ---
 
-#### Functional Programming (2 marks)
+### Functional Programming (2 marks)
 
-Implement a standalone module `blackjack_analysis.py` that analyses a completed game session using functional programming techniques. The module must:
+Implement a standalone module or file, e.g., `blackjackAnalysis`, that analyses a completed game session using functional programming techniques. The module must:
 
-- Accept a list of `round_results` dictionaries with the structure:
-  ```python
-  {"player": "Alice", "outcome": "win", "score_before": 0, "score_after": 1}
-  ```
-- Use `map`, `filter`, and `reduce` to compute the following:
-  - Total score gained across all winning rounds for each player
-  - A list of rounds where the outcome was a surrender
-  - The overall score change per player as a dictionary
-- Return all results in a single dictionary from a function named `analyse_session(results)`
+- Accept a collection of round result records with at minimum the following fields: player name, outcome, score before, score after.
+- Use the functional programming constructs available in your chosen language - equivalents of `map`, `filter`, and `reduce` - to compute the following:
+  - Total score gained across all winning rounds for each player.
+  - A list of rounds where the outcome was a surrender.
+  - The overall score change per player as a key-value structure.
+- Return all results in a single data structure from a function named `analyseSession` or the idiomatic equivalent in your chosen language.
 
-No explicit `for` loops or list comprehensions are permitted within these computations
+No explicit loops or list comprehensions are permitted within these computations. You must use the functional constructs of your language instead.
 
 ---
 
-### Code Quality and Best Practices - Learning Outcome 1 (12 marks)
-
-When developing your application, you must follow best practices for code quality.
+## Code Quality and Best Practices - Learning Outcome 1 (12 marks)
 
 ---
 
-#### Code Organisation (3 marks)
+### Code Organisation (3 marks)
 
-- Organise your code into a clear module structure. At minimum, separate concerns into distinct files:
+Organise your code into a clear module or package structure. At minimum, separate concerns into distinct files appropriate to your chosen language:
 
-| File / Module           | Contents                                             |
-| ----------------------- | ---------------------------------------------------- |
-| `card.py`               | `Card`, `Deck`, `Hand`                               |
-| `players.py`            | `Player`, `Dealer`, and any strategy/factory classes |
-| `game.py`               | `BlackjackGame`, observer or builder classes         |
-| `database.py`           | `GameDatabase`                                       |
-| `blackjack_analysis.py` | Functional programming analysis module               |
-| `main.py`               | Entry point - constructs and starts the game         |
+| Responsibility             | Contents                                             |
+| -------------------------- | ---------------------------------------------------- |
+| Card types                 | `Card`, `Deck`, `Hand`                               |
+| Player types               | `Player`, `Dealer`, and any strategy/factory classes |
+| Game logic                 | `BlackjackGame`, observer or builder classes         |
+| Database access            | `GameDatabase`                                       |
+| Functional analysis module | Functional programming analysis module               |
+| Entry point                | Constructs and starts the game                       |
 
 - Each module must have a single, clearly defined responsibility.
-- Functions and methods must be focused - no function should exceed 30 lines.
+- Functions and methods must be focused. No function should exceed 30 lines.
 - Avoid global state; pass dependencies explicitly.
 
 ---
 
-#### Code Style and Formatting (2 marks)
+### Code Style and Formatting (2 marks)
 
-- All code must pass `pylint` with a score of 7.0 or above.
-- All code must be formatted with `black`.
-- Follow Python naming conventions: `snake_case` for variables and functions, `PascalCase` for classes.
+- All code must pass a linting tool appropriate to your chosen language with no errors and no significant warnings.
+- All code must be formatted consistently using a formatter appropriate to your chosen language.
+- Follow the naming conventions of your chosen language consistently throughout.
 - Use meaningful, descriptive names for all variables, functions, parameters and classes.
-- Include type hints on all function signatures.
+- Include type annotations or type hints on all function signatures where your language supports them.
 
 ---
 
-#### Use of OOP Principles (2 marks)
+### Use of OOP Principles (2 marks)
 
-- Demonstrate correct use of **encapsulation**: use private attributes (prefix with `_`) for internal state and expose it only through methods or properties where appropriate.
-- Demonstrate correct use of **inheritance**: at minimum, `Dealer` should inherit from a base class or share an interface with `Player`.
-- Demonstrate correct use of **polymorphism**: the game loop must be able to call methods such as `take_turn()` or `choose_action()` on different player types without branching on type.
+- **Encapsulation:** use access modifiers or equivalent conventions to restrict access to internal state and expose it only through methods or properties where appropriate.
+- **Inheritance:** at minimum, `Dealer` should inherit from a base class or implement a shared interface with `Player`.
+- **Polymorphism:** the game loop must be able to call methods such as `takeTurn()` or `chooseAction()` on different player types without branching on type.
 - Avoid code duplication - extract shared logic into base classes or utility functions.
 
 ---
 
-#### Error Handling (2 marks)
+### Error Handling (2 marks)
 
-- Wrap all database operations in `try/except` blocks and handle `sqlite3.Error` gracefully.
+- Wrap all database operations in appropriate error handling constructs and handle database errors gracefully.
 - Validate all user input from the command line, e.g., ensure hit/stand/split/surrender input is one of the accepted values; reject invalid options with clear feedback.
-- Raise appropriate built-in exceptions, e.g., `ValueError`, `RuntimeError` with descriptive messages for invalid internal states, e.g., dealing from an empty deck.
-- Never expose raw stack traces to the player during normal gameplay.
+- Raise or throw appropriate exceptions with descriptive messages for invalid internal states, e.g., dealing from an empty deck.
+- Never expose raw stack traces or internal error details to the player during normal gameplay.
 
 ---
 
-#### Version Control (2 marks)
+### Version Control (2 marks)
 
 - Maintain a clean Git history with descriptive commit messages.
 - Use conventional commit messages, e.g., `feat:`, `fix:`, `refactor:`, `docs:`, `test:`, etc.
@@ -582,24 +570,122 @@ When developing your application, you must follow best practices for code qualit
 
 ---
 
-#### Documentation (1 mark)
+### Documentation (1 mark)
 
 In `README.md`, include the following:
 
-- Project description and purpose
-- Instructions for setting up the Python environment, e.g., `pip install -r requirements.txt`
-- How to run the game
-- How to run the unit tests
-- A brief description of each design pattern (all four) and concurrency option you implemented and why you chose them
-- Any AI tool usage acknowledgement and prompts used
+- Project description and purpose.
+- The programming language and version used, and instructions for setting up the environment and installing dependencies.
+- How to run the game.
+- A brief description of each design pattern and concurrency option you implemented and why you chose them.
+- Any AI tool usage acknowledgement and prompts used.
 
 ---
 
-## Assessment Requirements - Part 2
-
-**TBC**
+# Part 2: Independent Framework Research and Implementation
 
 ---
 
-_Author: Grayson Orr_  
+## Overview
+
+In this part, you will independently research a tool or framework that has not been covered in any previous course. You will define your own set of requirements, implement them in a working prototype, and present your findings to the course lecturer.
+
+Part 2 is worth the same number of marks as Part 1. The marks are divided across three phases: approval, implementation, and presentation.
+
+---
+
+## Constraints
+
+- The tool or framework must not have been taught in any previous course. If you are unsure, check with the course lecturer before investing time in research.
+- You may use the same tool or framework as another learner in the class.
+- Both your chosen tool or framework and your 12 requirements must be approved by the course lecturer before you begin implementation. See Phase 1 below.
+
+---
+
+## Phase 1 - Research and Approval (5 marks)
+
+### Choose a Tool or Framework
+
+Research a tool or framework that genuinely interests you and that you have not studied before. Good candidates include, but are not limited to:
+
+| Category           | Examples                            |
+| ------------------ | ----------------------------------- |
+| Game Development   | Game Maker, Unreal, Blender         |
+| Mobile Development | Flutter, React Native, SwiftUI      |
+| Web Development    | Django, Ruby on Rails, Vue.js       |
+| Other              | Anything you can justify at Level 7 |
+
+This list is illustrative, not exhaustive. You are encouraged to look beyond it.
+
+### Submit a Proposal
+
+Before writing any code, submit a short written proposal to the course lecturer. Your proposal must include:
+
+- The name and purpose of the tool or framework.
+- Why you chose it and what you hope to learn.
+- Evidence that it has not been taught in a previous course, e.g., a brief note confirming this.
+- A draft list of **12 requirements** you plan to implement.
+
+> **Note:** The course lecturer must approve both your tool or framework choice and your 12 requirements before you proceed to Phase 2. Approval will be confirmed in writing, e.g., via a GitHub issue or email.
+
+### Writing Your 12 Requirements
+
+Your requirements must:
+
+- Be specific and verifiable - a marker should be able to read each one and determine clearly whether it has been met.
+- Collectively demonstrate a meaningful and non-trivial use of the tool or framework.
+- Range in complexity - include straightforward requirements as well as at least three that push into more advanced features.
+- Be written in your own words, not copied from documentation.
+
+Each requirement should follow this format:
+
+> **REQ-01:** The application must [do something specific and observable].
+
+Example requirements for a web development framework might be:
+
+> **REQ-01:** The application must implement a user registration and login system using the framework's built-in authentication features.
+
+---
+
+## Phase 2 - Implementation (25 marks)
+
+Once your proposal is approved, implement all 12 requirements in a working prototype.
+
+### Marks per Requirement
+
+Each of the 12 requirements is worth marks according to the complexity band agreed during the approval phase:
+
+| Band         | Description                                                                           | Marks each |
+| ------------ | ------------------------------------------------------------------------------------- | ---------- |
+| Standard     | Straightforward use of the framework's core features                                  | 1          |
+| Intermediate | Requires understanding of more advanced features or integration with other components | 2          |
+| Advanced     | Demonstrates critical evaluation and non-trivial application of the framework         | 3          |
+
+Your 12 requirements must include **at least three Advanced requirements**, giving a maximum of 25 marks across the implementation phase. The course lecturer will confirm the band for each requirement at approval time.
+
+### Submission
+
+Commit all implementation files to the `project` branch of your GitHub Classroom repository in a clearly named subdirectory, e.g., `part2/`. Update your `README.md` to include:
+
+- Setup and run instructions specific to Part 2.
+- A table mapping each requirement to the relevant file(s) and a one-sentence description of how it is met.
+
+---
+
+## Phase 3 - Presentation (8 marks)
+
+Present your research and working prototype to the course lecturer. Your presentation must be either a **live demonstration** or a **recorded video walkthrough** of at least five minutes.
+
+### Content Requirements
+
+Your presentation must cover all of the following:
+
+- **Introduction:** what the tool or framework is, what problem it solves, and why you chose it.
+- **Critical evaluation:** strengths and limitations you discovered through hands-on use; how it compares to alternatives you considered.
+- **Live demo or walkthrough:** walk through your prototype and demonstrate each of the 12 requirements working as specified.
+- **Reflection:** what you found challenging, what you would do differently, and what you would explore next.
+
+---
+
+_Author: Grayson Orr_
 _Course: ID730001: Advanced Application Development Concepts_
