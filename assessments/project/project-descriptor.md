@@ -594,7 +594,7 @@ In `README.md`, include the following:
 
 In this part, you will independently research a tool or framework that has not been covered in any previous course. You will define your own set of requirements, implement them in a working prototype, and present your findings to the course lecturer.
 
-Part 2 is worth the same number of marks as Part 1. The marks are divided across three phases: approval, implementation, and presentation.
+Part 2 is worth the same number of marks as Part 1. The marks are divided across three phases: research and approval, implementation, and presentation.
 
 ---
 
@@ -602,7 +602,7 @@ Part 2 is worth the same number of marks as Part 1. The marks are divided across
 
 - The tool or framework must not have been taught in any previous course. If you are unsure, check with the course lecturer before investing time in research.
 - You may use the same tool or framework as another learner in the class.
-- Both your chosen tool or framework and your 12 requirements must be approved by the course lecturer before you begin implementation. See Phase 1 below.
+- Both your chosen tool or framework and your 12 requirements must be approved by the course lecturer before you begin implementation.
 
 ---
 
@@ -657,7 +657,7 @@ Once your proposal is approved, implement all 12 requirements in a working proto
 
 ### Marks per Requirement
 
-Each of the 12 requirements is worth marks according to the complexity band agreed during the approval phase:
+Each of the 12 requirements is worth marks according to the complexity band agreed during the research and approval phase:
 
 | Band         | Description                                                                           | Marks each |
 | ------------ | ------------------------------------------------------------------------------------- | ---------- |
