@@ -1,3 +1,7 @@
+# Project
+
+<img src="../../resources (ignore)/img/logo.jpg" alt="Otago Polytechnic Logo" width="200" height="auto" />
+
 # ID730001: Advanced Application Development Concepts
 
 ## Assessment Information
@@ -511,7 +515,7 @@ No explicit loops or list comprehensions are permitted within these computations
 
 ---
 
-## Code Quality and Best Practices - Learning Outcome 1 (12 marks)
+## Code Quality and Best Practices - Learning Outcomes 1 and 2 (12 marks)
 
 ---
 
@@ -602,7 +606,7 @@ Part 2 is worth the same number of marks as Part 1. The marks are divided across
 
 ---
 
-## Phase 1 - Research and Approval (5 marks)
+## Research and Approval Phase - Learning Outcomes 1 and 2 (5 marks)
 
 ### Choose a Tool or Framework
 
@@ -647,7 +651,7 @@ Example requirements for a web development framework might be:
 
 ---
 
-## Phase 2 - Implementation (25 marks)
+## Implementation Phase - Learning Outcomes 1 and 2 (25 marks)
 
 Once your proposal is approved, implement all 12 requirements in a working prototype.
 
@@ -672,7 +676,7 @@ Commit all implementation files to the `project` branch of your GitHub Classroom
 
 ---
 
-## Phase 3 - Presentation (8 marks)
+## Presentation Phase - Learning Outcomes 1 and 2 (8 marks)
 
 Present your research and working prototype to the course lecturer. Your presentation must be either a **live demonstration** or a **recorded video walkthrough** of at least five minutes.
 
