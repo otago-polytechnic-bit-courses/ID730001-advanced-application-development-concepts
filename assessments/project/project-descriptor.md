@@ -1,10 +1,8 @@
-# Project
-
 <img src="../../resources (ignore)/img/logo.jpg" alt="Otago Polytechnic Logo" width="200" height="auto" />
 
 # ID730001: Advanced Application Development Concepts
 
-## Assessment Information
+## Project
 
 | Level | Credits | Assessment Type | Weighting |
 | ----- | ------- | --------------- | --------- |
@@ -15,7 +13,7 @@
 In this individual assessment, you will complete two parts:
 
 - **Part 1:** A fully playable command-line Blackjack application that demonstrates object-oriented programming, design patterns, concurrency, and persistent data storage using a relational database.
-- **Part 2:** An independently researched tool or framework implemented as a working prototype and presented to the course lecturer.
+- **Part 2:** An independently researched tool or framework implemented as a working prototype.
 
 ## Learning Outcomes
 
@@ -28,12 +26,12 @@ At the successful completion of this course, learners will be able to:
 
 | Assessment | Weighting | Due Date           | Learning Outcome |
 | ---------- | --------- | ------------------ | ---------------- |
-| Practical  | 20%       | 22 May at 4.59 PM  | 1                |
-| Project    | 80%       | 26 June at 4.59 PM | 1, 2             |
+| Practical  | 20%       | 26 June at 4:59 PM | 1, 2             |
+| Project    | 80%       | 26 June at 4:59 PM | 1, 2             |
 
 ## Conditions of Assessment
 
-You will complete this assessment mostly during your learner-managed time. However, there will be time during class to discuss the requirements and your progress on this assessment. This assessment will need to be completed by 26 June at 4.59 PM.
+You will complete this assessment mostly during your learner-managed time. However, there will be time during class to discuss the requirements and your progress on this assessment. This assessment must be completed by 26 June at 4:59 PM.
 
 ## Pass Criteria
 
@@ -45,8 +43,8 @@ You must submit all application files via GitHub Classroom.
 
 - Repository URL: [https://classroom.github.com/a/RgDe5bs0](https://classroom.github.com/a/RgDe5bs0)
 - Branch: Switch to the Project branch using the following command: `git checkout -b project`
-- Due Date: 26 June at 4.59 PM
-- Late Penalty: 10% per day, rolling over at 12.00 AM
+- Due Date: 26 June at 4:59 PM
+- Late Penalty: 10% per day, rolling over at 12:00 AM
 
 The latest application files in the Project branch will be used to mark against the marking rubric. Please test your application before you submit. Partial marks may be given for incomplete functionality.
 
@@ -78,53 +76,11 @@ Resits and reassessments are not applicable in ID730001: Advanced Application De
 
 ---
 
-# Part 1: Blackjack Application
+# Part 1: Blackjack Application — Development Phase
 
----
+## Learning Outcomes 1 and 2 (28 marks)
 
-## Design Phase - Learning Outcomes 1 and 2 (10 marks)
-
-Before you start the Design Phase, read through the Development Phase requirements below. This will help you understand what you need to build and ensure your design document is comprehensive.
-
-Once you understand the requirements, create a design document that outlines the structure of your application. This will help you plan your work effectively.
-
-> **Note:** To move onto the Development Phase, the course lecturer must approve your design document.
-
----
-
-### Class Diagram (5 marks)
-
-- Create a UML class diagram using a digital tool of your choice that shows all required classes, their attributes, methods and relationships.
-- For each class, include:
-  - Class name
-  - All attributes with their names and data types
-  - All methods with their names, parameters and return types
-  - Visibility modifiers where appropriate, i.e., `+` public, `-` private
-- For each relationship between classes, include:
-  - Relationship type, e.g., association, composition, inheritance, etc.
-  - Multiplicity/cardinality, e.g., one-to-many
-  - Direction of the relationship
-
----
-
-### Design Patterns and Concurrency Plan (5 marks)
-
-In a written document, describe how you plan to apply the following to your Blackjack application:
-
-- **Four design patterns** in total:
-  - **The Strategy Pattern.** Identify which classes are involved, explain why this pattern is appropriate for this part of the application, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
-  - **One chosen from the provided list** - Observer, Factory, or Builder. Identify which classes are involved, explain why this pattern is appropriate, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
-  - **Two additional patterns** researched and selected independently (see the Additional Design Patterns section below). For each, identify which classes are involved, explain why this pattern is appropriate, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
-- **One concurrency mechanism** appropriate to your chosen language, e.g., threads, thread pools, locks, async/await, coroutines. Describe:
-  - What concurrent task(s) you plan to implement
-  - Which concurrency tools your chosen language provides and why you selected them
-  - How you will ensure thread safety where shared state is involved
-
----
-
-## Development Phase - Learning Outcomes 1 and 2 (28 marks)
-
-Once the course lecturer has approved your design document, you can start developing your application. You should follow the requirements in your design document, but you can make changes as needed. If you make significant changes to your design document, please update it accordingly.
+Once the course lecturer has approved your design document (submitted as part of the Practical assessment), you can start developing your application. You should follow the requirements in your design document, but you can make changes as needed. If you make significant changes to your design document, please update it accordingly.
 
 ---
 
@@ -179,7 +135,7 @@ Players accumulate points across rounds based on their outcomes. There are no ch
 - A player's score can go negative.
 - A player is eliminated when their score reaches -10.
 - The game ends when all players have been eliminated or all players choose to quit.
-- A final leaderboard is displayed when the game ends, ranked by score.
+- A final leaderboard is displayed when the game ends.
 
 #### Player Actions
 
@@ -254,11 +210,11 @@ game.playGame()
 
 ### Design Patterns (12 marks)
 
-Implement **four** design patterns within your Blackjack application. The patterns must be meaningfully integrated. They should add clear value to the design, not be bolted on artificially.
+Implement **four** design patterns within your Blackjack application. The patterns must be meaningfully integrated — they should add clear value to the design, not be bolted on artificially. Your implementation must match the patterns described in your approved design document from the Practical assessment.
 
 ---
 
-#### Compulsory Pattern - Strategy (3 marks)
+#### Compulsory Pattern — Strategy (3 marks)
 
 The Strategy Pattern is compulsory. You must implement it.
 
@@ -275,13 +231,13 @@ Players must be configurable with any strategy at construction time. The game lo
 
 ---
 
-#### Chosen Pattern - Pick One (3 marks)
+#### Chosen Pattern — Pick One (3 marks)
 
-Select and implement **one** of the following design patterns:
+Select and implement **one** of the following design patterns. Your choice must match what was approved in the Practical assessment.
 
 ---
 
-##### Option A - Observer Pattern
+##### Option A — Observer Pattern
 
 Implement an `IGameObserver` interface and attach at least **two** concrete observers to the game:
 
@@ -294,7 +250,7 @@ The `BlackjackGame` class must maintain a list of observers and notify all of th
 
 ---
 
-##### Option B - Factory Pattern
+##### Option B — Factory Pattern
 
 Implement a `PlayerFactory` interface with at least **two** concrete factories:
 
@@ -307,7 +263,7 @@ The `BlackjackGame` class must accept factories rather than constructing players
 
 ---
 
-##### Option C - Builder Pattern
+##### Option C — Builder Pattern
 
 Implement a `GameConfigBuilder` that constructs a `GameConfig` object step-by-step before the game starts. The builder must support at least the following options:
 
@@ -326,19 +282,9 @@ The `BlackjackGame` class must accept a `GameConfig` object and respect all conf
 
 ---
 
-#### Additional Design Patterns - Research and Implement Two (6 marks)
+#### Additional Design Patterns — Implement Two (6 marks)
 
-You must research and implement **two additional design patterns** of your own choosing. These patterns must be meaningfully integrated into your application, not artificially added. For each pattern, your design document must explain what the pattern does, why you chose it for this application, and which classes are involved.
-
-The following patterns are suggested, but you are not limited to this list:
-
-| Pattern             | Possible Application in Blackjack                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Command**         | Encapsulate player actions, e.g., hit, stand, split, surrender as command objects, enabling action history or undo functionality |
-| **State**           | Model the game's phases, e.g., player turn, dealer turn, round resolution as explicit state objects with defined transitions     |
-| **Singleton**       | Ensure only one instance of `GameDatabase` or a configuration manager exists throughout the application                          |
-| **Decorator**       | Wrap player objects with additional behaviours such as logging or statistics tracking without modifying the base class           |
-| **Template Method** | Define the skeleton of a game round in a base class and let subclasses override specific steps                                   |
+Implement the **two additional design patterns** you described in your approved Practical design document. These patterns must be meaningfully integrated into your application, not artificially added.
 
 Your chosen additional patterns must be different from the Strategy Pattern and the one pattern you selected above. All four patterns must be meaningfully distinct from one another.
 
@@ -414,11 +360,11 @@ Soft totals are hands that contain an Ace that is counted as 11.
 
 ### Concurrency (4 marks)
 
-Add a concurrent feature to your Blackjack application using concurrency tools available in your chosen language, e.g., threads, thread pools, locks, async/await, coroutines. You must implement **one** of the following:
+Add a concurrent feature to your Blackjack application using concurrency tools available in your chosen language, e.g., threads, thread pools, locks, async/await, coroutines. Implement the option you described in your approved Practical design document.
 
 ---
 
-#### Option A - Concurrent Fraud / Cheat Detection
+#### Option A — Concurrent Fraud / Cheat Detection
 
 While the game is running, a background `CheatDetector` task monitors player activity for suspicious patterns. The detector must:
 
@@ -430,7 +376,7 @@ While the game is running, a background `CheatDetector` task monitors player act
 
 ---
 
-#### Option B - Timed Player Turns
+#### Option B — Timed Player Turns
 
 Each human player has a limited time to make their hit/stand/split/surrender decision. The timer must:
 
@@ -438,12 +384,12 @@ Each human player has a limited time to make their hit/stand/split/surrender dec
 - Use a synchronisation primitive, e.g., an event, semaphore, or channel to signal between the input handler and the timer.
 - Automatically stand the player (default to `stand`) if the time limit expires before input is received.
 - Display a live countdown to the terminal while waiting for input, e.g., `Bob, hit or stand? [8s remaining]`.
-- Be configurable - the time limit must be set via the `GameConfig`. The default time limit is 30 seconds if not configured.
+- Be configurable — the time limit must be set via the `GameConfig`. The default time limit is 30 seconds if not configured.
 - Not cause any race conditions or deadlocks.
 
 ---
 
-#### Option C - Async Statistics Engine
+#### Option C — Async Statistics Engine
 
 After each round, a statistics engine computes and displays updated player analytics concurrently so computation does not block the game loop. The engine must:
 
@@ -478,7 +424,7 @@ round_results(id, round_id, player_id, outcome, score_before, score_after)
 | `endSession(sessionId, numRounds)`                                  | Updates the session record with the end timestamp and total rounds played                                                |
 | `recordRound(sessionId, roundNumber) -> id`                         | Inserts a round record and returns its ID                                                                                |
 | `recordResult(roundId, playerId, outcome, scoreBefore, scoreAfter)` | Inserts a round_results row for one player's outcome in a round                                                          |
-| `getPlayerSummary(name)`                                            | Prints a formatted summary for the named player - see expected output below                                              |
+| `getPlayerSummary(name)`                                            | Prints a formatted summary for the named player — see expected output below                                              |
 | `getLeaderboard()`                                                  | Prints the top five players ranked by total score accumulated (scoreAfter minus scoreBefore summed across all rounds)    |
 
 > **Note:** Method names should follow the naming conventions of your chosen language.
@@ -505,7 +451,7 @@ Current score: 8
 Implement a standalone module or file, e.g., `blackjackAnalysis`, that analyses a completed game session using functional programming techniques. The module must:
 
 - Accept a collection of round result records with at minimum the following fields: player name, outcome, score before, score after.
-- Use the functional programming constructs available in your chosen language - equivalents of `map`, `filter`, and `reduce` - to compute the following:
+- Use the functional programming constructs available in your chosen language — equivalents of `map`, `filter`, and `reduce` — to compute the following:
   - Total score gained across all winning rounds for each player.
   - A list of rounds where the outcome was a surrender.
   - The overall score change per player as a key-value structure.
@@ -515,7 +461,7 @@ No explicit loops or list comprehensions are permitted within these computations
 
 ---
 
-## Code Quality and Best Practices - Learning Outcomes 1 and 2 (12 marks)
+## Code Quality and Best Practices — Learning Outcomes 1 and 2 (12 marks)
 
 ---
 
@@ -553,7 +499,7 @@ Organise your code into a clear module or package structure. At minimum, separat
 - **Encapsulation:** use access modifiers or equivalent conventions to restrict access to internal state and expose it only through methods or properties where appropriate.
 - **Inheritance:** at minimum, `Dealer` should inherit from a base class or implement a shared interface with `Player`.
 - **Polymorphism:** the game loop must be able to call methods such as `takeTurn()` or `chooseAction()` on different player types without branching on type.
-- Avoid code duplication - extract shared logic into base classes or utility functions.
+- Avoid code duplication — extract shared logic into base classes or utility functions.
 
 ---
 
@@ -574,90 +520,15 @@ Organise your code into a clear module or package structure. At minimum, separat
 
 ---
 
-### Documentation (1 mark)
+# Part 2: Independent Framework Research — Implementation Phase
 
-In `README.md`, include the following:
+## Learning Outcomes 1 and 2 (25 marks)
 
-- Project description and purpose.
-- The programming language and version used, and instructions for setting up the environment and installing dependencies.
-- How to run the game.
-- A brief description of each design pattern and concurrency option you implemented and why you chose them.
-- Any AI tool usage acknowledgement and prompts used.
-
----
-
-# Part 2: Independent Framework Research and Implementation
-
----
-
-## Overview
-
-In this part, you will independently research a tool or framework that has not been covered in any previous course. You will define your own set of requirements, implement them in a working prototype, and present your findings to the course lecturer.
-
-Part 2 is worth the same number of marks as Part 1. The marks are divided across three phases: research and approval, implementation, and presentation.
-
----
-
-## Constraints
-
-- The tool or framework must not have been taught in any previous course. If you are unsure, check with the course lecturer before investing time in research.
-- You may use the same tool or framework as another learner in the class.
-- Both your chosen tool or framework and your 12 requirements must be approved by the course lecturer before you begin implementation.
-
----
-
-## Research and Approval Phase - Learning Outcomes 1 and 2 (5 marks)
-
-### Choose a Tool or Framework
-
-Research a tool or framework that genuinely interests you and that you have not studied before. Good candidates include, but are not limited to:
-
-| Category           | Examples                            |
-| ------------------ | ----------------------------------- |
-| Game Development   | Game Maker, Unreal, Blender         |
-| Mobile Development | Flutter, React Native, SwiftUI      |
-| Web Development    | Django, Ruby on Rails, Vue.js       |
-| Other              | Anything you can justify at Level 7 |
-
-This list is illustrative, not exhaustive. You are encouraged to look beyond it.
-
-### Submit a Proposal
-
-Before writing any code, submit a short written proposal to the course lecturer. Your proposal must include:
-
-- The name and purpose of the tool or framework.
-- Why you chose it and what you hope to learn.
-- Evidence that it has not been taught in a previous course, e.g., a brief note confirming this.
-- A draft list of **12 requirements** you plan to implement.
-
-> **Note:** The course lecturer must approve both your tool or framework choice and your 12 requirements before you proceed to Phase 2. Approval will be confirmed in writing, e.g., via a GitHub issue or email.
-
-### Writing Your 12 Requirements
-
-Your requirements must:
-
-- Be specific and verifiable - a marker should be able to read each one and determine clearly whether it has been met.
-- Collectively demonstrate a meaningful and non-trivial use of the tool or framework.
-- Range in complexity - include straightforward requirements as well as at least three that push into more advanced features.
-- Be written in your own words, not copied from documentation.
-
-Each requirement should follow this format:
-
-> **REQ-01:** The application must [do something specific and observable].
-
-Example requirements for a web development framework might be:
-
-> **REQ-01:** The application must implement a user registration and login system using the framework's built-in authentication features.
-
----
-
-## Implementation Phase - Learning Outcomes 1 and 2 (25 marks)
-
-Once your proposal is approved, implement all 12 requirements in a working prototype.
+Once your Practical proposal is approved, implement all 12 requirements in a working prototype. Commit all implementation files to the `project` branch in a clearly named subdirectory, e.g., `part2/`.
 
 ### Marks per Requirement
 
-Each of the 12 requirements is worth marks according to the complexity band agreed during the research and approval phase:
+Each of the 12 requirements is worth marks according to the complexity band agreed during the Practical research and approval phase:
 
 | Band         | Description                                                                           | Marks each |
 | ------------ | ------------------------------------------------------------------------------------- | ---------- |
@@ -666,28 +537,6 @@ Each of the 12 requirements is worth marks according to the complexity band agre
 | Advanced     | Demonstrates critical evaluation and non-trivial application of the framework         | 3          |
 
 Your 12 requirements must include **at least three Advanced requirements**, giving a maximum of 25 marks across the implementation phase. The course lecturer will confirm the band for each requirement at approval time.
-
-### Submission
-
-Commit all implementation files to the `project` branch of your GitHub Classroom repository in a clearly named subdirectory, e.g., `part2/`. Update your `README.md` to include:
-
-- Setup and run instructions specific to Part 2.
-- A table mapping each requirement to the relevant file(s) and a one-sentence description of how it is met.
-
----
-
-## Presentation Phase - Learning Outcomes 1 and 2 (8 marks)
-
-Present your research and working prototype to the course lecturer. Your presentation must be either a **live demonstration** or a **recorded video walkthrough** of at least five minutes.
-
-### Content Requirements
-
-Your presentation must cover all of the following:
-
-- **Introduction:** what the tool or framework is, what problem it solves, and why you chose it.
-- **Critical evaluation:** strengths and limitations you discovered through hands-on use; how it compares to alternatives you considered.
-- **Live demo or walkthrough:** walk through your prototype and demonstrate each of the 12 requirements working as specified.
-- **Reflection:** what you found challenging, what you would do differently, and what you would explore next.
 
 ---
 
