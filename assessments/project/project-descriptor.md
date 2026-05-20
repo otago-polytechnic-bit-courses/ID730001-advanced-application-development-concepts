@@ -224,8 +224,8 @@ Implement a `DrawStrategy` interface with at least **four** concrete strategies 
 | ---------------------- | -------------------------------------------------------------------------------------------- |
 | `HumanStrategy`        | Prompts the player for input via the command line                                            |
 | `BasicStrategy`        | Follows the standard Blackjack basic strategy tables exactly                                 |
-| `ConservativeStrategy` | Stands if the hand value is ≥ 15, never splits, never surrenders; otherwise hits             |
-| `AggressiveStrategy`   | Stands only if the hand value is ≥ 18, always splits pairs, never surrenders; otherwise hits |
+| `ConservativeStrategy` | Stands if the hand value is >= 15, never splits, never surrenders; otherwise hits             |
+| `AggressiveStrategy`   | Stands only if the hand value is > 18, always splits pairs, never surrenders; otherwise hits |
 
 Players must be configurable with any strategy at construction time. The game loop must not need to know which strategy a player is using.
 
