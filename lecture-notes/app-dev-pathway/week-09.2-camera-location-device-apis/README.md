@@ -32,7 +32,7 @@ npx expo install expo-camera expo-image-picker expo-location expo-media-library 
 
 - Request permission only when the user performs an action that needs it (contextual)
 - Explain why you need the permission before the OS dialog appears
-- Handle the denied case gracefully — never assume permission is granted
+- Handle the denied case gracefully - never assume permission is granted
 - On iOS, permission dialogs can only be shown once. If denied, direct the user to Settings
 
 ---

@@ -373,7 +373,7 @@ export function useInstitutionsOffline() {
         // 4. Return the freshly synced local data
         return institutionRepository.findAll();
       } catch {
-        // Network unavailable — return local data
+        // Network unavailable - return local data
         return local;
       }
     },
@@ -400,7 +400,7 @@ import { MMKV } from "react-native-mmkv";
 
 export const mmkv = new MMKV({ id: "app-storage" });
 
-// Synchronous reads — no await needed
+// Synchronous reads - no await needed
 mmkv.set("onboarded", true);
 const onboarded = mmkv.getBoolean("onboarded");
 
@@ -429,7 +429,7 @@ const mmkvStorage: StateStorage = {
 
 ## 5. Expo FileSystem
 
-Use **Expo FileSystem** for reading and writing files — documents, images, cached downloads, and exports:
+Use **Expo FileSystem** for reading and writing files - documents, images, cached downloads, and exports:
 
 ```bash
 npx expo install expo-file-system

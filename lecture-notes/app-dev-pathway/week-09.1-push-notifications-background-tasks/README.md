@@ -244,7 +244,7 @@ export const sendPushNotification = async (
   }
 };
 
-// Usage — notify all users in a tenant when a new institution is created
+// Usage - notify all users in a tenant when a new institution is created
 const sendInstitutionCreatedNotification = async (
   tenantId: string,
   institutionName: string,
@@ -312,7 +312,7 @@ export default function RootLayout() {
 
 ## 2. Local Notifications
 
-Local notifications are scheduled by the app itself — no server required. Useful for reminders, daily digests, and offline alerts:
+Local notifications are scheduled by the app itself - no server required. Useful for reminders, daily digests, and offline alerts:
 
 ```typescript
 // Schedule a notification 10 seconds from now

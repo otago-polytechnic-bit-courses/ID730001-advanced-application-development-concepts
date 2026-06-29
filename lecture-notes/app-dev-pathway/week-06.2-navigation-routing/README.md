@@ -22,7 +22,7 @@ git checkout -b w06.2-navigation-routing
 
 ## 1. Expo Router
 
-**Expo Router** is the file-system-based routing framework for React Native and Expo, built on top of React Navigation. It uses the same mental model as Next.js — the file structure inside the `app/` directory defines the routes.
+**Expo Router** is the file-system-based routing framework for React Native and Expo, built on top of React Navigation. It uses the same mental model as Next.js - the file structure inside the `app/` directory defines the routes.
 
 The current version is **Expo Router v4**, which ships with Expo SDK 52.
 
@@ -87,8 +87,8 @@ Every file inside `app/` that exports a React component becomes a route.
 | `app/institutions/index.tsx`     | `/institutions`     | Index of a group               |
 | `app/institutions/[id].tsx`      | `/institutions/:id` | Dynamic route                  |
 | `app/institutions/[...slug].tsx` | `/institutions/*`   | Catch-all route                |
-| `app/_layout.tsx`                | —                   | Layout for the current segment |
-| `app/(tabs)/_layout.tsx`         | —                   | Tab group layout               |
+| `app/_layout.tsx`                | -                   | Layout for the current segment |
+| `app/(tabs)/_layout.tsx`         | -                   | Tab group layout               |
 | `app/+not-found.tsx`             | 404                 | Not-found screen               |
 
 ---
@@ -123,7 +123,7 @@ export default function RootLayout() {
 
 ## 3. Stack Navigation
 
-A **Stack** navigator presents screens as a stack — navigating forward pushes a new screen on top; the back button pops it off.
+A **Stack** navigator presents screens as a stack - navigating forward pushes a new screen on top; the back button pops it off.
 
 ---
 
@@ -329,7 +329,7 @@ import { Stack } from "expo-router";
 export default function RootLayout() {
   return (
     <Stack>
-      {/* The (tabs) group — headerShown false because each tab manages its own header */}
+      {/* The (tabs) group - headerShown false because each tab manages its own header */}
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       {/* Detail screens live outside the tab group so they cover the tab bar */}
       <Stack.Screen
@@ -345,7 +345,7 @@ export default function RootLayout() {
 
 ## 5. Route Groups
 
-Route groups use parentheses in their folder name. They do not add a URL segment — they exist only to organise files or share layouts:
+Route groups use parentheses in their folder name. They do not add a URL segment - they exist only to organise files or share layouts:
 
 ```
 app/

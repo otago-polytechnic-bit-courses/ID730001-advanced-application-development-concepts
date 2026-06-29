@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-> `memo` uses shallow equality. If you pass a new object or array on every render, `memo` won't help — use `useMemo` to stabilise the reference first.
+> `memo` uses shallow equality. If you pass a new object or array on every render, `memo` won't help - use `useMemo` to stabilise the reference first.
 
 ---
 

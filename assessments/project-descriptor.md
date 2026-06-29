@@ -76,9 +76,9 @@ Resits and reassessments are not applicable in ID730001: Advanced Application De
 
 ---
 
-# Part 1: Blackjack Application — Development Phase
+# Part 1: Blackjack Application - Development Phase
 
-## Learning Outcomes 1 and 2 (28 marks)
+## Learning Outcomes 1 and 2
 
 Once the course lecturer has approved your design document (submitted as part of the Practical assessment), you can start developing your application. You should follow the requirements in your design document, but you can make changes as needed. If you make significant changes to your design document, please update it accordingly.
 
@@ -208,13 +208,13 @@ game.playGame()
 
 ---
 
-### Design Patterns (12 marks)
+### Design Patterns
 
-Implement **four** design patterns within your Blackjack application. The patterns must be meaningfully integrated — they should add clear value to the design, not be bolted on artificially. Your implementation must match the patterns described in your approved design document from the Practical assessment.
+Implement **four** design patterns within your Blackjack application. The patterns must be meaningfully integrated - they should add clear value to the design, not be bolted on artificially. Your implementation must match the patterns described in your approved design document from the Practical assessment.
 
 ---
 
-#### Compulsory Pattern — Strategy (3 marks)
+#### Compulsory Pattern - Strategy (3 marks)
 
 The Strategy Pattern is compulsory. You must implement it.
 
@@ -231,13 +231,13 @@ Players must be configurable with any strategy at construction time. The game lo
 
 ---
 
-#### Chosen Pattern — Pick One (3 marks)
+#### Chosen Pattern - Pick One (3 marks)
 
 Select and implement **one** of the following design patterns. Your choice must match what was approved in the Practical assessment.
 
 ---
 
-##### Option A — Observer Pattern
+##### Option A - Observer Pattern
 
 Implement an `IGameObserver` interface and attach at least **two** concrete observers to the game:
 
@@ -250,7 +250,7 @@ The `BlackjackGame` class must maintain a list of observers and notify all of th
 
 ---
 
-##### Option B — Factory Pattern
+##### Option B - Factory Pattern
 
 Implement a `PlayerFactory` interface with at least **two** concrete factories:
 
@@ -263,7 +263,7 @@ The `BlackjackGame` class must accept factories rather than constructing players
 
 ---
 
-##### Option C — Builder Pattern
+##### Option C - Builder Pattern
 
 Implement a `GameConfigBuilder` that constructs a `GameConfig` object step-by-step before the game starts. The builder must support at least the following options:
 
@@ -282,7 +282,7 @@ The `BlackjackGame` class must accept a `GameConfig` object and respect all conf
 
 ---
 
-#### Additional Design Patterns — Implement Two (6 marks)
+#### Additional Design Patterns - Implement Two (6 marks)
 
 Implement the **two additional design patterns** you described in your approved Practical design document. These patterns must be meaningfully integrated into your application, not artificially added.
 
@@ -364,7 +364,7 @@ Add a concurrent feature to your Blackjack application using concurrency tools a
 
 ---
 
-#### Option A — Concurrent Fraud / Cheat Detection
+#### Option A - Concurrent Fraud / Cheat Detection
 
 While the game is running, a background `CheatDetector` task monitors player activity for suspicious patterns. The detector must:
 
@@ -376,7 +376,7 @@ While the game is running, a background `CheatDetector` task monitors player act
 
 ---
 
-#### Option B — Timed Player Turns
+#### Option B - Timed Player Turns
 
 Each human player has a limited time to make their hit/stand/split/surrender decision. The timer must:
 
@@ -384,12 +384,12 @@ Each human player has a limited time to make their hit/stand/split/surrender dec
 - Use a synchronisation primitive, e.g., an event, semaphore, or channel to signal between the input handler and the timer.
 - Automatically stand the player (default to `stand`) if the time limit expires before input is received.
 - Display a live countdown to the terminal while waiting for input, e.g., `Bob, hit or stand? [8s remaining]`.
-- Be configurable — the time limit must be set via the `GameConfig`. The default time limit is 30 seconds if not configured.
+- Be configurable - the time limit must be set via the `GameConfig`. The default time limit is 30 seconds if not configured.
 - Not cause any race conditions or deadlocks.
 
 ---
 
-#### Option C — Async Statistics Engine
+#### Option C - Async Statistics Engine
 
 After each round, a statistics engine computes and displays updated player analytics concurrently so computation does not block the game loop. The engine must:
 
@@ -424,7 +424,7 @@ round_results(id, round_id, player_id, outcome, score_before, score_after)
 | `endSession(sessionId, numRounds)`                                  | Updates the session record with the end timestamp and total rounds played                                                |
 | `recordRound(sessionId, roundNumber) -> id`                         | Inserts a round record and returns its ID                                                                                |
 | `recordResult(roundId, playerId, outcome, scoreBefore, scoreAfter)` | Inserts a round_results row for one player's outcome in a round                                                          |
-| `getPlayerSummary(name)`                                            | Prints a formatted summary for the named player — see expected output below                                              |
+| `getPlayerSummary(name)`                                            | Prints a formatted summary for the named player - see expected output below                                              |
 | `getLeaderboard()`                                                  | Prints the top five players ranked by total score accumulated (scoreAfter minus scoreBefore summed across all rounds)    |
 
 > **Note:** Method names should follow the naming conventions of your chosen language.
@@ -451,7 +451,7 @@ Current score: 8
 Implement a standalone module or file, e.g., `blackjackAnalysis`, that analyses a completed game session using functional programming techniques. The module must:
 
 - Accept a collection of round result records with at minimum the following fields: player name, outcome, score before, score after.
-- Use the functional programming constructs available in your chosen language — equivalents of `map`, `filter`, and `reduce` — to compute the following:
+- Use the functional programming constructs available in your chosen language - equivalents of `map`, `filter`, and `reduce` - to compute the following:
   - Total score gained across all winning rounds for each player.
   - A list of rounds where the outcome was a surrender.
   - The overall score change per player as a key-value structure.
@@ -461,7 +461,7 @@ No explicit loops or list comprehensions are permitted within these computations
 
 ---
 
-## Code Quality and Best Practices — Learning Outcomes 1 and 2 (12 marks)
+## Code Quality and Best Practices - Learning Outcomes 1 and 2
 
 ---
 
@@ -499,7 +499,7 @@ Organise your code into a clear module or package structure. At minimum, separat
 - **Encapsulation:** use access modifiers or equivalent conventions to restrict access to internal state and expose it only through methods or properties where appropriate.
 - **Inheritance:** at minimum, `Dealer` should inherit from a base class or implement a shared interface with `Player`.
 - **Polymorphism:** the game loop must be able to call methods such as `takeTurn()` or `chooseAction()` on different player types without branching on type.
-- Avoid code duplication — extract shared logic into base classes or utility functions.
+- Avoid code duplication - extract shared logic into base classes or utility functions.
 
 ---
 
@@ -520,7 +520,7 @@ Organise your code into a clear module or package structure. At minimum, separat
 
 ---
 
-# Part 2: Independent Framework Research — Implementation Phase
+# Part 2: Independent Framework Research - Implementation Phase
 
 ## Learning Outcomes 1 and 2 (25 marks)
 
@@ -537,8 +537,3 @@ Each of the 12 requirements is worth marks according to the complexity band agre
 | Advanced     | Demonstrates critical evaluation and non-trivial application of the framework         | 3          |
 
 Your 12 requirements must include **at least three Advanced requirements**, giving a maximum of 25 marks across the implementation phase. The course lecturer will confirm the band for each requirement at approval time.
-
----
-
-_Author: Grayson Orr_
-_Course: ID730001: Advanced Application Development Concepts_

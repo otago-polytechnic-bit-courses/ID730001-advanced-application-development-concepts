@@ -304,7 +304,7 @@ npx expo install immer
 import { useInstitutionStore } from "@/store/useInstitutionStore";
 
 export function InstitutionList() {
-  // Select only the slice you need — prevents unnecessary re-renders
+  // Select only the slice you need - prevents unnecessary re-renders
   const institutions = useInstitutionStore((state) => state.institutions);
   const removeInstitution = useInstitutionStore(
     (state) => state.removeInstitution,
@@ -389,7 +389,7 @@ export const useAuthStore = create<AuthState>()(
     {
       name: "auth-storage",
       storage: createJSONStorage(() => AsyncStorage),
-      // Only persist the token and user — not derived state
+      // Only persist the token and user - not derived state
       partialize: (state) => ({
         user: state.user,
         accessToken: state.accessToken,
@@ -408,7 +408,7 @@ npx expo install @react-native-async-storage/async-storage
 
 ## 5. TanStack Query
 
-**TanStack Query** (formerly React Query) manages server state — data that lives on a remote server and needs to be fetched, cached, synchronised, and kept fresh. It handles loading states, error states, background refetching, and caching automatically.
+**TanStack Query** (formerly React Query) manages server state - data that lives on a remote server and needs to be fetched, cached, synchronised, and kept fresh. It handles loading states, error states, background refetching, and caching automatically.
 
 ```bash
 npx expo install @tanstack/react-query

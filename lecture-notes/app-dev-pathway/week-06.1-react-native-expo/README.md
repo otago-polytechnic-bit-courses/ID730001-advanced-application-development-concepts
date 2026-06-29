@@ -22,7 +22,7 @@ git checkout -b w06.1-react-native-expo
 
 ## 1. React Native
 
-**React Native** is an open-source framework developed by Meta that lets you build native mobile applications for iOS and Android using JavaScript and React. Unlike web-based hybrid frameworks that render HTML in a WebView, React Native renders genuine native UI components — a `<View>` becomes a `UIView` on iOS and an `android.view.View` on Android.
+**React Native** is an open-source framework developed by Meta that lets you build native mobile applications for iOS and Android using JavaScript and React. Unlike web-based hybrid frameworks that render HTML in a WebView, React Native renders genuine native UI components - a `<View>` becomes a `UIView` on iOS and an `android.view.View` on Android.
 
 The current stable version is **React Native 0.76**, which ships with the **New Architecture** enabled by default. The New Architecture replaces the old Bridge with JSI (JavaScript Interface), Fabric (the new renderer), and TurboModules, delivering significantly better performance and interoperability with native code.
 
@@ -502,7 +502,7 @@ Access them in code:
 const API_URL = process.env.EXPO_PUBLIC_API_URL;
 ```
 
-> Never put secrets (private API keys, passwords) in `EXPO_PUBLIC_` variables — they are bundled into the client app and visible to anyone who inspects the binary.
+> Never put secrets (private API keys, passwords) in `EXPO_PUBLIC_` variables - they are bundled into the client app and visible to anyone who inspects the binary.
 
 ---
 

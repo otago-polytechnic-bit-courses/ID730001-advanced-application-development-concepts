@@ -405,7 +405,7 @@ const styles = StyleSheet.create({
 
 ## 5. Secure Token Storage
 
-Never store sensitive tokens in `AsyncStorage` — it is unencrypted. Use **Expo SecureStore** which uses the iOS Keychain and Android Keystore:
+Never store sensitive tokens in `AsyncStorage` - it is unencrypted. Use **Expo SecureStore** which uses the iOS Keychain and Android Keystore:
 
 ```bash
 npx expo install expo-secure-store

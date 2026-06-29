@@ -73,9 +73,7 @@ Resits and reassessments are not applicable in ID730001: Advanced Application De
 
 ---
 
-# Part 1: Blackjack Application — Design Phase
-
-## Learning Outcomes 1 and 2 (10 marks)
+# Part 1: Blackjack Application: Design Phase - Learning Outcomes 1 and 2
 
 Before you start the Design Phase, read through the Development Phase requirements in the Project assessment. This will help you understand what you need to build and ensure your design document is comprehensive.
 
@@ -111,7 +109,7 @@ In a written document, describe how you plan to apply the following to your Blac
 #### Four Design Patterns
 
 - **The Strategy Pattern (compulsory).** Identify which classes are involved, explain why this pattern is appropriate for this part of the application, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
-- **One chosen from the provided list** — Observer, Factory, or Builder. Identify which classes are involved, explain why this pattern is appropriate, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
+- **One chosen from the provided list** - Observer, Factory, or Builder. Identify which classes are involved, explain why this pattern is appropriate, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
 - **Two additional patterns** researched and selected independently. For each, identify which classes are involved, explain why this pattern is appropriate, and provide a brief pseudocode or diagram illustrating the pattern's structure in your design.
 
 The following patterns are suggested as starting points, but you are not limited to this list:
@@ -136,9 +134,7 @@ Describe one concurrency mechanism appropriate to your chosen language, e.g., th
 
 ---
 
-# Part 2: Independent Framework Research — Research and Approval Phase
-
-## Learning Outcomes 1 and 2 (5 marks)
+# Part 2: Independent Framework Research: Research and Approval Phase - Learning Outcomes 1 and 2 (5 marks)
 
 ### Overview
 
@@ -178,9 +174,9 @@ Before writing any code, submit a short written proposal to the course lecturer.
 
 Your requirements must:
 
-- Be specific and verifiable — a marker should be able to read each one and determine clearly whether it has been met
+- Be specific and verifiable - a marker should be able to read each one and determine clearly whether it has been met
 - Collectively demonstrate a meaningful and non-trivial use of the tool or framework
-- Range in complexity — include straightforward requirements as well as at least three that push into more advanced features
+- Range in complexity - include straightforward requirements as well as at least three that push into more advanced features
 - Be written in your own words, not copied from documentation
 
 Each requirement should follow this format:
@@ -193,9 +189,7 @@ Example requirements for a web development framework might be:
 
 ---
 
-# Part 2: Independent Framework Research — Presentation Phase
-
-## Learning Outcomes 1 and 2 (8 marks)
+# Part 2: Independent Framework Research: Presentation Phase - Learning Outcomes 1 and 2 (8 marks)
 
 ### Overview
 
@@ -212,9 +206,7 @@ Your presentation must cover all of the following:
 
 ---
 
-# Documentation
-
-## Learning Outcomes 1 and 2 (1 mark)
+# Documentation - Learning Outcomes 1 and 2 (1 mark)
 
 In `README.md`, include the following:
 
@@ -225,8 +217,3 @@ In `README.md`, include the following:
 - Setup and run instructions specific to Part 2
 - A table mapping each Part 2 requirement to the relevant file(s) and a one-sentence description of how it is met
 - Any AI tool usage acknowledgement and prompts used
-
----
-
-_Author: Grayson Orr_
-_Course: ID730001: Advanced Application Development Concepts_
